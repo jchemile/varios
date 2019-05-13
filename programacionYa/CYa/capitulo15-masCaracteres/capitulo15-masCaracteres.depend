@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1508107275 source:c:\users\usuario\desktop\programaciónya\cya\capitulo15-mascaracteres\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-
