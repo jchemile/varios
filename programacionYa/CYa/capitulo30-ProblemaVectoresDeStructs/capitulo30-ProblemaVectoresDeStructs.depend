@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1512046473 source:c:\users\usuario\desktop\programaciónya\cya\capitulo30-problemavectoresdestructs\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

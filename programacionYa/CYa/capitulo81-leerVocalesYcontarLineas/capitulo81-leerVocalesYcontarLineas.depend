@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1505699348 source:c:\users\usuario\desktop\programaciónya\cya\capitulo81-leervocalesycontarlineas\main.c
+	<stdio.h>
+	<stdlib.h>
+

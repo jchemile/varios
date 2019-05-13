@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1511641238 source:c:\users\usuario\desktop\programaciónya\cya\capitulo25-ordenarpaises\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

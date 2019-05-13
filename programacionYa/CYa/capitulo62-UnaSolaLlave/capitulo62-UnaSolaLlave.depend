@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1512605903 source:c:\users\usuario\desktop\programaciónya\cya\capitulo62-unasolallave\main.c
+	<stdio.h>
+	<stdlib.h>
+

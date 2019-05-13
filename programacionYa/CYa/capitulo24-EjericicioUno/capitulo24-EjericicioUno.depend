@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1511528180 source:c:\users\usuario\desktop\programaciónya\cya\capitulo24-ejericiciouno\main.c
+	<stdio.h>
+	<stdlib.h>
+

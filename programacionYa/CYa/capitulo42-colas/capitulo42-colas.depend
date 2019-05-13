@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1508160359 source:c:\users\usuario\desktop\programaciónya\cya\capitulo42-colas\main.c
+	<stdio.h>
+	<stdlib.h>
+
