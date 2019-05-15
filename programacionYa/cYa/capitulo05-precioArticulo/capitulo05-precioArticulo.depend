@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1502163664 source:c:\users\usuario\desktop\programaciónya\cya\capitulo05-precioarticulo\main.c
+	<stdio.h>
+	<stdlib.h>
+
