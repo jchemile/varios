@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1509389104 source:c:\users\usuario\desktop\programaciónya\cya\capitulo17-calcularelmayor\main.c
+	<stdio.h>
+	<stdlib.h>
+

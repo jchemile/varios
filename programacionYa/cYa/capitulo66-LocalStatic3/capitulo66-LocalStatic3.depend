@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1512648537 source:c:\users\usuario\desktop\programaciónya\cya\capitulo66-localstatic3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

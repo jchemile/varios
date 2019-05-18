@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1505330803 source:c:\users\usuario\desktop\programaciónya\cya\capitulo08-mostrarvariacion\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1511440717 source:c:\users\usuario\desktop\programaciónya\cya\capitulo23-matrizcharordenar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
