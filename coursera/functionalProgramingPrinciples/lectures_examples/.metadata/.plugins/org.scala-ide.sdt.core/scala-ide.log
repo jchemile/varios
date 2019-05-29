@@ -1,0 +1,318 @@
+2019-05-05 11:31:49,495  WARN [ModalContext] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:31:49,499  WARN [ModalContext] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:31:50,346  WARN [Worker-2] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:31:50,347  WARN [Worker-2] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:32:06,464  WARN [Worker-0] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:32:06,464  WARN [Worker-0] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:33:14,361  WARN [Worker-6] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:33:14,362  WARN [Worker-6] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:33:16,268  WARN [org.eclipse.jface.text.reconciler.MonoReconciler] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:33:16,268  WARN [org.eclipse.jface.text.reconciler.MonoReconciler] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:33:17,618 ERROR [Scala Presentation Compiler [Examples]] - System.err - java.lang.Exception
+2019-05-05 11:33:17,619 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.$anonfun$getOrCreateUnitOf$1(Global.scala:244)
+2019-05-05 11:33:17,619 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.collection.MapLike.getOrElse(MapLike.scala:128)
+2019-05-05 11:33:17,619 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.collection.MapLike.getOrElse$(MapLike.scala:126)
+2019-05-05 11:33:17,619 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.collection.AbstractMap.getOrElse(Map.scala:59)
+2019-05-05 11:33:17,619 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.getOrCreateUnitOf(Global.scala:244)
+2019-05-05 11:33:17,619 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.typedTree(Global.scala:820)
+2019-05-05 11:33:17,619 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.ProgramInstrumenter$Instrumenter$.instrumentation(ProgramInstrumenter.scala:31)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.ProgramInstrumenter$Instrumenter$.$anonfun$askInstrumentation$1(ProgramInstrumenter.scala:15)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.$anonfun$respond$1(Global.scala:688)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.respondGradually(Global.scala:695)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.respond(Global.scala:688)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.ProgramInstrumenter$Instrumenter$.askInstrumentation(ProgramInstrumenter.scala:15)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.ProgramInstrumenter.$anonfun$askInstrumented$2(ProgramInstrumenter.scala:52)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:12)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.util.InterruptReq.execute(InterruptReq.scala:26)
+2019-05-05 11:33:17,620 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.$anonfun$pollForWork$1(Global.scala:444)
+2019-05-05 11:33:17,621 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.Global.pollForWork(Global.scala:418)
+2019-05-05 11:33:17,621 ERROR [Scala Presentation Compiler [Examples]] - System.err - at scala.tools.nsc.interactive.PresentationCompilerThread.run(PresentationCompilerThread.scala:22)
+2019-05-05 11:41:31,204  WARN [Worker-9] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:41:31,205  WARN [Worker-9] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:41:32,990  WARN [Worker-10] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:41:32,990  WARN [Worker-10] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:47:18,559  WARN [Worker-10] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:47:18,559  WARN [Worker-10] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:47:20,282  WARN [Worker-11] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:47:20,283  WARN [Worker-11] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:47:59,610  WARN [Worker-11] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:47:59,611  WARN [Worker-11] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:48:01,944  WARN [Worker-5] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:48:01,944  WARN [Worker-5] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:48:33,657  WARN [Worker-5] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:48:33,657  WARN [Worker-5] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:48:35,906  WARN [Worker-12] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:48:35,907  WARN [Worker-12] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:49:41,094  WARN [Worker-10] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:49:41,095  WARN [Worker-10] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 11:49:43,446  WARN [Worker-11] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 11:49:43,446  WARN [Worker-11] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 12:21:46,373  WARN [Worker-15] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 12:21:46,374  WARN [Worker-15] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 12:21:48,565  WARN [Worker-15] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 12:21:48,565  WARN [Worker-15] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 12:21:52,133  WARN [Worker-18] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 12:21:52,133  WARN [Worker-18] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 12:21:54,119  WARN [Worker-16] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 12:21:54,120  WARN [Worker-16] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 12:22:09,229  WARN [Worker-11] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 12:22:09,229  WARN [Worker-11] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:04:50,629  WARN [Worker-27] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:04:50,629  WARN [Worker-27] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:04:52,612  WARN [Worker-27] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:04:52,612  WARN [Worker-27] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:07:38,632  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:07:38,632  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:07:39,017  WARN [Java indexing] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:07:39,019  WARN [Java indexing] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:07:39,118 ERROR [Java indexing] - ScalaSourceFile - Compiler crash during indexing of L/Examples/src/week03/Hello.scala
+org.eclipse.core.internal.resources.ResourceException: Resource '/Examples/src/week03/hierarchy.sc' does not exist.
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:335)
+	at org.eclipse.core.internal.resources.Resource.checkAccessible(Resource.java:209)
+	at org.eclipse.core.internal.resources.File.getContents(File.java:275)
+	at org.scalaide.core.resources.EclipseFile.input(EclipseFile.scala:104)
+	at scala.reflect.io.AbstractFile.toByteArray(AbstractFile.scala:166)
+	at scala.reflect.io.AbstractFile.toCharArray(AbstractFile.scala:160)
+	at org.scalaide.worksheet.ScriptCompilationUnit.$anonfun$getContents$2(ScriptCompilationUnit.scala:53)
+	at scala.Option.getOrElse(Option.scala:121)
+	at org.scalaide.worksheet.ScriptCompilationUnit.getContents(ScriptCompilationUnit.scala:53)
+	at org.scalaide.worksheet.ScriptCompilationUnit.lastSourceMap(ScriptCompilationUnit.scala:37)
+	at org.scalaide.core.internal.compiler.ScalaPresentationCompiler.$anonfun$askReload$3(ScalaPresentationCompiler.scala:276)
+	at scala.collection.immutable.List.map(List.scala:287)
+	at org.scalaide.core.internal.compiler.ScalaPresentationCompiler.$anonfun$askReload$2(ScalaPresentationCompiler.scala:276)
+	at org.scalaide.core.internal.compiler.ScalaPresentationCompiler.$anonfun$askReload$2$adapted(ScalaPresentationCompiler.scala:276)
+	at org.scalaide.core.compiler.IScalaPresentationCompiler$.withResponse(IScalaPresentationCompiler.scala:307)
+	at org.scalaide.core.internal.compiler.ScalaPresentationCompiler.askReload(ScalaPresentationCompiler.scala:276)
+	at org.scalaide.core.internal.compiler.PresentationCompilerProxy.obtainPc$1(PresentationCompilerProxy.scala:95)
+	at org.scalaide.core.internal.compiler.PresentationCompilerProxy.internal(PresentationCompilerProxy.scala:100)
+	at org.scalaide.core.internal.jdt.model.ScalaCompilationUnit.addToIndexer(ScalaCompilationUnit.scala:157)
+	at org.scalaide.core.internal.jdt.model.ScalaCompilationUnit.addToIndexer$(ScalaCompilationUnit.scala:155)
+	at org.scalaide.core.internal.jdt.model.ScalaSourceFile.addToIndexer(ScalaSourceFile.scala:71)
+	at org.scalaide.core.internal.jdt.search.ScalaSourceIndexer.$anonfun$indexDocument$2(ScalaSourceIndexer.scala:16)
+	at org.scalaide.core.internal.jdt.search.ScalaSourceIndexer.$anonfun$indexDocument$2$adapted(ScalaSourceIndexer.scala:16)
+	at scala.Option.map(Option.scala:146)
+	at org.scalaide.core.internal.jdt.search.ScalaSourceIndexer.indexDocument(ScalaSourceIndexer.scala:16)
+	at scala.tools.eclipse.contribution.weaving.jdt.indexerprovider.IndexerProviderAspect.ajc$around$scala_tools_eclipse_contribution_weaving_jdt_indexerprovider_IndexerProviderAspect$1$16276a3c(IndexerProviderAspect.aj:30)
+	at org.eclipse.jdt.internal.core.search.JavaSearchParticipant.indexDocument(JavaSearchParticipant.java:71)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager.indexDocument(IndexManager.java:542)
+	at org.eclipse.jdt.internal.core.search.indexing.IndexManager$1.execute(IndexManager.java:1035)
+	at org.eclipse.jdt.internal.core.search.processing.JobManager.run(JobManager.java:396)
+	at java.lang.Thread.run(Unknown Source)
+2019-05-05 13:07:46,859  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:07:46,859  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:08:43,002  WARN [Worker-30] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:08:43,002  WARN [Worker-30] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:09:15,292  WARN [Worker-29] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:09:15,293  WARN [Worker-29] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:10:35,244  WARN [Worker-31] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:10:35,244  WARN [Worker-31] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:10:37,133  WARN [Worker-23] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:10:37,133  WARN [Worker-23] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:10:46,290  WARN [Worker-23] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:10:46,290  WARN [Worker-23] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:10:48,125  WARN [Worker-31] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:10:48,125  WARN [Worker-31] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:11:43,221  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:11:43,221  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:11:45,000  WARN [Worker-23] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:11:45,000  WARN [Worker-23] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:12:23,307  WARN [Worker-30] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:12:23,307  WARN [Worker-30] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:12:25,112  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:12:25,113  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:16:20,332  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:16:20,332  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:16:22,339  WARN [Worker-29] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:16:22,339  WARN [Worker-29] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:28:24,473  WARN [main] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:28:24,473  WARN [main] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:28:24,671  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:28:24,672  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:30:07,161  WARN [Worker-36] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:30:07,161  WARN [Worker-36] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:34:20,908  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:34:20,909  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:34:46,527  WARN [Worker-34] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:34:46,528  WARN [Worker-34] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:34:48,580  WARN [Worker-37] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:34:48,580  WARN [Worker-37] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:35:05,155  WARN [Worker-34] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:35:05,155  WARN [Worker-34] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:35:06,981  WARN [Worker-34] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:35:06,982  WARN [Worker-34] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:35:13,501  WARN [Worker-36] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:35:13,501  WARN [Worker-36] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:35:15,195  WARN [Worker-36] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:35:15,195  WARN [Worker-36] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:35:34,058  WARN [Worker-38] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:35:34,058  WARN [Worker-38] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:35:36,075  WARN [Worker-34] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:35:36,076  WARN [Worker-34] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:36:19,986  WARN [Worker-39] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:36:19,986  WARN [Worker-39] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:36:21,878  WARN [Worker-38] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:36:21,879  WARN [Worker-38] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:36:34,113  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:36:34,113  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:36:36,030  WARN [Worker-36] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:36:36,030  WARN [Worker-36] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:37:19,322  WARN [Worker-39] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:37:19,322  WARN [Worker-39] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:37:21,356  WARN [Worker-37] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:37:21,357  WARN [Worker-37] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:37:50,132  WARN [Worker-37] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:37:50,132  WARN [Worker-37] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:37:52,087  WARN [Worker-38] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:37:52,088  WARN [Worker-38] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:54:58,072  WARN [Worker-40] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:54:58,072  WARN [Worker-40] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:55:00,010  WARN [Worker-41] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:55:00,010  WARN [Worker-41] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:55:25,539  WARN [Worker-42] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:55:25,539  WARN [Worker-42] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:55:27,476  WARN [Worker-40] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:55:27,477  WARN [Worker-40] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:56:54,520  WARN [Worker-40] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:56:54,520  WARN [Worker-40] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:57:07,318  WARN [Worker-41] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:57:07,318  WARN [Worker-41] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:57:09,088  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:57:09,088  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:57:26,188  WARN [Worker-40] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:57:26,188  WARN [Worker-40] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:57:27,877  WARN [Worker-42] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:57:27,877  WARN [Worker-42] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:57:54,129  WARN [Worker-26] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:57:54,129  WARN [Worker-26] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:57:56,070  WARN [Worker-41] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:57:56,070  WARN [Worker-41] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:58:09,351  WARN [Worker-41] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:58:09,352  WARN [Worker-41] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:58:11,103  WARN [Worker-42] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:58:11,104  WARN [Worker-42] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:58:44,621  WARN [Worker-43] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:58:44,621  WARN [Worker-43] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 13:58:46,613  WARN [Worker-43] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 13:58:46,613  WARN [Worker-43] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:04:54,742  WARN [Worker-59] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:04:54,744  WARN [Worker-59] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:05:10,329  WARN [main] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:05:10,330  WARN [main] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:05:11,384  WARN [main] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:05:11,385  WARN [main] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:05:11,497  WARN [Worker-59] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:05:11,497  WARN [Worker-59] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:05:24,179  WARN [Worker-57] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:05:24,179  WARN [Worker-57] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:05:50,772  WARN [Worker-61] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:05:50,772  WARN [Worker-61] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:06:07,745  WARN [Worker-61] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:06:07,745  WARN [Worker-61] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:06:19,501  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:06:19,501  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:07:29,399  WARN [Worker-62] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:07:29,399  WARN [Worker-62] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:08:55,246  WARN [Worker-63] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:08:55,246  WARN [Worker-63] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:10:25,365  WARN [Worker-57] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:10:25,365  WARN [Worker-57] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:10:33,445  WARN [Worker-57] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:10:33,446  WARN [Worker-57] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:10:43,584  WARN [Worker-57] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:10:43,584  WARN [Worker-57] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:11:27,620  WARN [Worker-63] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:11:27,620  WARN [Worker-63] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:11:42,410  WARN [Worker-57] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:11:42,410  WARN [Worker-57] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:18:53,083  WARN [Worker-57] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:18:53,083  WARN [Worker-57] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:18:55,188  WARN [Worker-67] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:18:55,188  WARN [Worker-67] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:19:09,024  WARN [Worker-67] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:19:09,024  WARN [Worker-67] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:19:10,937  WARN [Worker-67] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:19:10,937  WARN [Worker-67] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:20:59,540  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:20:59,540  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:21:01,232  WARN [Worker-66] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:21:01,232  WARN [Worker-66] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:21:08,050  WARN [Worker-62] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:21:08,050  WARN [Worker-62] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:21:10,034  WARN [Worker-66] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:21:10,034  WARN [Worker-66] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:22:21,034  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:22:21,034  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:22:22,661  WARN [Worker-62] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:22:22,662  WARN [Worker-62] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:22:45,044  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:22:45,044  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:23:35,535  WARN [Worker-62] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:23:35,536  WARN [Worker-62] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:23:37,543  WARN [Worker-66] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:23:37,544  WARN [Worker-66] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:23:43,416  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:23:43,416  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:23:45,320  WARN [Worker-66] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:23:45,321  WARN [Worker-66] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:24:20,127  WARN [Worker-62] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:24:20,127  WARN [Worker-62] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:24:22,052  WARN [Worker-67] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:24:22,052  WARN [Worker-67] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:25:31,794  WARN [Worker-66] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:25:31,794  WARN [Worker-66] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:25:33,638  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:25:33,638  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:25:47,796  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:25:47,796  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:25:49,670  WARN [Worker-68] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:25:49,670  WARN [Worker-68] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:26:10,796  WARN [Worker-64] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:26:10,796  WARN [Worker-64] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-05 17:26:12,704  WARN [Worker-62] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-05 17:26:12,704  WARN [Worker-62] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 15:52:32,221  WARN [org.eclipse.jface.text.reconciler.MonoReconciler] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 15:52:32,434  WARN [org.eclipse.jface.text.reconciler.MonoReconciler] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 15:52:32,574  WARN [Worker-0] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 15:52:32,577  WARN [Worker-0] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 15:52:32,587  WARN [org.eclipse.jface.text.reconciler.MonoReconciler] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 15:52:32,588  WARN [org.eclipse.jface.text.reconciler.MonoReconciler] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 15:52:34,105  WARN [Worker-3] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 15:52:34,105  WARN [Worker-3] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 15:52:34,295  WARN [Worker-3] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 15:52:34,295  WARN [Worker-3] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:11:24,059  WARN [main] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:11:24,060  WARN [main] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:11:26,452  WARN [Worker-7] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:11:26,452  WARN [Worker-7] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:11:26,873  WARN [Java indexing] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:11:26,873  WARN [Java indexing] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:11:34,904  WARN [Worker-8] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:11:34,905  WARN [Worker-8] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:14:10,772  WARN [Worker-11] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:14:10,772  WARN [Worker-11] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:26:17,230  WARN [Worker-13] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:26:17,231  WARN [Worker-13] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:28:53,488  WARN [Worker-15] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:28:53,488  WARN [Worker-15] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:32:18,174  WARN [Worker-15] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:32:18,175  WARN [Worker-15] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:32:28,583  WARN [Worker-15] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:32:28,583  WARN [Worker-15] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:32:35,581  WARN [Worker-9] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:32:35,581  WARN [Worker-9] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:35:59,229  WARN [Worker-13] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:35:59,229  WARN [Worker-13] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:36:41,427  WARN [Worker-13] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:36:41,427  WARN [Worker-13] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:37:32,713  WARN [Worker-16] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:37:32,713  WARN [Worker-16] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:38:08,714  WARN [Worker-17] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:38:08,714  WARN [Worker-17] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:55:49,386  WARN [Worker-20] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:55:49,386  WARN [Worker-20] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 16:56:01,012  WARN [Worker-18] - ScalaProject - Project Examples has platform default sourceLevel.
+2019-05-12 16:56:01,012  WARN [Worker-18] - ScalaProject - Project Examples runs on platform default installation.
+2019-05-12 21:02:21,417  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - CallByNameParamAtCreationPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2019-05-12 21:02:25,135  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - ImplicitHighlightingPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2019-05-12 21:02:27,040  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - CustomSemanticAction - Timeout while waiting for `askLoadedTyped` during semantic highlighting.
+2019-05-12 21:02:27,252  WARN [org.scalaide.ui.internal.reconciliation.ScalaReconciler] - CallByNameParamAtCreationPresenter - Timeout while waiting for `askLoadedTyped` during semantic highlighting.

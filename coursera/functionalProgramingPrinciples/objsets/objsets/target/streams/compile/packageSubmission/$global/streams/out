@@ -1,0 +1,9 @@
+[info] Packaging C:\Users\User\Documents\education\coursera\functionalProgramingPrinciples\objsets\objsets\target\scala-2.11\progfun1-objsets_2.11-0.1-SNAPSHOT.jar ...
+[debug] Input file mappings:
+[debug] 	objsets\TweetData.scala
+[debug] 	  C:\Users\User\Documents\education\coursera\functionalProgramingPrinciples\objsets\objsets\src\main\scala\objsets\TweetData.scala
+[debug] 	objsets\TweetReader.scala
+[debug] 	  C:\Users\User\Documents\education\coursera\functionalProgramingPrinciples\objsets\objsets\src\main\scala\objsets\TweetReader.scala
+[debug] 	objsets\TweetSet.scala
+[debug] 	  C:\Users\User\Documents\education\coursera\functionalProgramingPrinciples\objsets\objsets\src\main\scala\objsets\TweetSet.scala
+[info] Done packaging.
