@@ -1,0 +1,1 @@
+var nums = List(4,6,5, true, "Navin")
