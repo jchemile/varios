@@ -1,0 +1,17 @@
+name,department,birthday month
+Leontine Holhouse,Business Development,february
+Haskell Elphee,Human Resources,march
+Hebert Crookes,Product Management,june
+Blythe Kobiera,Research and Development,may
+Corenda Townby,Sales,july
+Ninnette Blaydon,Support,november
+Ernaline Gindghill,Engineering,september
+Noni Gronous,Support,august
+Josi Kahler,Legal,august
+Griff Hugk,Product Management,april
+Suzi Ambroisin,Research and Development,august
+Ailsun Nunan,Support,october
+Mallissa Lifton,Research and Development,january
+Shelli Ellse,Product Management,march
+Kelci Flello,Legal,october
+Robinette Crevy,Sales,march
