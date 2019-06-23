@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1504147105 source:c:\users\usuario\desktop\algoritmos y estructura de datos\práctico mendez\scripts de prueba\levantarymodificardesdearray\main.cpp
+	<iostream>
+	<iostream>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdio.h>
+

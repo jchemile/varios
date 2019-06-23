@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1491050494 source:c:\2017\k1024_holamundo\main.cpp
+	<iostream>
+	<conio.h>
+
