@@ -1,5 +1,9 @@
 # depslib dependency file v1.0
-1561346142 source:c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\main.cpp
+1561682697 source:c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\main.cpp
+	<iostream>
+	<unordered_map>
+
+1561682713 source:c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\hello.cpp
 	<iostream>
 	<unordered_map>
 
