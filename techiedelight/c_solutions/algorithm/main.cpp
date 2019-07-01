@@ -10,7 +10,6 @@ using namespace std;
 
 int main()
 {
-
     implementsRandomPointers();
 
     return 0;
