@@ -1,6 +1,5 @@
-#include <iostream>
-#include <conio.h>
-using namespace std;
+#ifndef LISTAS_INICIO_H_INCLUDED
+#define LISTAS_INICIO_H_INCLUDED
 
 struct Nodo
 {
@@ -8,7 +7,7 @@ struct Nodo
     Nodo *sig;
 };
 
-int main()
+void ejecutar_listas()
 {
     Nodo *inicio = NULL;
     inicio = new Nodo();
@@ -38,5 +37,6 @@ int main()
         paux = paux -> sig;
     }
 
-    return 0;
 }
+
+#endif // LISTAS_INICIO_H_INCLUDED
