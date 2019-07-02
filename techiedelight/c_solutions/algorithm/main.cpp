@@ -1,18 +1,6 @@
-#include <iostream>
-#include <unordered_map>
-
-//Practicas.
-#include "RandomPointers.h"
-
-using namespace std;
-
-
+#include "threadeBinaryTree.h"
 
 int main()
 {
-    implementsRandomPointers();
-
-    return 0;
-};
-
-
+    implementsthreadeBinaryTree();
+}
