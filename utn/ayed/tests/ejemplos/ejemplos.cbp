@@ -20,6 +20,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="listas_II.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="listas_inicio.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

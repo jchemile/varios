@@ -39,7 +39,7 @@ void mostrar(Nodo *lista)
     }
 }
 
-int main()
+void listas_II_implements()
 {
     Nodo* lista = NULL;
     agregarAlFinal(lista, 1);
@@ -47,5 +47,4 @@ int main()
     agregarAlFinal(lista, 3);
     agregarAlFinal(lista, 4);
     mostrar(lista);
-    return 0;
 }
