@@ -1,6 +1,6 @@
-#include "threadeBinaryTree.h"
+#include "traverseBinaryToDoubleLinkedList.h"
 
 int main()
 {
-    implementsthreadeBinaryTree();
+    traverseBinaryToDoubleLinkedList();
 }

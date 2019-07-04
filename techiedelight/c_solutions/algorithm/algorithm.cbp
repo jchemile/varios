@@ -33,6 +33,12 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="RandomPointers.h" />
+		<Unit filename="binaryTreeToDoubleLinkList.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="hashingBinaryToDoubleLinkedList.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Unit filename="threadeBinaryTree.h">
 			<Option target="&lt;{~None~}&gt;" />

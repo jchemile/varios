@@ -1,9 +1,6 @@
 # depslib dependency file v1.0
-1562039362 source:c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\main.cpp
-	<iostream>
-	<queue>
-	<string>
-	<utility>
+1562205054 source:c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\main.cpp
+	"traverseBinaryToDoubleLinkedList.h"
 
 1561682713 source:c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\hello.cpp
 	<iostream>
@@ -14,4 +11,20 @@
 	<queue>
 	<string>
 	<utility>
+
+1562203227 c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\binarytreetodoublelinklist.h
+	<iostream>
+	<unordered_map>
+	<vector>
+	<list>
+	<string>
+	<utility>
+
+1562205350 c:\users\user\documents\varios\techiedelight\c_solutions\algorithm\traversebinarytodoublelinkedlist.h
+	<iostream>
+	<string>
+	<utility>
+	<list>
+	<stack>
+	<vector>
 
