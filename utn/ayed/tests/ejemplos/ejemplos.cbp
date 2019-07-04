@@ -27,6 +27,9 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="multiplicador.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="vectores.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 
-int main(){
-
+void multiplicador(){
 char seguir, a;
 float gg, tot, n1, n2;
 
@@ -27,7 +24,4 @@ scanf("%c", &seguir);
 system("cls");
 
 }while(seguir != 'n');
-
-return 0;
-
 }
