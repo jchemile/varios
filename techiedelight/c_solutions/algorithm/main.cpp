@@ -1,6 +1,6 @@
-#include "traverseBinaryToDoubleLinkedList.h"
+#include "minimumCostToReachTabulation.h"
 
 int main()
 {
-    traverseBinaryToDoubleLinkedList();
+    minimumCostToReachTabulation();
 }
