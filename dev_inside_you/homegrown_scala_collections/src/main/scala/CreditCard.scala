@@ -64,28 +64,27 @@ object CreditCard extends (String => CreditCard) with (() => CreditCard) {
 
   private def luhn(payload: String): Int =
     payload
-      .reverse               // String
-      .map(_.toString.toInt) // IndexedSeq[Int]
-      .zipWithIndex          // IndexedSeq[(Int = Digit, Int = ZeroBasedIndex)] // first element has index zero
+      .reverse
+      .map(_.toString.toInt)
+      .zipWithIndex
       .map {
       case (digit, index) =>
         if(index % 2 == 0)
           digit * 2
         else
           digit
-    }                      // IndexedSeq[Int]
+    }
       .map { number =>
       if(number > 9)
         number - 9
       else
         number
-    }                      // IndexedSeq[Int = Digit]
+    }
       .sum
 
   private def split(number: String): (String, Int) = {
     val payload    = number.dropRight(CheckDigitLength)
     val checkDigit = number.takeRight(CheckDigitLength).toInt
-    // or          = number.last.toString.toInt
 
     payload -> checkDigit
   }
@@ -98,19 +97,19 @@ object CreditCard extends (String => CreditCard) with (() => CreditCard) {
       import scala.util.Random
 
       val length: Int = {
-        val min: Int = MinimumLength - CheckDigitLength // 12
-        val max: Int = MaximumLength - CheckDigitLength // 18
+        val min: Int = MinimumLength - CheckDigitLength
+        val max: Int = MaximumLength - CheckDigitLength
 
-        min + Random.nextInt((max - min) + 1) // 12 to 18
-        // 12 + 0      until  (     6      + 1)
+        min + Random.nextInt((max - min) + 1)
+
       }
 
       def randomDigit: Int =
-        Random.nextInt(10) // 0 to 9
+        Random.nextInt(10)
 
-      (1 to length)            // Range.Inclusive
-        .map(_ => randomDigit) // IndexedSeq[Int]
-        .mkString              // String
+      (1 to length)
+        .map(_ => randomDigit)
+        .mkString
     }
 
     val checkDigit: Int =
@@ -122,15 +121,8 @@ object CreditCard extends (String => CreditCard) with (() => CreditCard) {
     if(isValid(number))
       number
     else
-    // $COVERAGE-OFF$
-      sys.error(s"Bug: generated an invalid number: $number")
-    // $COVERAGE-ON$
 
-    // Instead of "manually throwing an exception
-    // we also could have used the ensuring method like this:
-    //
-    // number.ensuring(isValid _)
-    //
-    // but I wanted to demonstrate the COVERAGE flags
+      sys.error(s"Bug: generated an invalid number: $number")
+
   }
 }

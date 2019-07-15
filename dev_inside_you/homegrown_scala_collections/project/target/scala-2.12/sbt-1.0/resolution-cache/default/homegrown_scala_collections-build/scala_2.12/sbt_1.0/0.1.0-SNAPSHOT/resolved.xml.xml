@@ -4,7 +4,7 @@
 		module="homegrown_scala_collections-build"
 		revision="0.1.0-SNAPSHOT"
 		status="integration"
-		publication="20190715101149"
+		publication="20190715191615"
 		e:sbtVersion="1.0" e:scalaVersion="2.12"
 	>
 		<description>
