@@ -15,7 +15,6 @@ object Main {
       .map(println)
       .getOrElse(runDemo)
   }
-
   private def runDemo(): Unit = {
 
     val validCard: CreditCard.Valid =
@@ -33,6 +32,12 @@ object Main {
     println(invalidCard)
     println(invalidCard.number)
     println(invalidCard.isValid)
+
+    println()
+
+    val fakeNumbers = 1 to 10000 map (_ => CreditCard())
+
+    println(fakeNumbers.forall(_.isValid))
 
 
   }
