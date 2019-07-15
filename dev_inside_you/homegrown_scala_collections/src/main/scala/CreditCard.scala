@@ -7,10 +7,23 @@ sealed trait CreditCard{
 
   final def isNotValid: Boolean =
     !isValid
+
+  final override def toString: String =
+    if(isNotValid){
+      val invalid = Console.RED + "Invalid" + Console.RESET
+
+      s"""$invalid credit card number "$number" """
+    }
+    else
+    {
+      val valid = Console.GREEN + "Valid" + Console.RESET
+      val (payload, checkDigit) = split(number)
+
+
+      s"""$valid credit card number "$number" with payload "$payload" and check digit "$checkDigit" """
+    }
 }
-
-
-object CreditCard {
+object CreditCard extends (String => CreditCard){
 
   object Invalid{
     private[CreditCard] def apply(number: String): Invalid =
@@ -30,5 +43,36 @@ object CreditCard {
     else
       Invalid(number)
 
-  private def isValid(number: String): Boolean = false
+  private val CheckDigitLenght = 1
+  private val MinimumLength    = 13
+  private val MaximunLength    = 19
+
+  private def isValid(number: String): Boolean =
+      number != null &&
+      number.nonEmpty &&
+      number.forall(Character.isDigit) &&
+      (MinimumLength to MaximunLength).contains(number.length) &&
+       doesMathCheckOut(number)
+
+  private def doesMathCheckOut(number: String): Boolean = {
+    val (payload, checkDigit) = split(number)
+    val sum = luhn(payload) + checkDigit
+
+    sum % 10 == 0
+  }
+
+  private def luhn(payload: String): Int = 12
+
+  private def split(number: String): (String, Int) = {
+    val payload    = number.dropRight(CheckDigitLenght)
+    val checkDigit = number.takeRight(CheckDigitLenght).toInt
+
+    payload -> checkDigit
+
+  }
+
+  def apply(): Valid =
+    Valid(generatedNumber)
+
+  private def generatedNumber: String = "1234561231"
 }
