@@ -1,3 +1,9 @@
 *.class
 *.log
 target/
+modules/
+misc.xml
+azureSettings.xml
+workspace.xml
+
+
