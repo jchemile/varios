@@ -1,10 +1,21 @@
-import tail_recursion._
+import literals.shop
 
 object main {
 
   def main(args: Array[String]): Unit = {
 
-    println(sum_tail_rec(99999999, 1))
+    val final_Price = shop.finalPrice(210, shop.blackFriday)
+
+    println(final_Price)
+    //Unname function literals
+
+    val regular_client = shop.finalPrice(340, elem => elem * 0.65)
+
+    println()
+
+    println(regular_client)
+
+
   }
 
 }
