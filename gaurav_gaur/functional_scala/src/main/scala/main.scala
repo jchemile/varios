@@ -1,4 +1,4 @@
-import currying_functions._
+import GradeCalculator._
 
 object main {
 
