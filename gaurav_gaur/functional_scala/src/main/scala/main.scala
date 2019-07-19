@@ -1,4 +1,4 @@
-import GradeCalculator._
+import GradesCalculator_RepeatedParameter._
 
 object main {
 
