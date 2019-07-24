@@ -1,4 +1,4 @@
-import ScalaTuples._
+import ScalaSorted._
 
 object main {
 
