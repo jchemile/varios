@@ -1,7 +1,0 @@
-[info] Packaging C:\Users\User\Documents\education\coursera\example\target\scala-2.11\progfun1-example_2.11-0.1-SNAPSHOT.jar ...
-[debug] Input file mappings:
-[debug] 	Main.scala
-[debug] 	  C:\Users\User\Documents\education\coursera\example\src\main\scala\Main.scala
-[debug] 	example\Lists.scala
-[debug] 	  C:\Users\User\Documents\education\coursera\example\src\main\scala\example\Lists.scala
-[info] Done packaging.

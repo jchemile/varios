@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;Examples/src/week03/hierarchy.sc&apos; to &apos;intesets.sc&apos;" description="Rename resource &apos;hierarchy.sc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/week03/hierarchy.sc" name="intesets.sc" stamp="1557069728929" updateReferences="true"/>
-</session>
