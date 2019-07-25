@@ -1,7 +1,5 @@
 import javax.swing.*;
 
-
-
 public class acceso_aplicacion {
 
 	public static void main(String[] args) {
@@ -14,16 +12,16 @@ public class acceso_aplicacion {
 		
 		while(clave.equals(pass)==false) {
 			
-			pass=JOptionPane.showInputDialog("Introduce la contraseña, por favor");
+			pass=JOptionPane.showInputDialog("Introduce la contraseï¿½a, por favor");
 			
 			if(clave.equals(pass)==false) {
 				
-				System.out.println("Contraseña incorrecta");
+				System.out.println("Contraseï¿½a incorrecta");
 				
 			}
 		}
 		
-		System.out.println("Contraseña correcta. Acceso Permitido");
+		System.out.println("Contraseï¿½a correcta. Acceso Permitido");
 
 	}
 
