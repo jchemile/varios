@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1502164172 source:c:\users\usuario\desktop\programaciónya\cya\capitulo06-numeromayor\main.c
+	<stdio.h>
+	<stdlib.h>
+

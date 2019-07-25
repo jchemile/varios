@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1509581830 source:c:\users\usuario\desktop\programaciónya\cya\capitulo19-operacionesempersa\main.c
+	<stdio.h>
+	<stdlib.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1505328264 source:c:\users\usuario\desktop\programaciónya\cya\capitulo08-sumarsisoniguales\main.c
+	<stdio.h>
+	<stdlib.h>
+

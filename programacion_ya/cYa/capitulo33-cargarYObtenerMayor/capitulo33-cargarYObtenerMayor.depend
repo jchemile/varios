@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506527246 source:c:\users\usuario\desktop\programaciónya\cya\capitulo33-cargaryobtenermayor\main.c
+	<stdio.h>
+	<stdlib.h>
+

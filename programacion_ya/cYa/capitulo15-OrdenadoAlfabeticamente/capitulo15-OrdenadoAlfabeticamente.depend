@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1508106967 source:c:\users\usuario\desktop\programaciónya\cya\capitulo15-ordenadoalfabeticamente\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506291530 source:c:\users\usuario\desktop\programaciónya\cya\capitulo10-sumaultimoscinco\main.c
+	<stdio.h>
+	<stdlib.h>
+

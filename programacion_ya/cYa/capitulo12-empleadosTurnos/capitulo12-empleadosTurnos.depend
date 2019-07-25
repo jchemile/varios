@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506991716 source:c:\users\usuario\desktop\programaciónya\cya\capitulo12-empleadosturnos\main.c
+	<stdio.h>
+	<stdlib.h>
+

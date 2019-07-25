@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1505065615 source:c:\users\usuario\desktop\programaciónya\cya\capitulo07-mostrarmayor\main.c
+	<stdio.h>
+	<stdlib.h>
+

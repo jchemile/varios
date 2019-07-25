@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1519053540 source:c:\users\usuario\documents\educación\programaciónya\cppya\capitulo39-colassupermercado\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+

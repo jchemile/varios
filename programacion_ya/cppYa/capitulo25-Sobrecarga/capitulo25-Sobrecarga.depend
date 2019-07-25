@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1514471729 source:c:\users\usuario\documents\educación\programaciónya\cppya\capitulo25-sobrecarga\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+
