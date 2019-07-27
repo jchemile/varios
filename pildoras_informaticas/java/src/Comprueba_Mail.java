@@ -1,7 +1,5 @@
 import javax.swing.JOptionPane;
 
-import sun.security.util.Length;
-
 public class Comprueba_Mail {
 
 	public static void main(String[] args) {
