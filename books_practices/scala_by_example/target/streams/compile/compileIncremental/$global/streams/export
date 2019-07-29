@@ -1,0 +1,1 @@
+scalac -bootclasspath C:\Users\User\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.12.8.jar -classpath C:\Users\User\Documents\education\scala_by_example\target\scala-2.12\classes C:\Users\User\Documents\education\scala_by_example\src\main\scala\Main.scala C:\Users\User\Documents\education\scala_by_example\src\main\scala\QuickSort.scala
