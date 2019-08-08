@@ -3,7 +3,7 @@ object Clock {
   class StringWithLength(val string: String){
     val length: Int = string.length
   }
-  
+
   def main(args: Array[String]): Unit = {
     println("*" * 150)
 
