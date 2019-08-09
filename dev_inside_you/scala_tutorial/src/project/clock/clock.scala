@@ -11,25 +11,7 @@ object clock {
   }
 
   def code(args: Array[String]): Unit = {
-    val eight =
-      TwoDimensionalString(
-        top    = " _ ",
-        middle = "|_|",
-        bottom = "|_|"
-      )
-
-    val seven =
-      TwoDimensionalString(
-        top    = " _ ",
-        middle = "  |",
-        bottom = "  |"
-      )
-
-    val result = seven + eight
-
-    result.show()
-
-    TwoDimensionalString.QuestionMarks.show()
+    TwoDimensionalTime.showCurrent(pattern = "HH:mm:ss")
   }
 
 }
