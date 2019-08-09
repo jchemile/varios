@@ -2,19 +2,6 @@ package project.clock
 
 object clock {
 
-  final case class TwoDimensionalString(
-                                       top:    String,
-                                       middle: String,
-                                       bottom: String
-                                       ){
-    def +(that: TwoDimensionalString): TwoDimensionalString =
-      TwoDimensionalString(
-        top = this.top       + that.top,
-        middle = this.middle + that.middle,
-        bottom = this.bottom + that.bottom
-      )
-  }
-
   def main(args: Array[String]): Unit = {
     println("*" * 150)
 
@@ -24,7 +11,25 @@ object clock {
   }
 
   def code(args: Array[String]): Unit = {
-    println("Hello World")
+    val eight =
+      TwoDimensionalString(
+        top    = " _ ",
+        middle = "|_|",
+        bottom = "|_|"
+      )
+
+    val seven =
+      TwoDimensionalString(
+        top    = " _ ",
+        middle = "  |",
+        bottom = "  |"
+      )
+
+    val result = seven + eight
+
+    result.show()
+
+    TwoDimensionalString.QuestionMarks.show()
   }
 
 }
