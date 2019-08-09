@@ -1,3 +1,5 @@
+package practices
+
 object MessagePassing {
   def main(args: Array[String]): Unit = {
     println("*"*150)

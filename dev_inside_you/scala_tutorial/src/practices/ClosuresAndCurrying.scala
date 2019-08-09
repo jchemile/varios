@@ -1,3 +1,5 @@
+package practices
+
 object ClosuresAndCurrying {
 
   def main(args: Array[String]): Unit = {

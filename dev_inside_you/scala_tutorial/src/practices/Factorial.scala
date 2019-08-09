@@ -1,3 +1,5 @@
+package practices
+
 object Factorial {
 
   def main(args: Array[String]): Unit = {

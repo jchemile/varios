@@ -1,3 +1,5 @@
+package practices
+
 object Formatter {
 
   def main(args: Array[String]): Unit = {

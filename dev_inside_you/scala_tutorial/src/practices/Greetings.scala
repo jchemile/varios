@@ -1,3 +1,5 @@
+package practices
+
 object Greetings {
   def main(args: Array[String]): Unit = {
     println("*" * 30)

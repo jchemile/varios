@@ -1,7 +1,14 @@
-object Clock {
+package practices
 
-  class StringWithLength(val string: String){
-    val length: Int = string.length
+object TupplesPractice {
+
+  final case class StringWithLength(string: String){
+        val length: Int = string.length
+
+        def +(that: StringWithLength): StringWithLength =
+          new StringWithLength(
+            this.string + that.string
+          )
   }
 
   def main(args: Array[String]): Unit = {
@@ -33,16 +40,8 @@ object Clock {
     println(tuple3._2)
     println(tuple3._3)
 
-    def addTuples(first: StringWithLength, second: StringWithLength): StringWithLength =
-      new StringWithLength(
-        first.string + second.string
-      )
-
     val result: StringWithLength =
-      addTuples(
-        first = new StringWithLength("hello"),
-        second = new StringWithLength("World")
-      )
+      new StringWithLength("hello") + (new StringWithLength("world"))
 
     println()
     println(result)

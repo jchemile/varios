@@ -1,3 +1,5 @@
+package practices
+
 object NumberConvertion {
 
   def main(args: Array[String]): Unit = {

@@ -1,3 +1,5 @@
+package practices
+
 object HighOrderFunction {
   def main(args: Array[String]): Unit = {
     println("*" * 131)
