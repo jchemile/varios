@@ -20,15 +20,12 @@ object TwoDimensionalTime {
   }
 
   private[this] def formatted(time: LocalDateTime, pattern:String): TwoDimensionalString ={
-    var result: TwoDimensionalString = TwoDimensionalString.Empty
-
-    oneDimensional(time, pattern) foreach {timeDigit =>
+    oneDimensional(time, pattern).foldLeft(TwoDimensionalString.Empty) {(result, timeDigit) =>
       if(timeDigit == ':')
-        result += Stars
+        result + Stars
       else
-        result += TwoDimensionalDigit(timeDigit.toString.toInt)
+        result + TwoDimensionalDigit(timeDigit.toString.toInt)
     }
-    result
   }
 
   private[this] def oneDimensional(time: LocalDateTime, pattern:String): String = {
