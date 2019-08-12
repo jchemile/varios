@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 #define N 4
 
 int findMinCost(int cost[][N])

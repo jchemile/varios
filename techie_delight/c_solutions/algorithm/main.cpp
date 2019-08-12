@@ -1,6 +1,6 @@
-#include "minimumCostToReachTabulation.h"
+#include "findMinRange.h"
 
 int main()
 {
-    minimumCostToReachTabulation();
+    findMinRange();
 }

@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <climits>
-
-using namespace std;
+#include <limits>
 
 auto findMinRange(auto &a, auto &b, auto &c)
 {
