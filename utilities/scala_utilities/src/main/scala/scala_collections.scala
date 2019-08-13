@@ -4,10 +4,12 @@ object scala_collections {
 
     println("*"*150)
 
-    //code(args)
+    code(args)
 
     println("*"*150)
 
+
+    /*
     val fruitList = List("apples", "Oranges", "pears")
     val fruit = "apples" :: ("oranges":: ("pears":: Nil))
     fruit.head
@@ -37,10 +39,11 @@ object scala_collections {
     val res = example._2.map((example._1,_))
 
     //Maps
-
+    */
   }
 
   def code (args: Array[String]): Unit = {
+
     println("Hello")
   }
 
