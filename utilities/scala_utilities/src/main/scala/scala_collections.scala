@@ -2,6 +2,12 @@ object scala_collections {
 
   def main(args: Array[String]): Unit = {
 
+    println("*"*150)
+
+    //code(args)
+
+    println("*"*150)
+
     val fruitList = List("apples", "Oranges", "pears")
     val fruit = "apples" :: ("oranges":: ("pears":: Nil))
     fruit.head
@@ -30,6 +36,12 @@ object scala_collections {
     val example = ('a', List('b','c','d'))
     val res = example._2.map((example._1,_))
 
+    //Maps
+
+  }
+
+  def code (args: Array[String]): Unit = {
+    println("Hello")
   }
 
 }
