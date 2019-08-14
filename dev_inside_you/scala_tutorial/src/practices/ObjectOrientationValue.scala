@@ -10,13 +10,16 @@ object ObjectOrientationValue {
   }
 
   def code(args: Array[String]): Unit = {
-    def f(g: Int => String, h: String => String, i: String => Char): Unit = {
-      val resultOfG: String = g(1337)
-      val resultOfH: String = h(resultOfG)
-      val resultOgI: Char   = i(resultOfH)
+    class F(g: Int => String, h: String => String, i: String => Char) {
+      def doStuff(): Unit = {
+        val resultOfG: String = g(1337)
+        val resultOfH: String = h(resultOfG)
+        val resultOgI: Char   = i(resultOfH)
 
-      println(resultOgI)
+        println(resultOgI)
+      }
     }
+
 
     def g(number: Int): String = {
       number.toString.reverse
@@ -33,7 +36,8 @@ object ObjectOrientationValue {
         '?'
     }
 
-    f(g,h,i)
+    val f = new F(g,h,i)
+    f.doStuff()
   }
 
 }
