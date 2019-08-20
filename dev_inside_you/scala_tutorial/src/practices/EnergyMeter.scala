@@ -11,12 +11,6 @@ object EnergyMeter {
   }
 
   def code(args: Array[String]): Unit = {
-    class Device{
-      var wattsPerSecond: () => Int  = () => 500
-      var turnOn        : () => Unit = () => println("turned sth on")
-      var turnOff       : () => Unit = () => println("turned sth off")
-    }
-
     class EnergyMeter(device: Device) {
       private[this] var turnedOnAtMillis: Long = 0
       private[this] var _wattsConsumedInTotal: Double = 0
@@ -38,83 +32,45 @@ object EnergyMeter {
         val durationInMillis = System.currentTimeMillis() - turnedOnAtMillis
         val durationInSecond = durationInMillis.toDouble / 1000
 
-        _wattsConsumedInTotal += device.wattsPerSecond() * durationInSecond
+        _wattsConsumedInTotal += device.wattsPerSecond * durationInSecond
       }
     }
 
-    /*
-    object EnergyMeter{
-      def apply(device: Any): EnergyMeter = device match {
-
-        case lightBulb: LightBulb =>
-          new EnergyMeter(
-            wattsPerSecond = lightBulb.wattsPerSecondOf,
-            turnDeviceOn = () => lightBulb.turnOn(),
-            turnDeviceOff = () => lightBulb.turnOff(),
-          )
-        case tv: TV =>
-          new EnergyMeter (
-            wattsPerSecond = tv.wattsPerSecondOf,
-            turnDeviceOn = () => tv.turnOn(),
-            turnDeviceOff = () => tv.turnOff(),
-          )
-        case _ =>
-          sys.error("Not a device")
-      }
+    abstract class Device{
+      def wattsPerSecond: Int
+      def turnOn(): Unit
+      def turnOff(): Unit
     }
-     */
 
-    class TV {
-      def toDevice: Device = {
-        val device = new Device
 
-        device.wattsPerSecond = () => this.wattsPerSecond
-        device.turnOn         = () => this.turnOn ()
-        device.turnOff        = () => this.turnOff ()
+    class TV extends Device{
+      override val wattsPerSecond: Int = 500
 
-        device
-
-      }
-
-      val wattsPerSecond: Int = 500
-
-      def turnOn(): Unit = {
+      override def turnOn(): Unit = {
         println("tv on")
       }
 
-      def turnOff(): Unit = {
+      override def turnOff(): Unit = {
         println("tv off")
       }
     }
 
-    class LightBulb {
-      def toDevice: Device = {
-        val device = new Device
+    class LightBulb extends Device {
+      override val wattsPerSecond: Int = 100
 
-        device.wattsPerSecond = () => this.wattsPerSecond
-        device.turnOn         = () => this.turnOn ()
-        device.turnOff        = () => this.turnOff ()
-
-        device
-
-      }
-
-      val wattsPerSecond: Int = 100
-
-      def turnOn(): Unit = {
+      override def turnOn(): Unit = {
         println("light bulb on")
       }
 
-      def turnOff(): Unit = {
+      override def turnOff(): Unit = {
         println("light bulb off")
       }
     }
 
-
     val lightBulb: LightBulb = new LightBulb
     val tv: TV = new TV
 
-    val energyMeter = new EnergyMeter(tv.toDevice)
+    val energyMeter = new EnergyMeter(tv)
 
     energyMeter.startMeasuring()
     Thread.sleep(1000)
