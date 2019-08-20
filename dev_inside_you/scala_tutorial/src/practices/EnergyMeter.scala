@@ -11,48 +11,119 @@ object EnergyMeter {
   }
 
   def code(args: Array[String]): Unit = {
+    class Device{
+      var wattsPerSecond: () => Int  = () => 500
+      var turnOn        : () => Unit = () => println("turned sth on")
+      var turnOff       : () => Unit = () => println("turned sth off")
+    }
 
-    class EnergyMeter(wattsPerSecond: Int, turnDeviceOn: () => Unit, turnDeviceOff: () => Unit) {
+    class EnergyMeter(device: Device) {
       private[this] var turnedOnAtMillis: Long = 0
+      private[this] var _wattsConsumedInTotal: Double = 0
+      def wattsConsumedInTotal: Double = _wattsConsumedInTotal
+
+      private[this] def watsConsumedInTotal_=(newValue: Double): Unit = {
+        _wattsConsumedInTotal = newValue
+      }
 
       def startMeasuring(): Unit = {
-        turnDeviceOn()
+        device.turnOn()
 
         turnedOnAtMillis = System.currentTimeMillis()
       }
 
       def stopMeasuring(): Unit = {
-        turnDeviceOff()
+        device.turnOff()
 
-        val durationInMilis = System.currentTimeMillis() - turnedOnAtMillis
-        val durationInSecond = durationInMilis.toDouble / 1000
+        val durationInMillis = System.currentTimeMillis() - turnedOnAtMillis
+        val durationInSecond = durationInMillis.toDouble / 1000
 
-        println(wattsPerSecond * durationInSecond)
+        _wattsConsumedInTotal += device.wattsPerSecond() * durationInSecond
       }
     }
 
-      val wattsPerSecondOfTV: Int = 500
+    /*
+    object EnergyMeter{
+      def apply(device: Any): EnergyMeter = device match {
 
-      def turnTVOn(): Unit = {
+        case lightBulb: LightBulb =>
+          new EnergyMeter(
+            wattsPerSecond = lightBulb.wattsPerSecondOf,
+            turnDeviceOn = () => lightBulb.turnOn(),
+            turnDeviceOff = () => lightBulb.turnOff(),
+          )
+        case tv: TV =>
+          new EnergyMeter (
+            wattsPerSecond = tv.wattsPerSecondOf,
+            turnDeviceOn = () => tv.turnOn(),
+            turnDeviceOff = () => tv.turnOff(),
+          )
+        case _ =>
+          sys.error("Not a device")
+      }
+    }
+     */
+
+    class TV {
+      def toDevice: Device = {
+        val device = new Device
+
+        device.wattsPerSecond = () => this.wattsPerSecond
+        device.turnOn         = () => this.turnOn ()
+        device.turnOff        = () => this.turnOff ()
+
+        device
+
+      }
+
+      val wattsPerSecond: Int = 500
+
+      def turnOn(): Unit = {
         println("tv on")
       }
 
-      def turnTVOff(): Unit = {
+      def turnOff(): Unit = {
         println("tv off")
       }
-
-      val energyMeter = new EnergyMeter(
-        wattsPerSecond = wattsPerSecondOfTV,
-        turnDeviceOn = () => turnTVOn(),
-        turnDeviceOff = () => turnTVOff()
-      )
-
-      energyMeter.startMeasuring()
-      Thread.sleep(1000)
-      energyMeter.stopMeasuring()
-
-      energyMeter.startMeasuring()
-      Thread.sleep(1000)
-      energyMeter.stopMeasuring()
     }
+
+    class LightBulb {
+      def toDevice: Device = {
+        val device = new Device
+
+        device.wattsPerSecond = () => this.wattsPerSecond
+        device.turnOn         = () => this.turnOn ()
+        device.turnOff        = () => this.turnOff ()
+
+        device
+
+      }
+
+      val wattsPerSecond: Int = 100
+
+      def turnOn(): Unit = {
+        println("light bulb on")
+      }
+
+      def turnOff(): Unit = {
+        println("light bulb off")
+      }
+    }
+
+
+    val lightBulb: LightBulb = new LightBulb
+    val tv: TV = new TV
+
+    val energyMeter = new EnergyMeter(tv.toDevice)
+
+    energyMeter.startMeasuring()
+    Thread.sleep(1000)
+    energyMeter.stopMeasuring()
+    println(energyMeter.wattsConsumedInTotal)
+
+    energyMeter.startMeasuring()
+    Thread.sleep(1000)
+    energyMeter.stopMeasuring()
+    println(energyMeter.wattsConsumedInTotal)
+  }
 }
