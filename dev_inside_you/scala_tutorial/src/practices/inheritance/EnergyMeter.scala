@@ -1,4 +1,4 @@
-package practises.inheritance
+package practices.inheritance
 
 class EnergyMeter(device:Device){
   private[this] var turnedOnAtMillis: Long = 0
