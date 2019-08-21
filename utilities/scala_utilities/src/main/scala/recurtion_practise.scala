@@ -1,4 +1,4 @@
-object recurtion_practise {
+object recursion_practise {
 
   def main(args: Array[String]): Unit = {
     println("*"*131)
