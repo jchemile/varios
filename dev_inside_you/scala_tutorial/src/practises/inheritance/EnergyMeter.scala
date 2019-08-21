@@ -8,16 +8,16 @@ class EnergyMeter(device:Device){
     _wattsConsumedInTotal = newValue
   }
 
-
-
   def startMeasuring(): Unit = {
     device.turnOn()
+
+    turnedOnAtMillis = System.currentTimeMillis()
   }
 
   def stopMeasuring(): Unit = {
-    device.turnOn()
+    device.turnOff()
 
-    val durationInMillis  = System.currentTimeMillis - System.currentTimeMillis
+    val durationInMillis  = System.currentTimeMillis - turnedOnAtMillis
     val durationInSeconds = durationInMillis.toDouble/1000
 
     wattsConsumedInTotal += device.wattsPerSecond * durationInSeconds

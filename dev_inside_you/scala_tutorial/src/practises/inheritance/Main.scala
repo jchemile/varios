@@ -10,6 +10,20 @@ object Main {
   }
 
   def code(args: Array[String]): Unit = {
-    println("Hello World")
+    val bulb = new LightBulb
+    val tv = new TV
+    val meter = new EnergyMeter(bulb)
+
+    meter.startMeasuring()
+    Thread.sleep(1000)
+    meter.stopMeasuring()
+    println(meter.wattsConsumedInTotal)
+
+    println()
+
+    meter.startMeasuring()
+    Thread.sleep(1000)
+    meter.stopMeasuring()
+    println(meter.wattsConsumedInTotal)
   }
 }
