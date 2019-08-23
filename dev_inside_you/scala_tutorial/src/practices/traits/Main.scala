@@ -57,8 +57,16 @@ object Main {
 
     val file = new FileWithTimestamp(path)
 
-    println(file.getName)
-    println(file.creationTime)
+    def showName(file: java.io.File): Unit = {
+      println(file.getName)
+    }
+
+    def showCreationTime(timestamp: Timestamp): Unit = {
+      println(file.creationTime)
+    }
+
+    showName(file)
+    showCreationTime(file)
 
   }
 
