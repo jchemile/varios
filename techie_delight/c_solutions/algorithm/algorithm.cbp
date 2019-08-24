@@ -32,10 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="RandomPointers.h" />
-		<Unit filename="findMinRange.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="hashingBinaryToDoubleLinkedList.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

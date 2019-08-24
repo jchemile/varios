@@ -1,6 +1,6 @@
-#include "findMinRange.h"
+#include "hashingBinaryToDoubleLinkedList.h"
 
 int main()
 {
-    findMinRange();
+    hashingBinaryToDoubleLinkedList();
 }

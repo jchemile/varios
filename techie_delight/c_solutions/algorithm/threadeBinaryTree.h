@@ -78,7 +78,7 @@ void convertToThreaded(Node* root)
     populateNext(root,prev);
 }
 
-void implementsthreadeBinaryTree()
+void threadeBinaryTree()
 {
     /* Construct below tree
               5

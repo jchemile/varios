@@ -69,7 +69,7 @@ Node* cloneSpecialBinaryTree(Node* root)
     return map[root];
 }
 
-void implementsRandomPointers()
+void RandomPointers()
 {
         Node* root = new Node(1);
     root -> left = new Node(2);
