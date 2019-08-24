@@ -1,6 +1,6 @@
-package practices.traits
+package practices
 
-object Main {
+object TraitsPractise {
 
   def main(args: Array[String]): Unit = {
     println("*" * 150)
@@ -51,17 +51,16 @@ object Main {
       }
     }
 
-    class FileWithTimestamp(path: String) extends java.io.File(path) with Timestamp
-
     val path = "C:\\Users\\Joaquin Chemile\\Documents\\varios\\dev_inside_you\\scala_tutorial\\src\\practices\\traits\\Main.scala"
 
-    val file = new FileWithTimestamp(path)
+    type TooLazyToType = java.io.File with Timestamp
+    val file: TooLazyToType = new java.io.File(path) with Timestamp
 
-    def showName(file: java.io.File): Unit = {
+    def showName(file: TooLazyToType): Unit = {
       println(file.getName)
     }
 
-    def showCreationTime(timestamp: Timestamp): Unit = {
+    def showCreationTime(timestamp: TooLazyToType): Unit = {
       println(file.creationTime)
     }
 
