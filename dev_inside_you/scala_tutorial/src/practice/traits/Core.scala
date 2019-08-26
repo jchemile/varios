@@ -1,4 +1,4 @@
-package practices.traits
+package practice.traits
 
 object Core {
   class OrdinaryCar(override val model: String)

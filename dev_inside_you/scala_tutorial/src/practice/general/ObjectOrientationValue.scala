@@ -1,4 +1,4 @@
-package practices
+package practice.general
 
 object ObjectOrientationValue {
   def main(args: Array[String]): Unit = {

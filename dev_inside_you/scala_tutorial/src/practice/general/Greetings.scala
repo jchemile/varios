@@ -1,4 +1,4 @@
-package practices
+package practice.general
 
 object Greetings {
   def main(args: Array[String]): Unit = {

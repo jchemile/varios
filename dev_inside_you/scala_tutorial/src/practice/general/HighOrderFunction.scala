@@ -1,4 +1,4 @@
-package practices
+package practice.general
 
 object HighOrderFunction {
   def main(args: Array[String]): Unit = {

@@ -1,4 +1,4 @@
-package practices.traits
+package practice.traits
 
 object Base {
   abstract class Car {

@@ -1,4 +1,4 @@
-package practices.inheritance
+package practice.inheritance
 
 trait Device {
   def wattsPerSecond: Int

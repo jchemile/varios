@@ -1,4 +1,4 @@
-package practices.inheritance
+package practice.inheritance
 
 class LightBulb extends Device {
   override val wattsPerSecond: Int = 100

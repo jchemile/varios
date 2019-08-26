@@ -1,4 +1,4 @@
-package practices.inheritance
+package practice.inheritance
 
 class TV extends Device {
 

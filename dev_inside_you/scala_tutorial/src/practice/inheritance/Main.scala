@@ -1,4 +1,4 @@
-package practices.inheritance
+package practice.inheritance
 
 object Main {
   def main(args: Array[String]): Unit = {
