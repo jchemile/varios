@@ -1,5 +1,7 @@
 package practice.patternMatching
 
+import practice.inheritance.Main
+
 object PatternMatching {
 
   def main(args: Array[String]): Unit = {
@@ -11,10 +13,11 @@ object PatternMatching {
   }
 
   def code(arg: Array[String]): Unit = {
-    lazy val one = 1
+    val one = 1
 
     def method(input: Any): Any = input match {
       case 2 => 2
+      case Main => Main
       case `one` => s"This one ${`one`}"
       case variable => input
     }
@@ -23,12 +26,18 @@ object PatternMatching {
       println(method(input))
     }
 
-    show(1)
-    show(2)
-    show(true)
-    show(false)
-    show("hi")
-    show('c')
+//    show(1)
+//    show(`one`)
+//    show(Top.Sub.One)
+
+    show(this)
+//    show(1)
+//    show(2)
+//    show(true)
+//    show(false)
+//    show("hi")
+//    show('c')
   }
+
 
 }
