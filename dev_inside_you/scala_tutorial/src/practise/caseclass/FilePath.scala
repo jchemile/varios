@@ -21,11 +21,15 @@ object FilePath {
     )
 
     println(implicitFile)
-    println()
-    println(explicitFile)
-    println()
-    println(explicitFile == implicitFile)
 
+
+    implicitFile match {
+      case IsLocationLongerThan20Characters() => println("Yep")
+      case File(l,n,e) =>
+        println(s"Location:  $l")
+        println(s"Name:      $n")
+        println(s"Extension: $e")
+    }
 
   }
 }
