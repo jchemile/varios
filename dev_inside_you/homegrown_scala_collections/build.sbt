@@ -1,4 +1,4 @@
-name := "homegrow_scala_collections"
+name := "homegrown_scala_collections"
 
 version := "0.1"
 
