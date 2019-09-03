@@ -1,21 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[20]:
-
-
-#Linked List 1 - Insertion
-
-
-# In[62]:
-
-
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
         
-class LinkedList:
+class LinkedList():
     def __init__(self):
         self.head = None
     
@@ -27,11 +15,9 @@ class LinkedList:
     
     def append(self, data):
         new_node = Node(data)
-        
         if self.head is None:
             self.head = new_node
             return
-        
         last_node = self.head
         while last_node.next:
             last_node = last_node.next
@@ -75,7 +61,7 @@ class LinkedList:
         
     def deleted_node_at_pos(self, pos):
         
-        cur_node = selg.head
+        cur_node = self.head
         
         if pos == 0:
             self.head = cur_node.next
@@ -395,50 +381,18 @@ class LinkedList:
             if q:
                 q = q.next
         sum_llist.print_list()
-    
-
-
-# In[63]:
-
 
 llist1= LinkedList()
-
-
-# In[64]:
-
 
 llist1.append(5)
 llist1.append(6)
 llist1.append(3)
 
-
-# In[65]:
-
-
 llist2= LinkedList()
-
-
-# In[66]:
-
 
 llist2.append(8)
 llist2.append(4)
 llist2.append(2)
-
-
-# In[67]:
-
-
-print(365+248)
-
-
-# In[68]:
-
-
-llist1.sum_two_lists(llist2)
-
-
-# In[ ]:
 
 
 
