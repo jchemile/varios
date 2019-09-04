@@ -137,6 +137,7 @@ class CircularLinkedList:
                 return True
         return False
 
+
 cllist = CircularLinkedList()
 cllist.append(1)
 cllist.append(2)
