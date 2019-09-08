@@ -122,12 +122,81 @@ def is_perm_2(str1, str2):
             d[i] = 1
     return all(value == 0 for value in d.values())
 
-A = "god"
-B = "Dog"
-C = "ZARO"
-D = "TuVO"
 
-print(is_perm_1(A, B))
-print(is_perm_1(C, D))
-print(is_perm_2(A, B))
-print(is_perm_2(C, D))
+def normalize(input_str):
+    input_str = input_str.replace(" ", "")
+    return input_str.lower()
+
+
+def is_unique_1(input_str):
+    d = dict()
+    for i in input_str:
+        if i in d:
+            return False
+        else:
+            d[i] = 1
+    return True
+
+
+def is_unique_2(input_str):
+    return len(set(input_str)) == len(input_str)
+
+
+def is_unique_3(input_str):
+    alpha = "abcdefghijklmnopqrstuvwxyz"
+
+    for i in input_str:
+        if i in alpha:
+            alpha = alpha.replace(i, "")
+        else:
+            return False
+    return True
+
+
+def int_to_str(input_int):
+
+    if input_int < 0:
+        is_negative = True
+        input_int *= -1
+    else:
+        is_negative = False
+
+    output_str = []
+    while input_int > 0:
+        output_str.append(chr(ord('0') + input_int % 10))
+        input_int //= 10
+    output_str = output_str[::-1]
+
+    output_str = ''.join(output_str)
+
+    if is_negative:
+        return '-' + output_str
+    else:
+        return output_str
+
+def str_to_int(input_str):
+
+    ouput_int = 0
+
+    if input_str[0] == '-':
+        start_idx = 1
+        is_negative = True
+    else:
+        start_idx = 0
+        is_negative = False
+
+    for i in range(start_idx, len(input_str)):
+        place = 10**(len(input_str) - (i + 1))
+        digit = ord(input_str[i]) - ord('0')
+        ouput_int += place * digit
+
+    if is_negative:
+        return -1 * ouput_int
+    else:
+        return ouput_int
+
+s = "123"
+print(str_to_int(s))
+
+s2 = "-128"
+print(str_to_int(s2)+2)
