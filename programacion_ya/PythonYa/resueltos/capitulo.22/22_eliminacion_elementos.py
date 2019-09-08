@@ -1,44 +1,22 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 lista = [10,20,30,40]
-
-
-# In[2]:
-
 
 lista.append(120)
 
 
-# In[3]:
-
-
 lista
 
-
-# In[4]:
 
 
 lista.pop(2)
 
 
-# In[6]:
-
-
 lista
 
-
-# In[7]:
 
 
 lista1 = [10,20,30,40,50]
 print(lista)
 
-
-# In[8]:
 
 
 lista.pop(0)
