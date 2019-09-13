@@ -2,7 +2,11 @@ name := "homegrown_scala_collections"
 
 version := "0.1"
 
-scalaVersion := "2.13.0"
+scalaVersion := "2.12.8"
+
+triggeredMessage := Watched.clearWhenTriggered
+
+resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
 
 libraryDependencies ++=
   Seq(
@@ -14,3 +18,7 @@ testOptions in Test ++=
   Seq(
     Tests.Argument(TestFrameworks.ScalaTest, "-oSD")
   )
+
+addCommandAlias("testc",";clean;coverage;test;coverageReport")
+
+coverageExcludedPackages := "Main"

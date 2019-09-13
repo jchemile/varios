@@ -88,7 +88,6 @@ object Main {
 
     println("Yo can also pass in the credit card number as a command line argument like this: run 6759141347365605")
 
-
   }
 
 }

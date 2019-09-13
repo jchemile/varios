@@ -121,8 +121,8 @@ object CreditCard extends (String => CreditCard) with (() => CreditCard) {
     if(isValid(number))
       number
     else
-
+      // $COVERAGE-OFF$
       sys.error(s"Bug: generated an invalid number: $number")
-
+      // $COVERAGE-ON$
   }
 }
