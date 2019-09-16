@@ -1,24 +1,18 @@
-name := "homegrown_scala_collections"
+version := "0.0.1-SNAPSHOT"
 
-version := "0.1"
+organization := "devinsideyou"
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.12.4"
 
 triggeredMessage := Watched.clearWhenTriggered
+
+initialCommands in console := "import homegrown.collections._"
+
+addCommandAlias("testc",";clean;coverage;test;coverageReport")
 
 resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
 
 libraryDependencies ++=
   Seq(
     "org.scalatest" %% "scalatest" % "3.0.8" % "test",
-    "org.pegdown"    %   "pegdown" % "1.6.0" % "test"
   )
-
-testOptions in Test ++=
-  Seq(
-    Tests.Argument(TestFrameworks.ScalaTest, "-oSD")
-  )
-
-addCommandAlias("testc",";clean;coverage;test;coverageReport")
-
-coverageExcludedPackages := "Main"

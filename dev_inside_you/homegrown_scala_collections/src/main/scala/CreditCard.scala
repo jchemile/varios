@@ -10,7 +10,7 @@ sealed trait CreditCard extends Any with Product with Serializable {
     !isValid
 
   final override def toString: String =
-    if(isNotValid) {
+    if (isNotValid) {
       val invalid = Console.RED + "Invalid" + Console.RESET
 
       s"""$invalid credit card number "$number""""
@@ -24,7 +24,7 @@ sealed trait CreditCard extends Any with Product with Serializable {
 }
 
 object CreditCard extends (String => CreditCard) with (() => CreditCard) {
-  final case class   Valid private (number: String) extends AnyVal with CreditCard
+  final case class Valid private (number: String) extends AnyVal with CreditCard
 
   object Valid {
     private[CreditCard] def apply(number: String): Valid =
@@ -39,19 +39,19 @@ object CreditCard extends (String => CreditCard) with (() => CreditCard) {
   }
 
   override def apply(number: String): CreditCard =
-    if(isValid(number))
+    if (isValid(number))
       Valid(number)
     else
       Invalid(number)
 
   private val CheckDigitLength = 1
-  private val MinimumLength    = 13
-  private val MaximumLength    = 19
+  private val MinimumLength = 13
+  private val MaximumLength = 19
 
   private def isValid(number: String): Boolean =
-    number != null                                           &&
-      number.nonEmpty                                          &&
-      number.forall(Character.isDigit)                         &&
+    number != null &&
+      number.nonEmpty &&
+      number.forall(Character.isDigit) &&
       (MinimumLength to MaximumLength).contains(number.length) &&
       doesMathCheckOut(number)
 
@@ -68,22 +68,22 @@ object CreditCard extends (String => CreditCard) with (() => CreditCard) {
       .map(_.toString.toInt)
       .zipWithIndex
       .map {
-      case (digit, index) =>
-        if(index % 2 == 0)
-          digit * 2
-        else
-          digit
-    }
+        case (digit, index) =>
+          if (index % 2 == 0)
+            digit * 2
+          else
+            digit
+      }
       .map { number =>
-      if(number > 9)
-        number - 9
-      else
-        number
-    }
+        if (number > 9)
+          number - 9
+        else
+          number
+      }
       .sum
 
   private def split(number: String): (String, Int) = {
-    val payload    = number.dropRight(CheckDigitLength)
+    val payload = number.dropRight(CheckDigitLength)
     val checkDigit = number.takeRight(CheckDigitLength).toInt
 
     payload -> checkDigit
@@ -118,11 +118,11 @@ object CreditCard extends (String => CreditCard) with (() => CreditCard) {
     val number: String =
       payload + checkDigit
 
-    if(isValid(number))
+    if (isValid(number))
       number
     else
       // $COVERAGE-OFF$
       sys.error(s"Bug: generated an invalid number: $number")
-      // $COVERAGE-ON$
+    // $COVERAGE-ON$
   }
 }

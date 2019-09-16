@@ -1,7 +1,7 @@
 object Main {
 
   def main(args: Array[String]): Unit = {
-    println("-"*50)
+    println("-" * 50)
 
     code(args)
 
@@ -76,10 +76,10 @@ object Main {
         "6395040072621630"
       ).map(CreditCard)
 
-     val (valid, invalid) =
-       moreFakeNumbers.partition(_.isValid)
+    val (valid, invalid) =
+      moreFakeNumbers.partition(_.isValid)
 
-    if(invalid.nonEmpty){
+    if (invalid.nonEmpty) {
       println()
       invalid foreach println
     }

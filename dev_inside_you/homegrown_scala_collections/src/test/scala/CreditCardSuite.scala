@@ -1,15 +1,15 @@
 import org.scalatest._
 
 class CreditCardSuite extends FunSuite with Matchers {
-  test("Creating a card without passing any number should generate a valid credit card"){
+  test("Creating a card without passing any number should generate a valid credit card") {
     CreditCard().isValid shouldBe true
   }
 
-  test("Creating a card without passing any number should create a card of class CreditCard.Valid"){
+  test("Creating a card without passing any number should create a card of class CreditCard.Valid") {
     CreditCard() shouldBe a[CreditCard.Valid]
   }
 
-  test("Creating a card manually by passing a valid number should produce a valid credit card"){
+  test("Creating a card manually by passing a valid number should produce a valid credit card") {
     val validNumber = CreditCard().number
 
     CreditCard(validNumber).isValid shouldBe true
@@ -17,12 +17,12 @@ class CreditCardSuite extends FunSuite with Matchers {
     noException should be thrownBy CreditCard(validNumber).asInstanceOf[CreditCard.Valid]
   }
 
-  test("Credit cards's toString method should mention validity"){
-    CreditCard("").toString.toLowerCase should include ("invalid")
+  test("Credit cards's toString method should mention validity") {
+    CreditCard("").toString.toLowerCase should include("invalid")
     CreditCard().toString.toLowerCase should not include "invalid"
   }
 
-  test("All these numbers should be valid"){
+  test("All these numbers should be valid") {
     val fakeCards =
       Set(
         "4120424088759203",
@@ -64,10 +64,10 @@ class CreditCardSuite extends FunSuite with Matchers {
 
   }
 
-  test("10K generated numbers should all be valid"){
+  test("10K generated numbers should all be valid") {
     val fakeCards = 1 to 10000 map (_ => CreditCard())
 
-    all(fakeCards.map(_.isValid)) shouldBe(true)
+    all(fakeCards.map(_.isValid)) shouldBe (true)
   }
 
 }
