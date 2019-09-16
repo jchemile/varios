@@ -30,6 +30,12 @@ class SetSuite extends FunSuite with Matchers {
     set(second) shouldBe true
   }
 
+  test("remove on an empty Set should yield an empty Set") {
+    val element = randomString
+    val stillEmpty = Set.empty.remove(element)
+    stillEmpty(element) shouldBe false
+  }
+
   test("remove on a non empty Set should yield a new Set without the element") {
     val element = randomString
     val setWithElement = Set.empty.add(element)
@@ -116,11 +122,11 @@ class SetSuite extends FunSuite with Matchers {
     rightUnion(d) shouldBe true
   }
 
-  test("intersection on empty Set should yield an empty Set"){
+  test("intersection on empty Set should yield an empty Set") {
     Set.empty.intersection(Set.empty)(randomString) shouldBe false
   }
 
-  test("intersection on a non empty Set with an empty Set should yield an empty Set"){
+  test("intersection on a non empty Set with an empty Set should yield an empty Set") {
     val first = randomString
     val second = randomString
 
@@ -136,7 +142,7 @@ class SetSuite extends FunSuite with Matchers {
     nonEmptySet.intersection(emptySet)(second) shouldBe false
   }
 
-  test("intersection on two non empty Set should yield their intersection"){
+  test("intersection on two non empty Set should yield their intersection") {
     val a = randomString
     val b = randomString
     val c = randomString
@@ -161,11 +167,11 @@ class SetSuite extends FunSuite with Matchers {
 
   }
 
-  test("difference on empty Set should yield an empty set"){
+  test("difference on empty Set should yield an empty set") {
     Set.empty.difference(Set.empty)(randomString) shouldBe false
   }
 
-  test("difference on a non empty Set with an empty Set should yield an empty Set"){
+  test("difference on a non empty Set with an empty Set should yield an empty Set") {
     val first = randomString
     val second = randomString
 
@@ -181,7 +187,7 @@ class SetSuite extends FunSuite with Matchers {
     nonEmptySet.difference(emptySet)(second) shouldBe true
   }
 
-  test("difference on two non empty Sets should yield their difference"){
+  test("difference on two non empty Sets should yield their difference") {
     val a = randomString
     val b = randomString
     val c = randomString
@@ -205,7 +211,7 @@ class SetSuite extends FunSuite with Matchers {
     rightDifference(d) shouldBe true
   }
 
-  test("isSubsetOf on an empty Set should yield true"){
+  test("isSubsetOf on an empty Set should yield true") {
     pending
 
     Set.empty.isSubsetOf(Set.empty) shouldBe true
