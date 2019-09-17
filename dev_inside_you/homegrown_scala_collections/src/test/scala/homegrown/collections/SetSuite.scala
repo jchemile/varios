@@ -6,6 +6,7 @@ import org.scalatest._
 class SetSuite extends FunSuite with Matchers {
   test("apply an empty set should yield false") {
     Set.empty(randomString) shouldBe false
+    Set.empty.size shouldBe 0
   }
 
   test("add on an empty set should yield a new Set with one element") {
@@ -115,19 +116,8 @@ class SetSuite extends FunSuite with Matchers {
     val left = Set.empty.add(a).add(b)
     val right = Set.empty.add(c).add(d)
 
-    val leftUnion = left.union(right)
-
-    leftUnion(a) shouldBe true
-    leftUnion(b) shouldBe true
-    leftUnion(c) shouldBe true
-    leftUnion(d) shouldBe true
-
-    val rightUnion = left.union(right)
-
-    rightUnion(a) shouldBe true
-    rightUnion(b) shouldBe true
-    rightUnion(c) shouldBe true
-    rightUnion(d) shouldBe true
+    left.union(right) shouldBe Set.empty.add(a).add(b).add(c).add(d)
+    right.union(left) shouldBe Set.empty.add(a).add(b).add(c).add(d)
   }
 
   test("intersection on empty Set should yield an empty Set") {
@@ -159,19 +149,8 @@ class SetSuite extends FunSuite with Matchers {
     val left = Set.empty.add(a).add(b).add(c)
     val right = Set.empty.add(b).add(c).add(d)
 
-    val leftIntersection = left.intersection(right)
-
-    leftIntersection(a) shouldBe false
-    leftIntersection(b) shouldBe true
-    leftIntersection(c) shouldBe true
-    leftIntersection(d) shouldBe false
-
-    val rightIntersection = left.intersection(right)
-
-    rightIntersection(a) shouldBe false
-    rightIntersection(b) shouldBe true
-    rightIntersection(c) shouldBe true
-    rightIntersection(d) shouldBe false
+    left.intersection(right) shouldBe Set.empty.add(b).add(c)
+    right.intersection(left) shouldBe Set.empty.add(b).add(c)
 
   }
 
@@ -204,19 +183,9 @@ class SetSuite extends FunSuite with Matchers {
     val left = Set.empty.add(a).add(b).add(c)
     val right = Set.empty.add(b).add(c).add(d)
 
-    val leftDifference = left.difference(right)
+    left.difference(right) shouldBe Set.empty.add(a)
+    right.difference(left) shouldBe Set.empty.add(d)
 
-    leftDifference(a) shouldBe true
-    leftDifference(b) shouldBe false
-    leftDifference(c) shouldBe false
-    leftDifference(d) shouldBe false
-
-    val rightDifference = right.difference(left)
-
-    rightDifference(a) shouldBe false
-    rightDifference(b) shouldBe false
-    rightDifference(c) shouldBe false
-    rightDifference(d) shouldBe true
   }
 
   test("isSubsetOf on an empty Set should yield true") {
@@ -252,6 +221,88 @@ class SetSuite extends FunSuite with Matchers {
 
     left.isSupersetOf(right) shouldBe false
     right.isSupersetOf(left) shouldBe true
+  }
+
+  test("hashCode on an empty Set should not be random") {
+    Set.empty.hashCode shouldBe Set.empty.hashCode
+
+    val element = randomString
+
+    Set.empty.add(element).hashCode shouldBe Set.empty.add(element).hashCode
+  }
+
+  test("hashCode on an empty Set should not be 0"){
+    Set.empty.hashCode should not be 0
+  }
+
+  test("hashCode on a non empty Set should be the sum of all the hashCode and the hashCode of the empty Set"){
+    val first = randomString
+    val second = randomString
+
+    val expected = Set.empty.hashCode + first.hashCode + second.hashCode
+
+    Set.empty.add(first).add(second).hashCode shouldBe expected
+    }
+
+
+   test("size on an empty Set should be 0") {
+     Set.empty.size shouldBe 0
+   }
+
+    test("size on a non empty Set should be 1"){
+      Set.empty.add(randomString).size shouldBe 1
+    }
+
+    test("size on a non empty Set with 2 distinct elements added should be 2"){
+      val first = randomString
+      val second = randomString
+
+      first should not be second
+
+      Set.empty.add(first).add(second).size shouldBe 2
+    }
+
+    test("size on a non empty Set with 2 equal elements added should be 1"){
+      val element = randomString
+
+      Set.empty.add(element).add(element).size shouldBe 1
+    }
+
+  test("isEmpty on an empty Set should yield true"){
+    Set.empty.isEmpty shouldBe true
+    Set.empty.nonEmpty shouldBe false
+  }
+
+  test("isEmpty on a non empty Set should yield false"){
+    Set.empty.add(randomString).isEmpty shouldBe false
+    Set.empty.add(randomString).nonEmpty shouldBe true
+  }
+
+  test("isSingleton on an empty Set should yield false"){
+    Set.empty.isSingleton shouldBe false
+  }
+
+  test("isSingleton on a Set with more than one element should yield false"){
+    val first = randomString
+    val second = randomString
+
+    first should not be second
+
+    Set.empty.add(first).add(second).isSingleton shouldBe false
+  }
+
+  test("isSingleton on a Set with a single element should yield true"){
+    Set.empty.add(randomString).isSingleton shouldBe true
+  }
+
+  test("sample should yield a random element from the set"){
+    Set.empty.sample shouldBe None
+
+    val a = randomString
+    Set.empty.add(a).sample shouldBe Some(a)
+
+    val b = randomString
+    Set.empty.add(a).add(b).sample should contain oneOf (a, b)
   }
 
 

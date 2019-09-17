@@ -1,6 +1,6 @@
 package homegrown.collections
 
-trait Set extends (String => Boolean) {
+sealed trait Set extends (String => Boolean) {
   def add(input: String): Set
   def remove(input: String): Set
   def union(that: Set): Set
@@ -15,8 +15,19 @@ trait Set extends (String => Boolean) {
     match {
     case that: Set => this.isSubsetOf(that) && that.isSubsetOf(this)
     case _         => false
-
   }
+
+  def size: Int
+
+  final def isEmpty: Boolean =
+    this eq Set.empty
+
+  final def nonEmpty: Boolean =
+    !isEmpty
+
+  def isSingleton: Boolean
+
+  def sample: Option[String]
 }
 
 object Set {
@@ -58,6 +69,18 @@ object Set {
 
     final override def isSubsetOf(that: Set): Boolean =
       that(element) && otherElements.isSubsetOf(that)
+
+    final override def hashCode: Int =
+      element.hashCode + otherElements.hashCode
+
+    final override def size: Int =
+      1 + otherElements.size
+
+    final override def isSingleton: Boolean =
+      otherElements.isEmpty
+
+    final override def sample: Option[String] =
+      Some(element)
   }
 
   private object Empty extends Set {
@@ -81,6 +104,15 @@ object Set {
 
     final override def isSubsetOf(that: Set): Boolean =
       true
+
+    final override def size: Int =
+      0
+
+    final override def isSingleton: Boolean =
+      false
+
+    final override def sample: Option[String] =
+      None
   }
 
   val empty: Set = Empty
