@@ -78,6 +78,14 @@ class SetSuite extends FunSuite with Matchers {
     setWithoutElement(second) shouldBe false
   }
 
+  test("add/remove combo should ensure that all elements are distinct"){
+    val element = randomString
+
+    val set = Set.empty.add(element).add(element).remove(element)
+
+    set(element) shouldBe false
+  }
+
   test("union on empty Set should yield an empty Set") {
     Set.empty.union(Set.empty)(randomString) shouldBe false
   }
@@ -212,11 +220,41 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("isSubsetOf on an empty Set should yield true") {
-    pending
-
     Set.empty.isSubsetOf(Set.empty) shouldBe true
     Set.empty.isSubsetOf(Set.empty.add(randomString)) shouldBe true
   }
+
+  test("isSubsetOf on itself should yield true") {
+    val set = Set.empty.add(randomString)
+
+    set.isSubsetOf(set) shouldBe true
+  }
+
+  test("isSubsetOf on a non empty Set should yield false"){
+    val a = randomString
+    val b = randomString
+    val c = randomString
+
+    val left = Set.empty.add(a).add(b)
+    val right = left.add(c)
+
+    left.isSubsetOf(right) shouldBe true
+    right.isSubsetOf(left) shouldBe false
+  }
+
+  test("is SupersetOf on a non empty Set should yield false"){
+    val a = randomString
+    val b = randomString
+    val c = randomString
+
+    val left = Set.empty.add(a).add(b)
+    val right = left.add(c)
+
+    left.isSupersetOf(right) shouldBe false
+    right.isSupersetOf(left) shouldBe true
+  }
+
+
 
   private def randomString: String =
     scala.util.Random.alphanumeric.take(5).mkString
