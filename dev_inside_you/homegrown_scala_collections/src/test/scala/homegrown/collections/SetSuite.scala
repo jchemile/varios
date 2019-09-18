@@ -363,6 +363,20 @@ class SetSuite extends FunSuite with Matchers {
     size shouldBe set.size
   }
 
+  test("Set() should not compile"){
+    "Set()" shouldNot compile
+  }
+
+  test("Calling the varags apply method on the Set companion object should yield a Set with all the arguments as elements"){
+    val a = randomString
+    val b = randomString
+    val c = randomString
+
+    Set(a, b, c) shouldBe Set.empty.add(a).add(b).add(c)
+  }
+
+
+
   private def randomString: String =
     scala.util.Random.alphanumeric.take(5).mkString
 }
