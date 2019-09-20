@@ -138,8 +138,8 @@ sealed trait Set extends (String => Boolean) {
         val element = nonEmptySet.element
         val otherElements = nonEmptySet.otherElements
 
-        function(element)
-        otherElements.foreach(function)
+        val result = function(element)
+        val otherElementsResult = otherElements.foreach(function)
       }
     }
 }

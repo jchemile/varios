@@ -318,6 +318,19 @@ class SetSuite extends FunSuite with Matchers {
     noException should be thrownBy Set.empty.foreach(_ => sys.error("should not be thrown"))
   }
 
+  test("Set() should not compile"){
+    "Set()" shouldNot compile
+  }
+
+  test("Calling the varargs apply method on the Set companion object should yield a Set with all the arguments as elements"){
+    val a = randomString
+    val b = randomString
+    val c = randomString
+
+    Set(a, b, c) shouldBe Set.empty.add(a).add(b).add(c)
+  }
+
+
   test("foreach on a non empty Set should apply the function"){
     var functionWasApplied = false
 
@@ -372,16 +385,8 @@ class SetSuite extends FunSuite with Matchers {
     size shouldBe set.size
   }
 
-  test("Set() should not compile"){
-    "Set()" shouldNot compile
-  }
-
-  test("Calling the varargs apply method on the Set companion object should yield a Set with all the arguments as elements"){
-    val a = randomString
-    val b = randomString
-    val c = randomString
-
-    Set(a, b, c) shouldBe Set.empty.add(a).add(b).add(c)
+  test("foreach should be parameterized in the result of the argument function") {
+    Set.empty.foreach(_ => 1)
   }
 
   private def randomString: String =
