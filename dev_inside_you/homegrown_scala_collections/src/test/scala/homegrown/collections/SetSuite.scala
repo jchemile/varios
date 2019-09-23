@@ -385,9 +385,19 @@ class SetSuite extends FunSuite with Matchers {
     size shouldBe set.size
   }
 
-  test("foreach should be parameterized in the result of the argument function") {
+  test("foreach should be parameterized in the result of the argument function so that it does not produce warnings") {
     Set.empty.foreach(_ => 1)
   }
+
+  test("map on an empty Set should not apply the function"){
+    noException should be thrownBy Set.empty.map(_ => sys.error("should not be thrown"))
+  }
+
+  test("map should produce a Set"){
+    Set("hello", "world").map(_.reverse) shouldBe Set("dlrow", "olleh")
+  }
+
+
 
   private def randomString: String =
     scala.util.Random.alphanumeric.take(5).mkString

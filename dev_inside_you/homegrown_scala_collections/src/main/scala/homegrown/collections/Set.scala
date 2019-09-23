@@ -132,16 +132,27 @@ sealed trait Set extends (String => Boolean) {
       Some(element)
     }
 
-  final def foreach(function: String => Unit): Unit = {
+  final def foreach[Result](function: String => Result): Unit = {
       if(nonEmpty){
         val nonEmptySet = this.asInstanceOf[NonEmpty]
         val element = nonEmptySet.element
         val otherElements = nonEmptySet.otherElements
 
-        val result = function(element)
-        val otherElementsResult = otherElements.foreach(function)
+        function(element)
+        otherElements.foreach(function)
       }
     }
+
+  final def map[Result](function: String => String): Set = {
+    var result = empty
+
+    foreach { current =>
+      result = result.add(function(current))
+    }
+
+    result
+  }
+
 }
 
 object Set {
