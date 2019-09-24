@@ -96,7 +96,7 @@ class SetSuite extends FunSuite with Matchers {
 
     first should not be second
 
-    val emptySet = Set.empty
+    val emptySet = Set.empty[String]
     val nonEmptySet = Set(first, second)
 
     emptySet.union(nonEmptySet)(first) shouldBe true
@@ -129,7 +129,7 @@ class SetSuite extends FunSuite with Matchers {
 
     first should not be second
 
-    val emptySet = Set.empty
+    val emptySet = Set.empty[String]
     val nonEmptySet = Set(first, second)
 
     emptySet.intersection(nonEmptySet)(first) shouldBe false
@@ -163,7 +163,7 @@ class SetSuite extends FunSuite with Matchers {
 
     first should not be second
 
-    val emptySet = Set.empty
+    val emptySet = Set.empty[String]
     val nonEmptySet = Set(first, second)
 
     emptySet.difference(nonEmptySet)(first) shouldBe false
@@ -315,7 +315,7 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("foreach on an empty Set should not apply the function"){
-    noException should be thrownBy Set.empty.foreach(_ => sys.error("should not be thrown"))
+    noException should be thrownBy Set.empty[String].foreach(_ => sys.error("should not be thrown"))
   }
 
   test("Set() should not compile"){
@@ -386,15 +386,21 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("foreach should be parameterized in the result of the argument function so that it does not produce warnings") {
-    Set.empty.foreach(_ => 1)
+    Set.empty[String].foreach(_ => 1)
   }
 
   test("map on an empty Set should not apply the function"){
-    noException should be thrownBy Set.empty.map(_ => sys.error("should not be thrown"))
+    noException should be thrownBy Set.empty[String].map(_ => sys.error("should not be thrown"))
   }
 
   test("map should produce a Set"){
     Set("hello", "world").map(_.reverse) shouldBe Set("dlrow", "olleh")
+    }
+
+  test("map should be able to produce a Set of sth else other than String"){
+    Set("hello", "planet").map(_.size) shouldBe Set(5, 6)
+
+    Set("hello", "world").map(_.size) shouldBe Set(5)
   }
 
 
