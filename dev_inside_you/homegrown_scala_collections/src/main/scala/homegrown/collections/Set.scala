@@ -154,6 +154,17 @@ sealed trait Set[Element] extends (Element => Boolean) {
     result
   }
 
+  final def flatMap[Result](function: Element => Set[Result]): Set[Result] = {
+    var result = empty[Result]
+
+    foreach { outerCurrent =>
+      function(outerCurrent).foreach { innerCurrent =>
+        result = result.add(innerCurrent)
+      }
+    }
+    result
+  }
+
 }
 
 object Set {
