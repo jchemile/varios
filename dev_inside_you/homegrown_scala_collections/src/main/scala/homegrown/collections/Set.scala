@@ -6,22 +6,62 @@ sealed trait Set[Element] extends (Element => Boolean) {
   import Set._
 
   final override def apply(input: Element): Boolean = {
-    var result = false
+    val seed = false
+
+    var acc = seed
 
     foreach { current =>
-      result = result || current == input
+      acc = acc || current == input
     }
 
+    val result = acc
+
     result
+
+  }
+
+  final def fold[Result](function: Element => Result): Unit = {
+    if(isEmpty)
+      ()
+    else {
+      val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
+      val element = nonEmptySet.element
+      val otherElements = nonEmptySet.otherElements
+
+      val elementResult: Unit = function(element)
+      val result: Unit = otherElements.foreach(function)
+
+      result
+    }
+  }
+
+  final def foreach[Result](function: Element => Result): Unit = {
+    if(isEmpty)
+      ()
+    else {
+      val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
+      val element = nonEmptySet.element
+      val otherElements = nonEmptySet.otherElements
+
+      val elementResult: Unit = function(element)
+      val result: Unit = otherElements.foreach(function)
+
+      result
+    }
   }
 
   final def add(input: Element): Set[Element] = {
-    var result = NonEmpty(input, empty)
+    val seed = NonEmpty(input, empty)
+
+    var acc = seed
 
     foreach { current =>
       if (current != input)
-        result = NonEmpty(current, result)
+        acc = NonEmpty(current, acc)
     }
+
+    val result = acc
+
     result
   }
 
@@ -86,16 +126,15 @@ sealed trait Set[Element] extends (Element => Boolean) {
     case _         => false
   }
 
-  final override def hashCode: Int =
-    if(isEmpty)
-      41
-    else{
-      val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
-      val element = nonEmptySet.element
-      val otherElements = nonEmptySet.otherElements
+  final override def hashCode: Int = {
+    var result = 41
 
-      element.hashCode + otherElements.hashCode
+    foreach { current =>
+      result = result + current.hashCode()
     }
+    result
+  }
+
 
   final def size: Int = {
     var result = 0
@@ -131,17 +170,6 @@ sealed trait Set[Element] extends (Element => Boolean) {
       val element = nonEmptySet.element
 
       Some(element)
-    }
-
-  final def foreach[Result](function: Element => Result): Unit = {
-      if(nonEmpty){
-        val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
-        val element = nonEmptySet.element
-        val otherElements = nonEmptySet.otherElements
-
-        function(element)
-        otherElements.foreach(function)
-      }
     }
 
   final def map[Result](function: Element => Result): Set[Result] = {
