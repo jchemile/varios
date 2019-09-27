@@ -5,116 +5,62 @@ import homegrown.collections.Set.NonEmpty
 sealed trait Set[Element] extends (Element => Boolean) {
   import Set._
 
-  final override def apply(input: Element): Boolean = {
-    val seed = false
+  final override def apply(input: Element): Boolean =
+    fold(false) ( _ || _ == input)
 
-    var acc = seed
 
-    foreach { current =>
-      acc = acc || current == input
-    }
-
-    val result = acc
-
-    result
-
-  }
-
-  final def fold[Result](function: Element => Result): Unit = {
+  @scala.annotation.tailrec
+  final def fold[Result](seed: Result)(function: (Result, Element) => Result): Result = {
     if(isEmpty)
-      ()
+      (seed)
     else {
       val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
       val element = nonEmptySet.element
       val otherElements = nonEmptySet.otherElements
 
-      val elementResult: Unit = function(element)
-      val result: Unit = otherElements.foreach(function)
-
-      result
-    }
-  }
-
-  final def foreach[Result](function: Element => Result): Unit = {
-    if(isEmpty)
-      ()
-    else {
-      val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
-      val element = nonEmptySet.element
-      val otherElements = nonEmptySet.otherElements
-
-      val elementResult: Unit = function(element)
-      val result: Unit = otherElements.foreach(function)
-
-      result
+      otherElements.fold(function(seed, element))(function)
     }
   }
 
   final def add(input: Element): Set[Element] = {
-    val seed = NonEmpty(input, empty)
-
-    var acc = seed
-
-    foreach { current =>
-      if (current != input)
-        acc = NonEmpty(current, acc)
+    fold(NonEmpty(input, empty)) {(acc, current) =>
+      if (current == input)
+        acc
+      else
+        NonEmpty(current, acc)
     }
-
-    val result = acc
-
-    result
   }
 
-  final def remove(input: Element): Set[Element] = {
-      var result = empty[Element]
-
-      foreach { current =>
-        if (current != input)
-          result = NonEmpty(current, result)
-      }
-      result
+  final def remove(input: Element): Set[Element] =
+    fold(empty[Element]) { (acc, current) =>
+      if (current == input)
+        acc
+      else
+        NonEmpty(current, acc)
     }
 
-  final def union(that: Set[Element]): Set[Element] = {
-    var result = this
+  final def union(that: Set[Element]): Set[Element] =
+    fold(that) (_ add _)
 
-    that.foreach { current =>
-      result = result.add(current)
+
+  final def intersection(that: Set[Element]): Set[Element] =
+    fold(empty[Element]) {(acc, current) =>
+      if(that(current))
+        acc.add(current)
+      else
+        acc
     }
 
-    result
-  }
-
-  final def intersection(that: Set[Element]): Set[Element] = {
-    var result = empty[Element]
-
-    foreach { current =>
+  final def difference(that: Set[Element]): Set[Element] =
+    fold(empty[Element]) { (acc, current) =>
       if (that(current))
-        result = result.add(current)
+        acc
+      else
+        acc.add(current)
     }
-
-    result
-  }
-
-  final def difference(that: Set[Element]): Set[Element] = {
-    var result = empty[Element]
-
-    foreach { current =>
-      if (!that(current))
-        result = result.add(current)
-    }
-
-    result
-  }
 
   final def isSubsetOf(that: Set[Element]): Boolean = {
-    var result = true
-
-    foreach{ current =>
-      result = result && that(current)
-    }
-
-    result
+    fold(true)(_ && that(_))
   }
 
   final def isSupersetOf(that: Set[Element]): Boolean =
@@ -171,6 +117,12 @@ sealed trait Set[Element] extends (Element => Boolean) {
 
       Some(element)
     }
+
+  final def foreach[Result](function: Element => Result): Unit = {
+    fold(()) {(_, current) =>
+      function(current)
+    }
+  }
 
   final def map[Result](function: Element => Result): Set[Result] = {
     var result = empty[Result]
