@@ -72,25 +72,14 @@ sealed trait Set[Element] extends (Element => Boolean) {
     case _         => false
   }
 
-  final override def hashCode: Int = {
-    var result = 41
+  final override def hashCode: Int =
+    fold(41)(_ + _.hashCode())
 
-    foreach { current =>
-      result = result + current.hashCode()
+
+  final def size: Int =
+    fold(0) { (acc, _) =>
+      acc + 1
     }
-    result
-  }
-
-
-  final def size: Int = {
-    var result = 0
-
-    foreach { _ =>
-      result = result + 1
-    }
-
-    result
-  }
 
   final def isEmpty: Boolean =
     this.isInstanceOf[Empty[Element]]
@@ -124,39 +113,20 @@ sealed trait Set[Element] extends (Element => Boolean) {
     }
   }
 
-  final def map[Result](function: Element => Result): Set[Result] = {
-    var result = empty[Result]
-
-    foreach { current =>
-      result = result.add(function(current))
-    }
-
-    result
-  }
+  final def map[Result](function: Element => Result): Set[Result] =
+    fold(empty[Result])(_ add function(_))
 
   final def flatMap[Result](function: Element => Set[Result]): Set[Result] = {
-    var result = empty[Result]
-
-    foreach { outerCurrent =>
-      function(outerCurrent).foreach { innerCurrent =>
-        result = result.add(innerCurrent)
-      }
+    fold(empty[Result]) {(acc, current) =>
+      function(current).fold(acc) (_ add _)
     }
-    result
   }
 
 }
 
 object Set {
-  def apply[Element](element: Element, otherElement: Element*): Set[Element] = {
-    var result: Set[Element] = empty[Element].add(element)
-
-    otherElement.foreach { current =>
-      result = result.add(current)
-    }
-
-    result
-  }
+  def apply[Element](element: Element, otherElement: Element*): Set[Element] =
+    otherElement.foldLeft(empty[Element].add(element))(_ add _)
 
   private final case class NonEmpty[Element](element: Element, otherElements: Set[Element]) extends Set[Element]
 
