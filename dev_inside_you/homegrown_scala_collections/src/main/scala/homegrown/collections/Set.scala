@@ -43,24 +43,32 @@ sealed trait Set[Element] extends (Element => Boolean) {
     fold(that) (_ add _)
 
 
-  final def intersection(that: Set[Element]): Set[Element] =
+  final def intersection(predicate: Element => Boolean): Set[Element] =
     fold(empty[Element]) {(acc, current) =>
-      if(that(current))
+      if(predicate(current))
         acc.add(current)
       else
         acc
     }
 
-  final def difference(that: Set[Element]): Set[Element] =
+  final def filter(predicate: Element => Boolean): Set[Element] =
     fold(empty[Element]) { (acc, current) =>
-      if (that(current))
+      if (predicate(current))
+        acc.add(current)
+      else
+        acc
+    }
+
+  final def difference(predicate: Element => Boolean): Set[Element] =
+    fold(empty[Element]) { (acc, current) =>
+      if (predicate(current))
         acc
       else
         acc.add(current)
     }
 
-  final def isSubsetOf(that: Set[Element]): Boolean = {
-    fold(true)(_ && that(_))
+  final def isSubsetOf(predicate: Element => Boolean): Boolean = {
+    fold(true)(_ && predicate(_))
   }
 
   final def isSupersetOf(that: Set[Element]): Boolean =

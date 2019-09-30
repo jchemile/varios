@@ -121,6 +121,10 @@ class SetSuite extends FunSuite with Matchers {
 
   test("intersection on empty Set should yield an empty Set") {
     Set.empty.intersection(Set.empty) shouldBe Set.empty
+    Set.empty[Nothing].intersection(_ => false) shouldBe Set.empty
+
+    Set.empty.filter(Set.empty) shouldBe Set.empty
+    Set.empty[Nothing].filter(_ => false) shouldBe Set.empty
   }
 
   test("intersection on a non empty Set with an empty Set should yield an empty Set") {
@@ -413,9 +417,26 @@ class SetSuite extends FunSuite with Matchers {
           c -> n
         }
       }
-
-
     chessboard.size shouldBe 64
+  }
+
+  test("Set should be a Function"){
+    val orderedClassmate =
+      Seq("alice", "bob", "frank")
+
+    def isFriend(potencialFriend: String): Boolean =
+      potencialFriend == "frank" ||
+      potencialFriend == "bob"
+
+    orderedClassmate.filter(isFriend) shouldBe Seq("bob", "frank")
+
+    val friends = Set("frank", "bob")
+
+    orderedClassmate.filter(friends) shouldBe Seq("bob", "frank")
+
+    orderedClassmate.filter(isFriend) shouldBe orderedClassmate.filter(friends)
+
+
   }
 
 
