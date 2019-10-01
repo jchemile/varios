@@ -1,9 +1,9 @@
 #include <iostream>
-#include "string_functions.h"
+#include "fibonacci_punteros.h"
 
 
 int main()
 {
-
+    implementation();
     return 0;
 }
