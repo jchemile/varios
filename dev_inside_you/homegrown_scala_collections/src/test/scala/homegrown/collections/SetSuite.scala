@@ -424,9 +424,9 @@ class SetSuite extends FunSuite with Matchers {
     val orderedClassmate =
       Seq("alice", "bob", "frank")
 
-    def isFriend(potencialFriend: String): Boolean =
-      potencialFriend == "frank" ||
-      potencialFriend == "bob"
+    def isFriend(potentialFriend: String): Boolean =
+      potentialFriend == "frank" ||
+      potentialFriend == "bob"
 
     orderedClassmate.filter(isFriend) shouldBe Seq("bob", "frank")
 
@@ -435,9 +435,47 @@ class SetSuite extends FunSuite with Matchers {
     orderedClassmate.filter(friends) shouldBe Seq("bob", "frank")
 
     orderedClassmate.filter(isFriend) shouldBe orderedClassmate.filter(friends)
-
-
   }
+
+  test("contains on an empty Set should yield false"){
+    Set.empty.contains(randomString) shouldBe false
+    Set.empty.doesNotContains(randomString) shouldBe true
+  }
+
+  test("exists on an empty Set should yield false") {
+    Set.empty[String].exists(_ => false) shouldBe false
+    Set.empty[String].doesNotExists(_ => false) shouldBe true
+  }
+
+  test("exists on a non empty Set should yield true"){
+    val element = randomString
+
+    Set(element).exists(_.size == element.size) shouldBe true
+    Set(element).exists(_.size != element.size) shouldBe false
+
+    Set(element).doesNotExists(_.size == element.size) shouldBe false
+    Set(element).doesNotExists(_.size != element.size) shouldBe true
+  }
+
+  test("forall on an empty Set should yield false"){
+    Set.empty[String].forall(_ => false) shouldBe true
+    Set.empty[String].notForall(_ => false) shouldBe false
+  }
+
+  test("forall on a non empty Set should yield true"){
+    val element = randomString
+
+    Set(element).forall(_.size == element.size) shouldBe true
+    Set(element).forall(_.size != element.size) shouldBe false
+
+    Set(element).notForall(_.size == element.size) shouldBe false
+    Set(element).notForall(_.size != element.size) shouldBe true
+  }
+
+  test("toString on an empty Set should yield Set()"){
+    Set.empty.toString shouldBe "Set()"
+  }
+
 
 
 

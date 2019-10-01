@@ -6,21 +6,25 @@ sealed trait Set[Element] extends (Element => Boolean) {
   import Set._
 
   final override def apply(input: Element): Boolean =
-    fold(false) ( _ || _ == input)
+    contains(input)
 
+  final def doesNotContains(input: Element): Boolean =
+    !contains(input)
 
-  @scala.annotation.tailrec
-  final def fold[Result](seed: Result)(function: (Result, Element) => Result): Result = {
-    if(isEmpty)
-      (seed)
-    else {
-      val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
-      val element = nonEmptySet.element
-      val otherElements = nonEmptySet.otherElements
+  final def contains(input: Element): Boolean =
+    exists(_ == input)
 
-      otherElements.fold(function(seed, element))(function)
-    }
-  }
+  final def doesNotExists(predicate: Element => Boolean): Boolean =
+    !exists(predicate)
+
+  final def exists(predicate: Element => Boolean): Boolean =
+    fold(false)(_ || predicate(_))
+
+  final def notForall(predicate: Element => Boolean): Boolean =
+    !forall(predicate)
+
+  final def forall(predicate: Element => Boolean): Boolean =
+    fold(true)(_ && predicate(_))
 
   final def add(input: Element): Set[Element] = {
     fold(NonEmpty(input, empty)) {(acc, current) =>
@@ -68,7 +72,7 @@ sealed trait Set[Element] extends (Element => Boolean) {
     }
 
   final def isSubsetOf(predicate: Element => Boolean): Boolean = {
-    fold(true)(_ && predicate(_))
+    forall(predicate)
   }
 
   final def isSupersetOf(that: Set[Element]): Boolean =
@@ -83,6 +87,11 @@ sealed trait Set[Element] extends (Element => Boolean) {
   final override def hashCode: Int =
     fold(41)(_ + _.hashCode())
 
+  final override def toString: String =
+    if (isEmpty)
+      "Set()"
+    else
+      ???
 
   final def size: Int =
     fold(0) { (acc, _) =>
@@ -127,6 +136,19 @@ sealed trait Set[Element] extends (Element => Boolean) {
   final def flatMap[Result](function: Element => Set[Result]): Set[Result] = {
     fold(empty[Result]) {(acc, current) =>
       function(current).fold(acc) (_ add _)
+    }
+  }
+
+  @scala.annotation.tailrec
+  final def fold[Result](seed: Result)(function: (Result, Element) => Result): Result = {
+    if(isEmpty)
+      (seed)
+    else {
+      val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
+      val element = nonEmptySet.element
+      val otherElements = nonEmptySet.otherElements
+
+      otherElements.fold(function(seed, element))(function)
     }
   }
 
