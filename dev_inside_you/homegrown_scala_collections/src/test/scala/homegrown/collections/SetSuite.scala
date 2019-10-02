@@ -473,9 +473,58 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("toString on an empty Set should yield Set()"){
-    Set.empty.toString shouldBe "Set()"
+    Set.empty.toString shouldBe "{}"
   }
 
+  test("toString on a Set with one element should yield {oneElement}"){
+    val element = randomString
+
+    Set(element).toString shouldBe s"{$element}"
+  }
+
+
+  test("toString on a Set with two elements should contains 2 braces, both elements, 2 parens and one comma"){
+    val first = randomString
+    val second = randomString
+
+    first should not be second
+
+    val set = Set(first, second)
+    val actual = set.toString
+
+    actual.count(_ == '{') shouldBe 1
+
+    actual should include(first)
+
+    actual.count(_ == ',') shouldBe 1
+
+    actual should include(second)
+
+    actual.count(_ == '}') shouldBe 1
+  }
+
+  test("toString on a Set with two elements should contains 2 braces, both elements, 2 parens and two commas"){
+    val first = randomString
+    val second = randomString
+    val third = randomString
+
+    first should not be second
+    second should not be third
+
+    val set = Set(first, second, third)
+    val actual = set.toString
+
+    actual.count(_ == '{') shouldBe 1
+
+    actual should include(first)
+
+    actual.count(_ == ',') shouldBe 2
+
+    actual should include(second)
+    actual should include(third)
+
+    actual.count(_ == '}') shouldBe 1
+  }
 
 
 
