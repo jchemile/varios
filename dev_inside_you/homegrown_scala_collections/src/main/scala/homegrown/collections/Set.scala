@@ -26,7 +26,7 @@ sealed trait Set[Element] extends (Element => Boolean) {
   final def forall(predicate: Element => Boolean): Boolean =
     fold(true)(_ && predicate(_))
 
-  final def add(input: Element): Set[Element] = {
+  final def add[Super >: Element](input: Super): Set[Super] = {
     fold(NonEmpty(input, empty)) {(acc, current) =>
       if (current == input)
         acc
@@ -43,7 +43,7 @@ sealed trait Set[Element] extends (Element => Boolean) {
         NonEmpty(current, acc)
     }
 
-  final def union(that: Set[Element]): Set[Element] =
+  final def union[Super >: Element](that: Set[Super]): Set[Super] =
     fold(that) (_ add _)
 
 

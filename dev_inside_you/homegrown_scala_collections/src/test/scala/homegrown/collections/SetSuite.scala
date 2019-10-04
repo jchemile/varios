@@ -119,6 +119,17 @@ class SetSuite extends FunSuite with Matchers {
     right.union(left) shouldBe Set(a, b, c).add(d)
   }
 
+//  test("union with variance") {
+//    val (employee, consultant) = bothRoles
+//
+//    Set[Employee](employee).union(Set[Consultant](consultant)) shouldBe Set[CompanyRole] (employee, consultant)
+//
+//    Set[Employee](employee).add(consultant : CompanyRole) shouldBe Set[CompanyRole](employee, consultant)
+//
+//    Set(employee, consultant)
+//    Set[CompanyRole](employee, consultant)
+//  }
+
   test("intersection on empty Set should yield an empty Set") {
     Set.empty.intersection(Set.empty) shouldBe Set.empty
     Set.empty[Nothing].intersection(_ => false) shouldBe Set.empty
@@ -188,8 +199,17 @@ class SetSuite extends FunSuite with Matchers {
 
     left.difference(right) shouldBe Set(a)
     right.difference(left) shouldBe Set(d)
-
   }
+
+//  test("difference on two sets with different types should yield a Set with the common type"){
+//    val (employee, consultant) = bothRoles
+//
+//    val employeeSet: Set[CompanyRole] = Set(employee)
+//    val consultantSet: Set[CompanyRole] = Set(consultant)
+//
+//    employeeSet.difference(consultantSet) shouldBe employeeSet
+//    consultantSet.difference(employeeSet) shouldBe consultantSet
+//  }
 
   test("isSubsetOf on an empty Set should yield true") {
     Set.empty.isSubsetOf(Set.empty) shouldBe true
@@ -526,8 +546,37 @@ class SetSuite extends FunSuite with Matchers {
     actual.count(_ == '}') shouldBe 1
   }
 
+  private def bothRoles: (Employee, Consultant) =
+    randomEmployee -> randomConsultant
 
+  private def randomEmployee: Employee =
+    Employee(
+      id = randomString
+    )
+
+  private def randomConsultant: Consultant =
+    Consultant(
+      id = randomString,
+      companyName =  randomString
+    )
 
   private def randomString: String =
     scala.util.Random.alphanumeric.take(5).mkString
+}
+
+sealed trait CompanyRole{
+  def id: String
+  final def roleName: String = getClass.toString
+}
+
+final case class Employee(id: String) extends CompanyRole{
+  final def takeVacation(): Unit = {
+    println("taking a vacation")
+  }
+}
+
+final case class Consultant(id: String, companyName: String) extends CompanyRole {
+  final def submitInvoice(): Unit = {
+    println("here is my invoice")
+  }
 }
