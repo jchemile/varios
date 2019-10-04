@@ -257,6 +257,77 @@ class SetSuite extends FunSuite with Matchers {
     right.isSupersetOf(left) shouldBe true
   }
 
+  test("equals should be reflexive"){
+    def reflexive(x: Any): Unit = {
+      x shouldBe x
+      x.hashCode shouldBe x.hashCode
+    }
+
+    reflexive(Set.empty)
+    reflexive(Set(1))
+    reflexive(Set(1,2))
+    reflexive(Set(2, 1))
+  }
+
+  test("equals should be symmetric"){
+    def symmetric(x: Any, y: Any): Unit = {
+      x shouldBe y
+      y shouldBe x
+
+      x.hashCode shouldBe y.hashCode
+      y.hashCode shouldBe x.hashCode
+    }
+
+    symmetric(Set.empty, Set.empty)
+    symmetric(Set(1), Set(1))
+    symmetric(Set(1, 2), Set(1, 2))
+    symmetric(Set(1, 2), Set(2, 1))
+    symmetric(Set(1, 2, 3), Set(1, 2, 3))
+    symmetric(Set(1, 2, 3), Set(1, 3, 2))
+    symmetric(Set(1, 2, 3), Set(2, 1, 3))
+    symmetric(Set(1, 2, 3), Set(2, 3, 1))
+    symmetric(Set(1, 2, 3), Set(3, 1, 2))
+    symmetric(Set(1, 2, 3), Set(3, 2, 1))
+  }
+
+  test("equals should be transitive"){
+    def transitive(x: Any, y: Any, z: Any): Unit = {
+      x shouldBe y
+      y shouldBe z
+      x shouldBe z
+
+      x.hashCode shouldBe y.hashCode
+      y.hashCode shouldBe z.hashCode
+      x.hashCode shouldBe z.hashCode
+    }
+
+    transitive(Set.empty, Set.empty, Set.empty)
+    transitive(Set(1,2,3), Set(3,2,1), Set(2,1,3))
+  }
+
+  test("these should not be equal"){
+    Set(1) should not be Set(2)
+    Set(2) should not be Set(1)
+
+    Set(1) should not be 1
+    1 should not be Set(1)
+
+    Set(1) == 1 shouldBe false
+    //1 == Set(1) shouldBe false
+
+    Set(1) should not be Set("1")
+    Set("1") should not be Set(1)
+
+    Set(1) == Set("1") shouldBe false
+    Set("1") == Set(1) shouldBe false
+
+    Set(1) should not be Set(1,2)
+    Set(1, 2) should not be Set(1)
+
+    Set(1) should not be Set(2, 1)
+    Set(2, 1) should not be Set(1)
+  }
+
   test("hashCode on an empty Set should not be random") {
     Set.empty.hashCode shouldBe Set.empty.hashCode
 
