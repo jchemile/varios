@@ -10,6 +10,12 @@ initialCommands in console := "import homegrown.collections._"
 
 addCommandAlias("testc",";clean;coverage;test;coverageReport")
 
+scalacOptions ++=
+  Seq(
+    "-feature",
+    "-language:implicitConversions"
+  )
+
 resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
 
 libraryDependencies ++=

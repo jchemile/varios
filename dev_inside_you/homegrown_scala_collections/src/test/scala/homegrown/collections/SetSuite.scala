@@ -119,22 +119,19 @@ class SetSuite extends FunSuite with Matchers {
     right.union(left) shouldBe Set(a, b, c).add(d)
   }
 
-//  test("union with variance") {
-//    val (employee, consultant) = bothRoles
-//
-//    Set[Employee](employee).union(Set[Consultant](consultant)) shouldBe Set[CompanyRole] (employee, consultant)
-//
-//    Set[Employee](employee).add(consultant : CompanyRole) shouldBe Set[CompanyRole](employee, consultant)
-//
-//    Set(employee, consultant)
-//    Set[CompanyRole](employee, consultant)
-//  }
+  test("union with variance") {
+    val (employee, consultant) = bothRoles
+
+    Set(employee).union(Set(consultant)) shouldBe Set(employee, consultant)
+
+    Set[Employee](employee).add(consultant : CompanyRole) shouldBe Set[CompanyRole](employee, consultant)
+  }
 
   test("intersection on empty Set should yield an empty Set") {
-    Set.empty.intersection(Set.empty) shouldBe Set.empty
+    Set.empty.intersection(Set.empty[String]) shouldBe Set.empty
     Set.empty[Nothing].intersection(_ => false) shouldBe Set.empty
 
-    Set.empty.filter(Set.empty) shouldBe Set.empty
+    Set.empty.filter(Set.empty[String]) shouldBe Set.empty
     Set.empty[Nothing].filter(_ => false) shouldBe Set.empty
   }
 
@@ -169,7 +166,7 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("difference on empty Set should yield an empty set") {
-    Set.empty.difference(Set.empty) shouldBe Set.empty
+    Set.empty.difference(Set.empty[String]) shouldBe Set.empty
   }
 
   test("difference on a non empty Set with an empty Set should yield an empty Set") {
@@ -201,18 +198,18 @@ class SetSuite extends FunSuite with Matchers {
     right.difference(left) shouldBe Set(d)
   }
 
-//  test("difference on two sets with different types should yield a Set with the common type"){
-//    val (employee, consultant) = bothRoles
-//
-//    val employeeSet: Set[CompanyRole] = Set(employee)
-//    val consultantSet: Set[CompanyRole] = Set(consultant)
-//
-//    employeeSet.difference(consultantSet) shouldBe employeeSet
-//    consultantSet.difference(employeeSet) shouldBe consultantSet
-//  }
+  test("difference on two sets with different types should yield a Set with the common type"){
+    val (employee, consultant) = bothRoles
+
+    val employeeSet = Set(employee)
+    val consultantSet = Set(consultant)
+
+    employeeSet.difference(consultantSet) shouldBe employeeSet
+    consultantSet.difference(employeeSet) shouldBe consultantSet
+  }
 
   test("isSubsetOf on an empty Set should yield true") {
-    Set.empty.isSubsetOf(Set.empty) shouldBe true
+    Set.empty.isSubsetOf(Set.empty[String]) shouldBe true
     Set.empty.isSubsetOf(Set(randomString)) shouldBe true
   }
 

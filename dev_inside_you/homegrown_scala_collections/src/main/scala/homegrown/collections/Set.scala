@@ -2,16 +2,16 @@ package homegrown.collections
 
 import homegrown.collections.Set.NonEmpty
 
-sealed trait Set[Element] extends (Element => Boolean) {
+sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
   import Set._
 
-  final override def apply(input: Element): Boolean =
+  final /*override*/ def apply[Super >: Element](input: Super): Boolean =
     contains(input)
 
-  final def doesNotContains(input: Element): Boolean =
+  final def doesNotContains[Super >: Element](input: Super): Boolean =
     !contains(input)
 
-  final def contains(input: Element): Boolean =
+  final def contains[Super >: Element](input: Super): Boolean =
     exists(_ == input)
 
   final def doesNotExists(predicate: Element => Boolean): Boolean =
@@ -35,7 +35,7 @@ sealed trait Set[Element] extends (Element => Boolean) {
     }
   }
 
-  final def remove(input: Element): Set[Element] =
+  final def remove[Super >: Element](input: Super): Set[Super] =
     fold(empty[Element]) { (acc, current) =>
       if (current == input)
         acc
@@ -75,7 +75,7 @@ sealed trait Set[Element] extends (Element => Boolean) {
     forall(predicate)
   }
 
-  final def isSupersetOf(that: Set[Element]): Boolean =
+  final def isSupersetOf[Super >: Element](that: Set[Super]): Boolean =
     that.isSubsetOf(this)
 
   final override def equals(other:Any): Boolean = other
@@ -173,4 +173,9 @@ object Set {
     sys.error("pattern matching on Sets is expensive and therefore not supported")
 
   def empty[Element]: Set[Element] = new Empty[Element]
+
+  implicit def setCanBeUsedAsFunction1[Element](set: Set[Element]): Element => Boolean =
+    set.apply
+
+
 }
