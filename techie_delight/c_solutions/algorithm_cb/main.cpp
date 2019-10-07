@@ -1,6 +1,6 @@
-#include "hashingBinaryToDoubleLinkedList.h"
+#include "FindDuplicates_SlidingWindow.h"
 
 int main()
 {
-    hashingBinaryToDoubleLinkedList();
+    FindDuplicates_SlidingWindow();
 }
