@@ -545,6 +545,25 @@ class SetSuite extends FunSuite with Matchers {
     Set(element).doesNotExists(_.size != element.size) shouldBe true
   }
 
+  test("exists with variance"){
+    val (employee, consultant) = bothRoles
+
+    Set(employee).exists(_ == employee) shouldBe true
+
+    Set[Employee](employee).exists(_ == employee) shouldBe true
+    Set[CompanyRole](employee).exists(_ == employee) shouldBe true
+
+    Set[Employee](employee).exists((input: Employee) => input == employee) shouldBe true
+    Set[Employee](employee).exists((input: CompanyRole) => input == employee) shouldBe true
+    Set[CompanyRole](employee).exists((input: CompanyRole) => input == employee) shouldBe true
+    "Set[CompanyRole](employee).exists((input: Employee) => input == employee)" shouldNot typeCheck
+
+    Set[Employee](employee).exists((Set[Employee])(employee)) shouldBe true
+    Set[Employee](employee).exists((Set[CompanyRole])(employee)) shouldBe true
+    Set[CompanyRole](employee).exists(Set[CompanyRole](employee)) shouldBe true
+    Set[CompanyRole](employee).exists(Set[Employee](employee)) shouldBe true
+  }
+
   test("forall on an empty Set should yield false"){
     Set.empty[String].forall(_ => false) shouldBe true
     Set.empty[String].notForall(_ => false) shouldBe false
