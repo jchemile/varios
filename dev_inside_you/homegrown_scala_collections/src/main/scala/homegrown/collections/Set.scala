@@ -36,7 +36,7 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
   }
 
   final def remove[Super >: Element](input: Super): Set[Super] =
-    fold(empty[Element]) { (acc, current) =>
+    fold[Set[Super]](empty) { (acc, current) =>
       if (current == input)
         acc
       else
@@ -48,15 +48,10 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
 
 
   final def intersection(predicate: Element => Boolean): Set[Element] =
-    fold(empty[Element]) {(acc, current) =>
-      if(predicate(current))
-        acc.add(current)
-      else
-        acc
-    }
+    filter(predicate)
 
   final def filter(predicate: Element => Boolean): Set[Element] =
-    fold(empty[Element]) { (acc, current) =>
+    fold[Set[Element]](empty) { (acc, current) =>
       if (predicate(current))
         acc.add(current)
       else
@@ -64,7 +59,7 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
     }
 
   final def difference(predicate: Element => Boolean): Set[Element] =
-    fold(empty[Element]) { (acc, current) =>
+    fold[Set[Element]](empty) { (acc, current) =>
       if (predicate(current))
         acc
       else
@@ -105,7 +100,7 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
     }
 
   final def isEmpty: Boolean =
-    this.isInstanceOf[Empty[Element]]
+    this.isInstanceOf[Empty.type]
 
   final def nonEmpty: Boolean =
     !isEmpty
@@ -126,10 +121,10 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
   }
 
   final def map[Result](function: Element => Result): Set[Result] =
-    fold(empty[Result])(_ add function(_))
+    fold[Set[Result]](empty)(_ add function(_))
 
   final def flatMap[Result](function: Element => Set[Result]): Set[Result] = {
-    fold(empty[Result]) {(acc, current) =>
+    fold[Set[Result]](empty) {(acc, current) =>
       function(current).fold(acc) (_ add _)
     }
   }
@@ -152,7 +147,7 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
 
 object Set {
   def apply[Element](element: Element, otherElement: Element*): Set[Element] =
-    otherElement.foldLeft(empty[Element].add(element))(_ add _)
+    otherElement.foldLeft[Set[Element]](empty.add(element))(_ add _)
 
   private final case class NonEmpty[Element](element: Element, otherElements: Set[Element]) extends Set[Element]
 
@@ -161,7 +156,7 @@ object Set {
       patterMatchingNotSupported
   }
 
-  private class Empty[Element] extends Set[Element] {
+  private object Empty extends Set[Nothing] {
     private[this] def unapply(any:Any): Option[(String, Any)] =
       patterMatchingNotSupported
   }
@@ -172,7 +167,7 @@ object Set {
   private[this] def patterMatchingNotSupported: Nothing =
     sys.error("pattern matching on Sets is expensive and therefore not supported")
 
-  def empty[Element]: Set[Element] = new Empty[Element]
+  def empty: Set[Nothing] = Empty
 
   implicit def setCanBeUsedAsFunction1[Element](set: Set[Element]): Element => Boolean =
     set.apply
