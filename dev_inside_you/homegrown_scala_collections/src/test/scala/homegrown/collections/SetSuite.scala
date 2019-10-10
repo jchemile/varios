@@ -96,7 +96,7 @@ class SetSuite extends FunSuite with Matchers {
 
     first should not be second
 
-    val emptySet = Set.empty[String]
+    val emptySet = Set.empty
     val nonEmptySet = Set(first, second)
 
     emptySet.union(nonEmptySet)(first) shouldBe true
@@ -129,10 +129,10 @@ class SetSuite extends FunSuite with Matchers {
 
   test("intersection on empty Set should yield an empty Set") {
     Set.empty.intersection(Set.empty[String]) shouldBe Set.empty
-    Set.empty[Nothing].intersection(_ => false) shouldBe Set.empty
+    Set.empty.intersection(_ => false) shouldBe Set.empty
 
     Set.empty.filter(Set.empty[String]) shouldBe Set.empty
-    Set.empty[Nothing].filter(_ => false) shouldBe Set.empty
+    Set.empty.filter(_ => false) shouldBe Set.empty
   }
 
   test("intersection on a non empty Set with an empty Set should yield an empty Set") {
@@ -141,7 +141,7 @@ class SetSuite extends FunSuite with Matchers {
 
     first should not be second
 
-    val emptySet = Set.empty[String]
+    val emptySet = Set.empty
     val nonEmptySet = Set(first, second)
 
     emptySet.intersection(nonEmptySet)(first) shouldBe false
@@ -175,7 +175,7 @@ class SetSuite extends FunSuite with Matchers {
 
     first should not be second
 
-    val emptySet = Set.empty[String]
+    val emptySet = Set.empty
     val nonEmptySet = Set(first, second)
 
     emptySet.difference(nonEmptySet)(first) shouldBe false
@@ -407,7 +407,7 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("foreach on an empty Set should not apply the function"){
-    noException should be thrownBy Set.empty[String].foreach(_ => sys.error("should not be thrown"))
+    noException should be thrownBy Set.empty.foreach(_ => sys.error("should not be thrown"))
   }
 
   test("Set() should not compile"){
@@ -478,11 +478,11 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("foreach should be parameterized in the result of the argument function so that it does not produce warnings") {
-    Set.empty[String].foreach(_ => 1)
+    Set.empty.foreach(_ => 1)
   }
 
   test("map on an empty Set should not apply the function"){
-    noException should be thrownBy Set.empty[String].map(_ => sys.error("should not be thrown"))
+    noException should be thrownBy Set.empty.map(_ => sys.error("should not be thrown"))
   }
 
   test("map should produce a Set"){
@@ -531,8 +531,8 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("exists on an empty Set should yield false") {
-    Set.empty[String].exists(_ => false) shouldBe false
-    Set.empty[String].doesNotExists(_ => false) shouldBe true
+    Set.empty.exists(_ => false) shouldBe false
+    Set.empty.doesNotExists(_ => false) shouldBe true
   }
 
   test("exists on a non empty Set should yield true"){
@@ -565,8 +565,8 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("forall on an empty Set should yield false"){
-    Set.empty[String].forall(_ => false) shouldBe true
-    Set.empty[String].notForall(_ => false) shouldBe false
+    Set.empty.forall(_ => false) shouldBe true
+    Set.empty.notForall(_ => false) shouldBe false
   }
 
   test("forall on a non empty Set should yield true"){

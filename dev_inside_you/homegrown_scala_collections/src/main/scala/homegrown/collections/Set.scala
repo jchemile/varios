@@ -23,7 +23,7 @@ sealed trait Set[+Element] extends FoldableFactory[Element] {
   }
 
   final def remove[Super >: Element](input: Super): Set[Super] =
-    fold(empty[Element]) { (acc, current) =>
+    fold[Set[Super]](empty) { (acc, current) =>
       if (current == input)
         acc
       else
@@ -34,15 +34,10 @@ sealed trait Set[+Element] extends FoldableFactory[Element] {
     fold(that) (_ add _)
 
   final def intersection(predicate: Element => Boolean): Set[Element] =
-    fold(empty[Element]) {(acc, current) =>
-      if(predicate(current))
-        acc.add(current)
-      else
-        acc
-    }
+    filter(predicate)
 
   final def filter(predicate: Element => Boolean): Set[Element] =
-    fold(empty[Element]) { (acc, current) =>
+    fold[Set[Element]](empty) { (acc, current) =>
       if (predicate(current))
         acc.add(current)
       else
@@ -50,7 +45,7 @@ sealed trait Set[+Element] extends FoldableFactory[Element] {
     }
 
   final def difference(predicate: Element => Boolean): Set[Element] =
-    fold(empty[Element]) { (acc, current) =>
+    fold[Set[Element]](empty) { (acc, current) =>
       if (predicate(current))
         acc
       else
@@ -84,7 +79,17 @@ sealed trait Set[+Element] extends FoldableFactory[Element] {
       "{" + elementOrThrowException + otherElementsSplitByCommaSpace + "}"
     }
 
+<<<<<<< HEAD
   final  def isEmpty: Boolean =
+=======
+
+  final def size: Int =
+    fold(0) { (acc, _) =>
+      acc + 1
+    }
+
+  final def isEmpty: Boolean =
+>>>>>>> 82631028e30d1875ea752b84d3aa4d3326e4df3f
     this.isInstanceOf[Empty.type]
 
   final def nonEmpty: Boolean =
@@ -99,11 +104,22 @@ sealed trait Set[+Element] extends FoldableFactory[Element] {
     else
       Some(elementOrThrowException)
 
+<<<<<<< HEAD
 //  final def map[Result](function: Element => Result): Set[Result] =
 //    fold(empty[Result])(_ add function(_))
+=======
+  final def foreach[Result](function: Element => Result): Unit = {
+    fold(()) {(_, current) =>
+      function(current)
+    }
+  }
+
+  final def map[Result](function: Element => Result): Set[Result] =
+    fold[Set[Result]](empty)(_ add function(_))
+>>>>>>> 82631028e30d1875ea752b84d3aa4d3326e4df3f
 
   final def flatMap[Result](function: Element => Set[Result]): Set[Result] = {
-    fold(empty[Result]) {(acc, current) =>
+    fold[Set[Result]](empty) {(acc, current) =>
       function(current).fold(acc) (_ add _)
     }
   }
@@ -119,7 +135,7 @@ sealed trait Set[+Element] extends FoldableFactory[Element] {
 
 object Set {
   def apply[Element](element: Element, otherElement: Element*): Set[Element] =
-    otherElement.foldLeft(empty[Element].add(element))(_ add _)
+    otherElement.foldLeft[Set[Element]](empty.add(element))(_ add _)
 
   private final case class NonEmpty[Element](element: Element, otherElements: Set[Element]) extends Set[Element]
 
@@ -128,7 +144,11 @@ object Set {
       patterMatchingNotSupported
   }
 
+<<<<<<< HEAD
   private class Empty[Element] extends Set[Nothing] {
+=======
+  private object Empty extends Set[Nothing] {
+>>>>>>> 82631028e30d1875ea752b84d3aa4d3326e4df3f
     private[this] def unapply(any:Any): Option[(String, Any)] =
       patterMatchingNotSupported
   }
@@ -139,7 +159,11 @@ object Set {
   private[this] def patterMatchingNotSupported: Nothing =
     sys.error("pattern matching on Sets is expensive and therefore not supported")
 
+<<<<<<< HEAD
   final override def empty: Set[Nothing] = Empty
+=======
+  def empty: Set[Nothing] = Empty
+>>>>>>> 82631028e30d1875ea752b84d3aa4d3326e4df3f
 
   implicit def setCanBeUsedAsFunction1[Element](set: Set[Element]): Element => Boolean =
     set.apply
