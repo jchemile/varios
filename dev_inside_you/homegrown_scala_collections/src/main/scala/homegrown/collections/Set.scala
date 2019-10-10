@@ -1,30 +1,17 @@
 package homegrown.collections
 
-import homegrown.collections.Set.NonEmpty
-
-sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
+sealed trait Set[+Element] extends FoldableFactory[Element] {
   import Set._
 
-  final /*override*/ def apply[Super >: Element](input: Super): Boolean =
+  final def apply[Super >: Element](input: Super): Boolean =
     contains(input)
 
-  final def doesNotContains[Super >: Element](input: Super): Boolean =
-    !contains(input)
-
-  final def contains[Super >: Element](input: Super): Boolean =
-    exists(_ == input)
-
-  final def doesNotExists(predicate: Element => Boolean): Boolean =
-    !exists(predicate)
-
-  final def exists(predicate: Element => Boolean): Boolean =
-    fold(false)(_ || predicate(_))
-
-  final def notForall(predicate: Element => Boolean): Boolean =
-    !forall(predicate)
-
-  final def forall(predicate: Element => Boolean): Boolean =
-    fold(true)(_ && predicate(_))
+  @scala.annotation.tailrec
+  final override def fold[Result](seed: Result)(function: (Result, Element) => Result): Result =
+    if(isEmpty)
+      (seed)
+    else
+      otherElementsOrThrowException.fold(function(seed, elementOrThrowException))(function)
 
   final def add[Super >: Element](input: Super): Set[Super] = {
     fold(NonEmpty(input, empty)) {(acc, current) =>
@@ -45,7 +32,6 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
 
   final def union[Super >: Element](that: Set[Super]): Set[Super] =
     fold(that) (_ add _)
-
 
   final def intersection(predicate: Element => Boolean): Set[Element] =
     fold(empty[Element]) {(acc, current) =>
@@ -98,14 +84,8 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
       "{" + elementOrThrowException + otherElementsSplitByCommaSpace + "}"
     }
 
-
-  final def size: Int =
-    fold(0) { (acc, _) =>
-      acc + 1
-    }
-
-  final def isEmpty: Boolean =
-    this.isInstanceOf[Empty[Element]]
+  final  def isEmpty: Boolean =
+    this.isInstanceOf[Empty.type]
 
   final def nonEmpty: Boolean =
     !isEmpty
@@ -119,27 +99,14 @@ sealed trait Set[+Element] /*extends (Element => Boolean)*/ {
     else
       Some(elementOrThrowException)
 
-  final def foreach[Result](function: Element => Result): Unit = {
-    fold(()) {(_, current) =>
-      function(current)
-    }
-  }
-
-  final def map[Result](function: Element => Result): Set[Result] =
-    fold(empty[Result])(_ add function(_))
+//  final def map[Result](function: Element => Result): Set[Result] =
+//    fold(empty[Result])(_ add function(_))
 
   final def flatMap[Result](function: Element => Set[Result]): Set[Result] = {
     fold(empty[Result]) {(acc, current) =>
       function(current).fold(acc) (_ add _)
     }
   }
-
-  @scala.annotation.tailrec
-  final def fold[Result](seed: Result)(function: (Result, Element) => Result): Result =
-    if(isEmpty)
-      (seed)
-    else
-      otherElementsOrThrowException.fold(function(seed, elementOrThrowException))(function)
 
   private[this] lazy val(elementOrThrowException, otherElementsOrThrowException) = {
     val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
@@ -161,7 +128,7 @@ object Set {
       patterMatchingNotSupported
   }
 
-  private class Empty[Element] extends Set[Element] {
+  private class Empty[Element] extends Set[Nothing] {
     private[this] def unapply(any:Any): Option[(String, Any)] =
       patterMatchingNotSupported
   }
@@ -172,7 +139,7 @@ object Set {
   private[this] def patterMatchingNotSupported: Nothing =
     sys.error("pattern matching on Sets is expensive and therefore not supported")
 
-  def empty[Element]: Set[Element] = new Empty[Element]
+  final override def empty: Set[Nothing] = Empty
 
   implicit def setCanBeUsedAsFunction1[Element](set: Set[Element]): Element => Boolean =
     set.apply
