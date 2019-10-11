@@ -13,7 +13,8 @@ addCommandAlias("testc",";clean;coverage;test;coverageReport")
 scalacOptions ++=
   Seq(
     "-feature",
-    "-language:implicitConversions"
+    "-language:implicitConversions",
+    "-language:higherKinds"
   )
 
 resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"

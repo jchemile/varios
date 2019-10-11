@@ -1,11 +1,31 @@
 package homegrown.collections
 
-trait FoldableFactory[+Element] extends Foldable[Element] {
-  protected  def empty: FoldableFactory[Nothing]
+trait FoldableFactory[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFactory[Element, SubtypeOfFoldableFactory]]
+  extends Foldable[Element] {
+  protected  def factory: Factory[SubtypeOfFoldableFactory]
 
-  final def add[Super >: Element](input: Super): FoldableFactory[Super]
+  def add[Super >: Element](input: Super): SubtypeOfFoldableFactory[Super]
 
-  def map[Result](function: Element => Result): Set[Result] =
-    fold(FoldableFactory[Result])(_ add function(_))
+  def remove[Super >: Element](input: Super): SubtypeOfFoldableFactory[Super]
+
+  final def filterNot(predicate: Element => Boolean): SubtypeOfFoldableFactory[Element] =
+    filter(!predicate(_))
+
+  def filter(predicate: Element => Boolean): SubtypeOfFoldableFactory[Element] =
+    fold[SubtypeOfFoldableFactory[Element]](factory.empty) { (acc, current) =>
+      if (predicate(current))
+        acc.add(current)
+      else
+        acc
+    }
+
+  def map[Result](function: Element => Result): SubtypeOfFoldableFactory[Result] =
+    fold[SubtypeOfFoldableFactory[Result]](factory.empty)(_ add function(_))
+
+  def flatMap[Result](function: Element => Foldable[Result]): SubtypeOfFoldableFactory[Result] = {
+    fold[SubtypeOfFoldableFactory[Result]](factory.empty) {(acc, current) =>
+      function(current).fold(acc) (_ add _)
+    }
+  }
 
 }
