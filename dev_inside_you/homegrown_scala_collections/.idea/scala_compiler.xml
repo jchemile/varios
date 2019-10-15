@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="homegrown_scala_collections,homegrown_scala_collections_2620" />
-  </component>
-</project>
