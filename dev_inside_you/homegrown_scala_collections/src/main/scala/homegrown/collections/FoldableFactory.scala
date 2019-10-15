@@ -2,7 +2,7 @@ package homegrown.collections
 
 trait FoldableFactory[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFactory[Element, SubtypeOfFoldableFactory]]
   extends Foldable[Element] {
-  protected  def factory: Factory[SubtypeOfFoldableFactory]
+  protected def factory: Factory[SubtypeOfFoldableFactory]
 
   def add[Super >: Element](input: Super): SubtypeOfFoldableFactory[Super]
 
@@ -23,8 +23,8 @@ trait FoldableFactory[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFa
     fold[SubtypeOfFoldableFactory[Result]](factory.empty)(_ add function(_))
 
   def flatMap[Result](function: Element => Foldable[Result]): SubtypeOfFoldableFactory[Result] = {
-    fold[SubtypeOfFoldableFactory[Result]](factory.empty) {(acc, current) =>
-      function(current).fold(acc) (_ add _)
+    fold[SubtypeOfFoldableFactory[Result]](factory.empty) { (acc, current) =>
+      function(current).fold(acc)(_ add _)
     }
   }
 
