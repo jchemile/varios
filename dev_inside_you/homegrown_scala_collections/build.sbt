@@ -4,7 +4,7 @@ organization := "devinsideyou"
 
 scalaVersion := "2.12.4"
 
-triggeredMessage := Watched.clearWhenTriggered
+watchTriggeredMessage := Watch.clearScreenOnTrigger
 
 initialCommands in console := "import homegrown.collections._"
 
@@ -17,9 +17,9 @@ scalacOptions ++=
     "-language:higherKinds"
   )
 
-resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
+resolvers += "Artima Maven Repository" at "https://repo.artima.com/releases"
 
 libraryDependencies ++=
   Seq(
-    "org.scalatest" %% "scalatest" % "3.0.8" % "test",
+    "org.scalatest" %% "scalatest" % "3.0.5" % "test",
   )

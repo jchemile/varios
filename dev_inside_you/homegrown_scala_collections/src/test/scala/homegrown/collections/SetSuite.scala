@@ -1,4 +1,5 @@
 package homegrown.collections
+
 import homegrown.collections._
 import org.scalatest._
 
