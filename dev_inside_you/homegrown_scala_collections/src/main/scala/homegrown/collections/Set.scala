@@ -1,6 +1,6 @@
 package homegrown.collections
 
-sealed trait Set[+Element] extends FoldableFactory[Element, Set] {
+sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   import Set._
 
   final override protected def factory: Factory[Set] =
@@ -78,14 +78,9 @@ sealed trait Set[+Element] extends FoldableFactory[Element, Set] {
   final def nonEmpty: Boolean =
     !isEmpty
 
-  final def isSingleton: Boolean =
-    nonEmpty && otherElementsOrThrowException.isEmpty
+  def isSingleton: Boolean
 
-  def sample: Option[Element] =
-    if (isEmpty)
-      None
-    else
-      Some(elementOrThrowException)
+  def sample: Option[Element]
 
   private[this] lazy val (elementOrThrowException, otherElementsOrThrowException) = {
     val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
@@ -97,7 +92,13 @@ sealed trait Set[+Element] extends FoldableFactory[Element, Set] {
 }
 
 object Set extends Factory[Set] {
-  private final case class NonEmpty[Element](element: Element, otherElements: Set[Element]) extends Set[Element]
+  private final case class NonEmpty[Element](element: Element, otherElements: Set[Element]) extends Set[Element]{
+    final def isSingleton: Boolean =
+      otherElements.isEmpty
+
+    final override def sample: Option[Element] =
+      Some(element)
+  }
 
   private object NonEmpty {
     //$COVERAGE-OFF$
@@ -107,6 +108,12 @@ object Set extends Factory[Set] {
   }
 
   private object Empty extends Set[Nothing] {
+    final override def isSingleton: Boolean =
+      false
+
+    final override def sample: Option[Nothing] =
+      None
+
     //$COVERAGE-OFF$
     private[this] def unapply(any: Any): Option[(String, Any)] =
       patterMatchingNotSupported
