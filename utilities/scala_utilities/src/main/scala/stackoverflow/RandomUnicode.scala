@@ -5,6 +5,7 @@ import util.Random
 
 object RandomUnicode {
 
+  /*
   def randomUnicodeString(length: Int) =
     LazyList.continually(Random.nextInt(0xFFFF))
             .collect{case c if Character.isDefined(c) => c.toChar}
@@ -16,5 +17,5 @@ object RandomUnicode {
 
     print(x)
   }
-
+  */
 }

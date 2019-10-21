@@ -9,27 +9,58 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   final def apply[Super >: Element](input: Super): Boolean =
     contains(input)
 
-  @scala.annotation.tailrec
+  final override def contains[Super >: Element](input: Super): Boolean =
+    this match {
+      case _: Empty.type =>
+        false
+
+      case nonEmptySet: NonEmpty[Element] =>
+        if(input == nonEmptySet.element)
+          true
+        else if (input.hashCode <= nonEmptySet.element.hashCode)
+          nonEmptySet.left.contains(input)
+        else
+          nonEmptySet.right.contains(input)
+    }
+
   final override def fold[Result](seed: Result)(function: (Result, Element) => Result): Result =
-    if (isEmpty)
-      seed
-    else
-      otherElementsOrThrowException.fold(function(seed, elementOrThrowException))(function)
+    this match {
+      case Empty() =>
+        seed
+
+      case nonEmptySet: NonEmpty[Element] =>
+        val currentResult = function(seed, nonEmptySet.element)
+
+        val rightResult = nonEmptySet.right.fold(currentResult)(function)
+        nonEmptySet.left.fold(rightResult)(function)
+    }
 
   final override def add[Super >: Element](input: Super): Set[Super] =
-    fold(NonEmpty(input, empty)) { (acc, current) =>
-      if (current == input)
-        acc
-      else
-        NonEmpty(current, acc)
+    this match {
+      case _ : Empty.type =>
+        NonEmpty(empty, input,  empty)
+
+      case nonEmptySet: NonEmpty[Element] =>
+        if(input == nonEmptySet.element)
+          nonEmptySet
+        else if (input.hashCode <= nonEmptySet.element.hashCode)
+          NonEmpty(nonEmptySet.left.add(input), nonEmptySet.element, nonEmptySet.right)
+        else
+          NonEmpty(nonEmptySet.left, nonEmptySet.element, nonEmptySet.right.add(input))
     }
 
   final override def remove[Super >: Element](input: Super): Set[Super] =
-    fold[Set[Super]](empty) { (acc, current) =>
-      if (current == input)
-        acc
-      else
-        NonEmpty(current, acc)
+    this match {
+      case _: Empty.type =>
+        empty
+
+      case nonEmptySet: NonEmpty[Element] =>
+        if (input == nonEmptySet.element)
+          nonEmptySet.left.union(nonEmptySet.right)
+        else if (input.hashCode <= nonEmptySet.element.hashCode)
+          NonEmpty(nonEmptySet.left.remove(input), nonEmptySet.element, nonEmptySet.right)
+        else
+          NonEmpty(nonEmptySet.left, nonEmptySet.element, nonEmptySet.right.remove(input))
     }
 
   final def union[Super >: Element](that: Set[Super]): Set[Super] =
@@ -52,25 +83,14 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   final def isSupersetOf[Super >: Element](that: Set[Super]): Boolean =
     that.isSubsetOf(this)
 
-  final override def equals(other: Any): Boolean = other match {
+  final override def equals(other: Any): Boolean =
+    other match {
     case that: Set[Element] => this.isSubsetOf(that) && that.isSubsetOf(this)
     case _                  => false
   }
 
   final override def hashCode: Int =
     fold(41)(_ + _.hashCode)
-
-  final override def toString: String =
-    if (isEmpty)
-      "{}"
-    else {
-      val otherElementsSplitByCommaSpace =
-        otherElementsOrThrowException.fold("") { (acc, current) =>
-          s"$acc, $current"
-        }
-
-      "{ " + elementOrThrowException + otherElementsSplitByCommaSpace + " }"
-    }
 
   final def isEmpty: Boolean =
     this.isInstanceOf[Empty.type]
@@ -81,54 +101,37 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   def isSingleton: Boolean
 
   def sample: Option[Element]
-
-  private[this] lazy val (elementOrThrowException, otherElementsOrThrowException) = {
-    val nonEmptySet = this.asInstanceOf[NonEmpty[Element]]
-    val element = nonEmptySet.element
-    val otherElements = nonEmptySet.otherElements
-
-    element -> otherElements
-  }
 }
 
 object Set extends Factory[Set] {
-  private final case class NonEmpty[Element](element: Element, otherElements: Set[Element]) extends Set[Element]{
+  private final case class NonEmpty[+Element](left: Set[Element], element: Element, right: Set[Element]) extends Set[Element]{
     final def isSingleton: Boolean =
-      otherElements.isEmpty
+      left.isEmpty && right.isEmpty
 
     final override def sample: Option[Element] =
       Some(element)
-  }
 
-  private object NonEmpty {
-    //$COVERAGE-OFF$
-    private[this] def unapply(any: Any): Option[(String, Any)] =
-      patterMatchingNotSupported
-    //$COVERAGE-ON$
+    final override def toString: String =
+      "{ " + element + otherElementsSplitByCommaSpace(left) + otherElementsSplitByCommaSpace(right) + " }"
+
+    private[this] def otherElementsSplitByCommaSpace(input: Set[Element]) =
+      input.fold(""){(acc, current) =>
+          s"$acc, $current" }
   }
 
   private object Empty extends Set[Nothing] {
+   def unapply[Element](set: Set[Element]): Boolean =
+      set.isInstanceOf[Empty.type]
+
     final override def isSingleton: Boolean =
       false
 
     final override def sample: Option[Nothing] =
       None
 
-    //$COVERAGE-OFF$
-    private[this] def unapply(any: Any): Option[(String, Any)] =
-      patterMatchingNotSupported
-    //$COVERAGE-ON$
+    final override def toString: String =
+        "{}"
   }
-
-  //$COVERAGE-OFF$
-  private[this] def unapply(any: Any): Option[(String, Any)] =
-    patterMatchingNotSupported
-  //$COVERAGE-ON$
-
-  //$COVERAGE-OFF$
-  private[this] def patterMatchingNotSupported: Nothing =
-    sys.error("pattern matching on Sets is expensive and therefore not supported")
-  //$COVERAGE-ON$
 
   final override def empty: Set[Nothing] = Empty
 
