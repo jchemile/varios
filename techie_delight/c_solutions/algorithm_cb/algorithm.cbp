@@ -32,6 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="FindDuplicates.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="FindDuplicates_SlidingWindow.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="hashingBinaryToDoubleLinkedList.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
