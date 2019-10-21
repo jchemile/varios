@@ -42,6 +42,10 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="minimumCostToReachMemorization.h" />
+		<Unit filename="minimumCostToReachTabulation.h" />
+		<Unit filename="threadeBinaryTree.h" />
+		<Unit filename="traverseBinaryToDoubleLinkedList.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
