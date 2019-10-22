@@ -14,13 +14,13 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       case _: Empty.type =>
         false
 
-      case nonEmptySet: NonEmpty[Element] =>
-        if(input == nonEmptySet.element)
+      case NonEmpty(left, element, right) =>
+        if(input == element)
           true
-        else if (input.hashCode <= nonEmptySet.element.hashCode)
-          nonEmptySet.left.contains(input)
+        else if (input.hashCode <= element.hashCode)
+          left.contains(input)
         else
-          nonEmptySet.right.contains(input)
+          right.contains(input)
     }
 
   final override def fold[Result](seed: Result)(function: (Result, Element) => Result): Result =
@@ -28,25 +28,25 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       case Empty() =>
         seed
 
-      case nonEmptySet: NonEmpty[Element] =>
-        val currentResult = function(seed, nonEmptySet.element)
+      case NonEmpty(left, element, right) =>
+        val currentResult = function(seed, element)
 
-        val rightResult = nonEmptySet.right.fold(currentResult)(function)
-        nonEmptySet.left.fold(rightResult)(function)
+        val rightResult = right.fold(currentResult)(function)
+        left.fold(rightResult)(function)
     }
 
   final override def add[Super >: Element](input: Super): Set[Super] =
     this match {
-      case _ : Empty.type =>
+      case Empty =>
         NonEmpty(empty, input,  empty)
 
-      case nonEmptySet: NonEmpty[Element] =>
-        if(input == nonEmptySet.element)
-          nonEmptySet
-        else if (input.hashCode <= nonEmptySet.element.hashCode)
-          NonEmpty(nonEmptySet.left.add(input), nonEmptySet.element, nonEmptySet.right)
+      case NonEmpty(left, element, right) =>
+        if(input == element)
+          this
+        else if (input.hashCode <= element.hashCode)
+          NonEmpty(left.add(input), element, right)
         else
-          NonEmpty(nonEmptySet.left, nonEmptySet.element, nonEmptySet.right.add(input))
+          NonEmpty(left, element, right.add(input))
     }
 
   final override def remove[Super >: Element](input: Super): Set[Super] =
@@ -54,13 +54,13 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       case _: Empty.type =>
         empty
 
-      case nonEmptySet: NonEmpty[Element] =>
-        if (input == nonEmptySet.element)
-          nonEmptySet.left.union(nonEmptySet.right)
-        else if (input.hashCode <= nonEmptySet.element.hashCode)
-          NonEmpty(nonEmptySet.left.remove(input), nonEmptySet.element, nonEmptySet.right)
+      case NonEmpty(left, element, right) =>
+        if (input == element)
+          left.union(right)
+        else if (input.hashCode <= element.hashCode)
+          NonEmpty(left.remove(input), element, right)
         else
-          NonEmpty(nonEmptySet.left, nonEmptySet.element, nonEmptySet.right.remove(input))
+          NonEmpty(left, element, right.remove(input))
     }
 
   final def union[Super >: Element](that: Set[Super]): Set[Super] =
