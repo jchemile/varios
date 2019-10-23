@@ -117,14 +117,14 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       else if (isLeft)
         "    "
       else
-        "│   "
+        "│    "
 
     def loop(prefix: String, isLeft: Boolean, isFirst: Boolean, set: Set[Element]): String = {
       set match {
         case Empty() =>
           ""
         case NonEmpty(left, element, right) =>
-          prefix + leftOrRight(isLeft, isFirst) + element + "\n" +
+            prefix + leftOrRight(isLeft, isFirst) + element + "\n" +
             loop(prefix + leftOrRightParent(isLeft, isFirst), isLeft  = false, isFirst = false, right) +
             loop(prefix + leftOrRightParent(isLeft, isFirst), isLeft  = true, isFirst = false, left)
       }
