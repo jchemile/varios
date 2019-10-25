@@ -1,5 +1,7 @@
 package homegrown.collections
 
+import java.awt.Color
+
 sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   import Set._
 
@@ -138,7 +140,7 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
     )
   }
 
-
+  def color: Color
 }
 
 object Set extends Factory[Set] {
