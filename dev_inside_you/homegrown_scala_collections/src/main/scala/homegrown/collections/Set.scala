@@ -1,8 +1,7 @@
 package homegrown.collections
 
-import java.awt.Color
-
 sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
+  import Set.Color._
   import Set._
 
   final override protected def factory: Factory[Set] =
@@ -16,8 +15,8 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       case _: Empty.type =>
         false
 
-      case NonEmpty(left, element, right) =>
-        if(input == element)
+      case NonEmpty(color, left, element, right) =>
+        if (input == element)
           true
         else if (input.hashCode <= element.hashCode)
           left.contains(input)
@@ -30,7 +29,7 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       case Empty() =>
         seed
 
-      case NonEmpty(left, element, right) =>
+      case NonEmpty(color, left, element, right) =>
         val currentResult = function(seed, element)
 
         val rightResult = right.fold(currentResult)(function)
@@ -40,15 +39,15 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   final override def add[Super >: Element](input: Super): Set[Super] =
     this match {
       case Empty =>
-        NonEmpty(empty, input,  empty)
+        NonEmpty(Black, empty, input, empty)
 
-      case NonEmpty(left, element, right) =>
-        if(input == element)
+      case NonEmpty(color, left, element, right) =>
+        if (input == element)
           this
         else if (input.hashCode <= element.hashCode)
-          NonEmpty(left.add(input), element, right)
+          NonEmpty(color, left.add(input), element, right)
         else
-          NonEmpty(left, element, right.add(input))
+          NonEmpty(color, left, element, right.add(input))
     }
 
   final override def remove[Super >: Element](input: Super): Set[Super] =
@@ -56,13 +55,13 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       case _: Empty.type =>
         empty
 
-      case NonEmpty(left, element, right) =>
+      case NonEmpty(color, left, element, right) =>
         if (input == element)
           left.union(right)
         else if (input.hashCode <= element.hashCode)
-          NonEmpty(left.remove(input), element, right)
+          NonEmpty(color, left.remove(input), element, right)
         else
-          NonEmpty(left, element, right.remove(input))
+          NonEmpty(color, left, element, right.remove(input))
     }
 
   final def union[Super >: Element](that: Set[Super]): Set[Super] =
@@ -87,9 +86,9 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
 
   final override def equals(other: Any): Boolean =
     other match {
-    case that: Set[Element] => this.isSubsetOf(that) && that.isSubsetOf(this)
-    case _                  => false
-  }
+      case that: Set[Element] => this.isSubsetOf(that) && that.isSubsetOf(this)
+      case _                  => false
+    }
 
   final override def hashCode: Int =
     fold(41)(_ + _.hashCode)
@@ -125,8 +124,8 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
       set match {
         case Empty() =>
           ""
-        case NonEmpty(left, element, right) =>
-            prefix + leftOrRight(isLeft, isFirst) + element + "\n" +
+        case NonEmpty(color, left, element, right) =>
+          prefix + leftOrRight(isLeft, isFirst) + color.paint(element) + "\n" +
             loop(prefix + leftOrRightParent(isLeft, isFirst), isLeft  = false, isFirst = false, right) +
             loop(prefix + leftOrRightParent(isLeft, isFirst), isLeft  = true, isFirst = false, left)
       }
@@ -140,11 +139,11 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
     )
   }
 
-  def color: Color
+  protected def color: Color
 }
 
 object Set extends Factory[Set] {
-  private final case class NonEmpty[+Element](left: Set[Element], element: Element, right: Set[Element]) extends Set[Element]{
+  private final case class NonEmpty[+Element](color: Color, left: Set[Element], element: Element, right: Set[Element]) extends Set[Element] {
     final def isSingleton: Boolean =
       left.isEmpty && right.isEmpty
 
@@ -155,12 +154,13 @@ object Set extends Factory[Set] {
       "{ " + element + otherElementsSplitByCommaSpace(left) + otherElementsSplitByCommaSpace(right) + " }"
 
     private[this] def otherElementsSplitByCommaSpace(input: Set[Element]) =
-      input.fold(""){(acc, current) =>
-          s"$acc, $current" }
+      input.fold("") { (acc, current) =>
+        s"$acc, $current"
+      }
   }
 
   private object Empty extends Set[Nothing] {
-   def unapply[Element](set: Set[Element]): Boolean =
+    def unapply[Element](set: Set[Element]): Boolean =
       set.isInstanceOf[Empty.type]
 
     final override def isSingleton: Boolean =
@@ -170,10 +170,29 @@ object Set extends Factory[Set] {
       None
 
     final override def toString: String =
-        "{}"
+      "{}"
+
+    final override protected def color: Color =
+      Color.Black
   }
 
   final override def empty: Set[Nothing] = Empty
+
+  private[Set] sealed abstract class Color {
+    def paint(element: Any): String
+  }
+
+  private[Set] object Color {
+    case object Red extends Color {
+      final override def paint(element: Any): String =
+        Console.RED + element + Console.RESET
+    }
+
+    case object Black extends Color {
+      final override def paint(element: Any): String =
+        Console.BLUE + element + Console.RESET
+    }
+  }
 
   implicit def SetCanBeUsedAsFunction1[Element](set: Set[Element]): Element => Boolean =
     set.apply
