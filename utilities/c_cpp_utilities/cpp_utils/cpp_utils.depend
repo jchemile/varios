@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1572239947 source:c:\users\user\documents\varios\utilities\c_cpp_utilities\cpp_utils\main.cpp
+	<iostream>
+	"otros/odd_and_even.h"
+
+1572214374 c:\users\user\documents\varios\utilities\c_cpp_utilities\cpp_utils\insertarenpila.h
+
+1572215766 c:\users\user\documents\varios\utilities\c_cpp_utilities\cpp_utils\binarysearch_iterative.h
+	<bits/stdc++.h>
+
+1572238755 c:\users\user\documents\varios\utilities\c_cpp_utilities\cpp_utils\binarysearch_recursive.h
+	<bits/stdc++.h>
+
+1572239416 c:\users\user\documents\varios\utilities\c_cpp_utilities\cpp_utils\otros\modulus_division.h
+	<stdio.h>
+
+1572239971 c:\users\user\documents\varios\utilities\c_cpp_utilities\cpp_utils\otros\odd_and_even.h
+

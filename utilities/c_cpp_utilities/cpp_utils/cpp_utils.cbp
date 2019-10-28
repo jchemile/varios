@@ -32,10 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="fibonacci_punteros.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="algorithms/FindDuplicates.h" />
+		<Unit filename="algorithms/FindDuplicates_SlidingWindow.h" />
+		<Unit filename="algorithms/hashingBinaryToDoubleLinkedList.h" />
+		<Unit filename="algorithms/minimumCostToReachMemorization.h" />
+		<Unit filename="algorithms/minimumCostToReachTabulation.h" />
+		<Unit filename="algorithms/threadeBinaryTree.h" />
+		<Unit filename="algorithms/traverseBinaryToDoubleLinkedList.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="otros/modulus_division.h" />
+		<Unit filename="stackoverflow/InsertarEnPila.h" />
+		<Unit filename="stackoverflow/binarySearch_Iterative.h" />
+		<Unit filename="stackoverflow/binarySearch_recursive.h" />
+		<Unit filename="stackoverflow/fibonacci_punteros.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
