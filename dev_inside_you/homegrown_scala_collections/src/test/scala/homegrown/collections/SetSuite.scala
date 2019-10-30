@@ -31,6 +31,20 @@ class SetSuite extends FunSuite with Matchers {
     set(second) shouldBe true
   }
 
+  test("adding the same element twice should simply ignore the input") {
+    val first  = randomString
+    val second = randomString
+
+    first should not be second
+
+    Set(first, second, second) shouldBe Set(first, second)
+    Set(first, second, second).size shouldBe 2
+
+    Set(first, second, first) shouldBe Set(first, second)
+    Set(first, second, first).size shouldBe 2
+
+  }
+
   test("remove on an empty Set should yield an empty Set") {
     val element = randomString
     val stillEmpty = Set.empty.remove(element)
