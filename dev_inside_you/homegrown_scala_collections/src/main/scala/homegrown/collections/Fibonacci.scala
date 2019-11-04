@@ -1,6 +1,6 @@
 package homegrown.collections
 
-object Fibonacci extends App{
+object Fibonacci extends App {
   println("\u2500" * 50)
 
   def fibonacciOriginal(n: Long): Long =
@@ -34,15 +34,15 @@ object Fibonacci extends App{
     def loop(stack: Stack[Long], acc1: Long, acc2: Long): Long = {
       val x: Long = stack.peak.get
 
-      if(x == 0)
+      if (x == 0)
         acc1
       else if (x == 1)
         acc2
       else
         loop(
           stack = stack.push(x - 1),
-          acc1 = acc2,
-          acc2 = acc1 + acc2
+          acc1  = acc2,
+          acc2  = acc1 + acc2
         )
     }
 
