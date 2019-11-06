@@ -1,4 +1,4 @@
-package practise
+package functions
 
 object by_name_vs_by_value {
 

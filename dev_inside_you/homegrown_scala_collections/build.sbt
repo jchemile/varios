@@ -14,7 +14,8 @@ scalacOptions ++=
   Seq(
     "-feature",
     "-language:implicitConversions",
-    "-language:higherKinds"
+    "-language:higherKinds",
+    "-P:continuations:enable"
   )
 
 resolvers += "Artima Maven Repository" at "https://repo.artima.com/releases"
@@ -22,4 +23,9 @@ resolvers += "Artima Maven Repository" at "https://repo.artima.com/releases"
 libraryDependencies ++=
   Seq(
     "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+    "org.scala-lang.plugins" %% "scala-continuations-library" % "1.0.3"
   )
+
+autoCompilerPlugins := true
+
+addCompilerPlugin("org.scala-lang.plugins" % "scala-continuations-plugin_2.12.2" % "1.0.3")

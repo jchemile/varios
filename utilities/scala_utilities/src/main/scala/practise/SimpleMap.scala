@@ -1,4 +1,4 @@
-package practise.map
+package practise
 
 import scala.util.Random
 

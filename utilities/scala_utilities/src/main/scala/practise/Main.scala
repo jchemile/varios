@@ -1,6 +1,4 @@
-package practise.map
-
-import scala.util.Random
+package practise
 
 object Main {
 

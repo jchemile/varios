@@ -1,4 +1,4 @@
-package practise
+package functions
 
 object HigherOrderFunction {
 

@@ -1,4 +1,4 @@
-package practise.collections
+package practise
 
 object scala_collections {
 

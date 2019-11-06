@@ -21,8 +21,6 @@ object permutations {
     }
 
     "ABC".map(bca)
-
-
   }
 
 }

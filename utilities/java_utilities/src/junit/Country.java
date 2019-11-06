@@ -1,4 +1,4 @@
-package junit.country;
+package junit;
 
 public class Country {
 

@@ -1,6 +1,6 @@
 package homegrown.collections
 
-object Fibonacci extends App {
+object Fibonacci /*extends App*/{
   println("\u2500" * 50)
 
   def fibonacciOriginal(n: Long): Long =
