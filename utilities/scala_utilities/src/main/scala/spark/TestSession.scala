@@ -1,6 +1,6 @@
 package spark
 
-object testSpark extends App with SparkWrapper{
+object TestSession extends App with SparkWrapper{
   import sparkSession.implicits._
 
   val df = Seq((0, "2016-07-02 12:01:40"),

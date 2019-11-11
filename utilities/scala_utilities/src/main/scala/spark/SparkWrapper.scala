@@ -11,5 +11,4 @@ trait SparkWrapper {
               .master("local[2]")
               .getOrCreate()
 
-
 }

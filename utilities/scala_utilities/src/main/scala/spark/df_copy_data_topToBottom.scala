@@ -1,4 +1,4 @@
-
+/*
 println("Start")
 
 import org.apache.spark.sql.expressions.Window
@@ -38,4 +38,4 @@ val result = cols.foldLeft(df)((updated, columnName) =>
 
 result.show(false)
 
-
+*/

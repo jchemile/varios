@@ -1,4 +1,4 @@
-
+/*
 println("Start")
 
 import org.apache.spark.sql.functions._
@@ -19,3 +19,4 @@ val emailRegexExpression = regexp_replace($"mycol", email, "PHTEXTEMAIL")
 df.withColumn("mycol", emailRegexExpression).withColumn("mycol", urlRegexExpression).show(false)
 
 
+*/

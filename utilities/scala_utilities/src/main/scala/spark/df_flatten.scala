@@ -1,4 +1,4 @@
-
+/*
 println("start")
 
 import org.apache.spark.sql.functions.explode
@@ -20,4 +20,4 @@ val finalDF = result.withColumn("subjectIDs", explode(col("subjectIDs")))
 
 finalDF.show
 
-
+*/

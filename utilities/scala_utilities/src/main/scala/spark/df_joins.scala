@@ -1,4 +1,4 @@
-
+/*
 println("Start")
 
 import org.apache.spark.sql.expressions.Window
@@ -51,4 +51,4 @@ join(
    $"rank" === 1 && abs($"try_ts" - unix_timestamp($"contract_day", "yyyy-MM-dd")) <= 2 * 24 * 3600,
         "left_outer").show
 
-
+*/

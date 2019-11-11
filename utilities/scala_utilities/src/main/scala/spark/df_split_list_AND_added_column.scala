@@ -1,4 +1,4 @@
-
+/*
 println("Start")
 
 val line = "Mon-18-June-2018,1:10:5,2:20:10,3:30:15,4:40:20,5:50:25"
@@ -27,4 +27,4 @@ val newCols = columnMap.keys.map(k => lit(columnMap(k)) as k)
 
 data.select(data.columns.map(col) ++newCols: _*).show
 
-
+*/

@@ -1,4 +1,4 @@
-
+/*
 println("start")
 
 import org.apache.spark.sql.expressions.Window
@@ -80,4 +80,4 @@ val order_df = grouped_id.withColumn("order", row_number().over(window))
 
 order_df.orderBy("id", "title").show
 
-
+*/
