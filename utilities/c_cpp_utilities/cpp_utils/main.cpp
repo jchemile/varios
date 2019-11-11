@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     cout << "oddNumbersForLoop" << endl;
-    oddNumbersForLoop() << endl;
+    oddNumbersForLoop();
     cout << "oddNumbersWhileLoop" << endl;
     oddNumbersWhileLoop();
     cout << "evenNumbersForLoop" << endl;
