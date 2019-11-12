@@ -18,7 +18,5 @@ object Tokenized extends App with SparkWrapper{
     .select(concat($"id", lit(":"), $"pos") as "docID", $"col" as "sentences")
 
   result.show
-
-
 }
 

@@ -1,4 +1,11 @@
-/*
+import spark.SparkWrapper
+import spark.Tokenized.sparkSession
+
+object FilterAllRow extends App with SparkWrapper{
+  import sparkSession.implicits._
+  import org.apache.spark.sql.functions._
+
+  /*
 println("start")
 
 import org.apache.spark.sql.expressions.Window
@@ -81,3 +88,6 @@ val order_df = grouped_id.withColumn("order", row_number().over(window))
 order_df.orderBy("id", "title").show
 
 */
+
+}
+
