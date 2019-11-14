@@ -1,3 +1,5 @@
+package stackoverflow;
+
 import java.util.Objects;
 
 public class Student

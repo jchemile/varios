@@ -6,7 +6,6 @@ object NestAndUnnest extends App with SparkWrapper{
   import org.apache.spark.sql.functions._
 
 
-  /*
   println("Start")
 
   val df = Seq(
@@ -26,6 +25,5 @@ object NestAndUnnest extends App with SparkWrapper{
 
   resultDF.printSchema()
 
-  */
 
 }
