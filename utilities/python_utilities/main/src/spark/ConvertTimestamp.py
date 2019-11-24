@@ -11,7 +11,7 @@ print(parsedate_to_datetime(datestr))
 
 df = spark.createDataFrame(["Thu Sep 12 2019 15:58:30 GMT-0500 (hora estándar de Colombia)"], "string",).toDF("Date")
 
-df2 = df.withColumn("timestamp", parsedate_to_datetime(col("Date")))
+parsedate_to_datetime_udf = udf(parsedate_to_datetime, TimestampType())
+df2 = df.withColumn("timestamp", parsedate_to_datetime_udf(col("Date")))
 
-print(df2)
 df2.show(20, False)
