@@ -1,0 +1,1 @@
+val evenSquare = for(i <- 2 to 20 by 2) yield i * i
