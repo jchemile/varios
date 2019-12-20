@@ -10,7 +10,6 @@ def merge_sort(lista):
 		return merge(right,left)
 
 def merge(lista1, lista2):
-
 	i, j = 0, 0
 	result = []
 

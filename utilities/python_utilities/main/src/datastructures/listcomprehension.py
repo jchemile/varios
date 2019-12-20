@@ -1,3 +1,5 @@
+# Declarative Form: [expression for item in list if conditional]
+
 #Normal Loop
 squares = []
 for i in range(10):
