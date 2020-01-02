@@ -2,35 +2,30 @@ package practise.findFile
 
 import java.io.File
 
+import scala.collection.immutable.Map
+
 object FindFiles extends App {
-  println(System.getProperty("user.dir"))
-  val path = "C:\\Users\\Joaquin Chemile\\Documents\\varios\\utilities\\scala_utilities\\src\\main\\scala\\practise\\findFile\\Data"
-  val path2 = "C:\\Users\\Joaquin Chemile\\Documents\\varios\\utilities\\scala_utilities\\src\\main\\scala\\practise\\findFile\\Data\\2018"
 
-  def getListOfFiles(dir: String):List[File] = {
-    val d = new File(dir)
-    if (d.exists && d.isDirectory) {
-      d.listFiles.filterNot(_.isFile).toList
-    } else {
-      List[File]()
-    }
+  val sites = Seq("mla","mlb","mlu")
+
+  def existFiles(site:String, date: String): Unit ={
+    //Parsing Date string
+    val year  = date.substring(0,4)
+    val month = date.substring(4,6)
+    val day   = date.substring(6,8)
+
+    //Working with the path
+    val path  =  System.getProperty("user.dir") + "\\src\\main\\scala\\practise\\findFile\\"+ "market" + site +"\\data\\Deltas"
+    val finalPath = path +"\\"+year+"\\"+month+"\\"+day+"\\"+"DatosItems"
+
+    //Working with the file
+    val dir = new File(finalPath)
+    val listFiles = dir.listFiles()
+
+    //Test if the file "_SUCCESS" is in the filname
+    listFiles.foreach(file => if(file.getName.equals("_SUCCESS")) println("Site: " + site + " - " + "Date:" + date))
   }
 
-  def getListOfSubDirectories(directoryName: String) = {
-    new File(directoryName)
-      .listFiles
-      .filter(_.isDirectory)
-      .map(_.getName)
-  }
+  sites.map(x => existFiles(x, "20190208"))
 
-  def testPaths(directoryName: String) : List[File] = {
-    val d = new File(directoryName)
-      //Si no es archivo seguir
-        d.listFiles.toList
-      //si es archivo guardar path en la lista.
-    }
-   val testFuncion = testPaths(path)
-   getListOfFiles(path2).foreach(println)
-   //getListOfSubDirectories(path).foreach(println)
-   //testFuncion.foreach(println)
 }
