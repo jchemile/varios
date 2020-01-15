@@ -1,8 +1,13 @@
 #include <iostream>
-#include "algorithms/directGraphFromUndirectedGraph.h"
 
+using namespace std;
 
 int main()
 {
-    directGraphFromUndirectedGraph(); 
+    int valor;
+    cout << "Ingrese valor";
+    cin >> valor;
+    cout << "Ingrese valorssdadasd";
+    cin >> valor;
+
 }
