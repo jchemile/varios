@@ -12,9 +12,7 @@ object TestSession extends App with SparkWrapper{
     (1, "2016-07-02 13:57:07"),
     (1, "2016-07-02 14:08:07")).toDF("signal", "timestamp")
 
-  //df.show()
+  df.show()
 
-  df.foreach(
-  )
 
 }
