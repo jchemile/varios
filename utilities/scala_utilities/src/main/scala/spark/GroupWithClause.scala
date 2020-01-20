@@ -1,12 +1,10 @@
 import spark.SparkWrapper
-import spark.Tokenized.sparkSession
+
 
 object GroupWithClause extends App with SparkWrapper{
   import sparkSession.implicits._
   import org.apache.spark.sql.functions._
 
-
-  /*
   println("start")
 
   import org.apache.spark.sql.Row
@@ -25,9 +23,7 @@ object GroupWithClause extends App with SparkWrapper{
 
   val data = a.rdd.zip(lst.rdd).map { case (l, r) => Row.fromSeq(l.toSeq ++ r.toSeq) }
   val schema = StructType(a.schema.fields ++ lst.schema.fields)
-  val solution = spark.createDataFrame(data, schema)
 
-  solution.show
 
   var df = Seq(
     ("TAG1", "2019-06-21 01:16:00.0",621.0947),
@@ -50,7 +46,7 @@ object GroupWithClause extends App with SparkWrapper{
 
   dif_aggregation.show
 
-  */
+
 
 }
 
