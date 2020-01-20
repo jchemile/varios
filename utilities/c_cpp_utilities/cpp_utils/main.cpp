@@ -9,5 +9,6 @@ int main()
     cin >> valor;
     cout << "Ingrese valorssdadasd";
     cin >> valor;
+    cout << "No ingrese nada";
 
 }
