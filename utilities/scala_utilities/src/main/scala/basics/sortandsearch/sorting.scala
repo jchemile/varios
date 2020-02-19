@@ -14,4 +14,16 @@ object sorting {
     }
   }
 
+  def minSort(a: Array[Double]):Unit = {
+    for(i <- 0 until a.length -1){
+      var min = i
+      for(j <- i +1 until a.length){
+        if(a(j) < a(min)) min = j
+      }
+      val tmp = a(i)
+      a(i) = a(min)
+      a(min) = tmp
+    }
+  }
+
 }
