@@ -26,4 +26,16 @@ object sorting {
     }
   }
 
+  def insertionSort(a: Array[Double]): Unit = {
+    for(i <- 1 until a.length) {
+      var j = i - 1
+      var tmp = a(i)
+      while(j >= 0 && tmp < a(j)){
+        a(j+1) = a(j)
+        j -= 1
+      }
+      a(j+1) = tmp
+    }
+  }
+
 }

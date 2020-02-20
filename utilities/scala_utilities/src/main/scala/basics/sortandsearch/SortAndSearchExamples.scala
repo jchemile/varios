@@ -8,7 +8,8 @@ object SortAndSearchExamples extends App{
   arr.foreach(println)
   println("")
   //bubbleSort(arr)
-  minSort(arr)
+  // minSort(arr)
+  insertionSort(arr)
   println("")
   arr.foreach(println)
 
