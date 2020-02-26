@@ -1,6 +1,7 @@
 package graficos;
 
 import javax.swing.*;
+import javax.swing.text.StyledEditorKit;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,15 +50,48 @@ class LaminaProcesador_II extends JPanel{
 
 		//------------------------------------------------
 
-		cofigura_menu("Negrita", "estilo", "",Font.BOLD,1);
-		cofigura_menu("Cursiva", "estilo", "",Font.ITALIC,1);
+		//cofigura_menu("Negrita", "estilo", "",Font.BOLD,1);
+		//cofigura_menu("Cursiva", "estilo", "",Font.ITALIC,1);
+
+		JCheckBoxMenuItem negrita =new JCheckBoxMenuItem("Negrita");
+		JCheckBoxMenuItem cursiva =new JCheckBoxMenuItem("Cursiva");
+
+		negrita.addActionListener( new StyledEditorKit.BoldAction());
+		cursiva.addActionListener( new StyledEditorKit.ItalicAction());
+
+		estilo.add(negrita);
+		estilo.add(cursiva);
 
 		//-------------------------------------------------
 
+		/*
 		cofigura_menu("12", "tamaño", "",9,12);
 		cofigura_menu("16", "tamaño", "",9,16);
 		cofigura_menu("20", "tamaño", "",9,20);
 		cofigura_menu("24", "tamaño", "",9,24);
+		*/
+
+		ButtonGroup tamagno_letra = new ButtonGroup();
+
+		JRadioButtonMenuItem doce         = new JRadioButtonMenuItem("12");
+		JRadioButtonMenuItem dieciseis    = new JRadioButtonMenuItem("16");
+		JRadioButtonMenuItem veinte       = new JRadioButtonMenuItem("20");
+		JRadioButtonMenuItem veinticuatro = new JRadioButtonMenuItem("24");
+
+		tamagno_letra.add(doce);
+		tamagno_letra.add(dieciseis);
+		tamagno_letra.add(veinte);
+		tamagno_letra.add(veinticuatro);
+
+		doce.addActionListener(new StyledEditorKit.FontSizeAction("cambiar_tamaño", 12));
+		dieciseis.addActionListener(new StyledEditorKit.FontSizeAction("cambiar_tamaño", 16));
+		veinte.addActionListener(new StyledEditorKit.FontSizeAction("cambiar_tamaño", 20));
+		veinticuatro.addActionListener(new StyledEditorKit.FontSizeAction("cambiar_tamaño", 24));
+
+		tamagno.add(doce);
+		tamagno.add(dieciseis);
+		tamagno.add(veinte);
+		tamagno.add(veinticuatro);
 
 		mibarra.add(fuente);
 		mibarra.add(estilo);
@@ -74,35 +108,35 @@ class LaminaProcesador_II extends JPanel{
 	public void cofigura_menu(String rotulo,String menu, String tipo_letra, int estilos, int tam){
 
 		JMenuItem elem_menu = new JMenuItem(rotulo);
+
 		if(menu == "fuente"){
+
 			fuente.add(elem_menu);
-		} else if(menu == "estilo"){
+
+			if (tipo_letra == "Arial") {
+				elem_menu.addActionListener(new StyledEditorKit.FontFamilyAction("cambiar_letra", "Arial"));
+			} else if(tipo_letra== "Courier"){
+				elem_menu.addActionListener(new StyledEditorKit.FontFamilyAction("cambiar_letra", "Courier"));
+			} else if(tipo_letra== "Verdana"){
+				elem_menu.addActionListener(new StyledEditorKit.FontFamilyAction("cambiar_letra", "Verdana"));
+			}
+
+		} /*else if(menu == "estilo"){
+
 			estilo.add(elem_menu);
-		} else if(menu == "tamaño"){
+
+			if(estilos == Font.BOLD){
+				elem_menu.addActionListener(new StyledEditorKit.BoldAction());
+			} else if(estilos == Font.ITALIC){
+				elem_menu.addActionListener(new StyledEditorKit.ItalicAction());
+			}
+
+		}*/ else if(menu == "tamaño"){
 			tamagno.add(elem_menu);
+			elem_menu.addActionListener(new StyledEditorKit.FontSizeAction("cambia_tamaño", tam));
 		}
 
-		elem_menu.addActionListener(new Gestiona_Eventos(rotulo,tipo_letra,estilos,tam));
 	}
-
-	private class Gestiona_Eventos implements ActionListener {
-
-		String tipo_texto, menu;
-		int estilo_letra, tamagno_letra;
-
-		Gestiona_Eventos(String elemento, String texto2, int estilo2, int tam_letra){
-			tipo_texto = texto2;
-			estilo_letra=estilo2;
-			tamagno_letra=tam_letra;
-			menu=elemento;
-		}
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-			miarea.setFont(new Font(tipo_texto, estilo_letra, tamagno_letra));
-
-        }
-    }
 
 
 	JTextPane miarea;

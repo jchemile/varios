@@ -7,10 +7,9 @@ public class MarcoMenu {
 	public static void main(String[] args) {
 		MenuFrame mimarco = new MenuFrame();
 		mimarco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 	}
-
 }
+
 
 class MenuFrame extends JFrame{
 	
@@ -36,9 +35,9 @@ class MenuLamina extends JPanel{
 		JMenuItem guardar = new JMenuItem("Guardar");
 		JMenuItem guardarcomo = new JMenuItem("Guardar Como");
 		
-		JMenuItem cortar = new JMenuItem("Cortar");
-		JMenuItem copiar = new JMenuItem("Copiar");
-		JMenuItem pegar = new JMenuItem("Pegar");
+		JMenuItem cortar = new JMenuItem("Cortar", new ImageIcon("src/graficos/banana.gif"));
+		JMenuItem copiar = new JMenuItem("Copiar", new ImageIcon("src/graficos/banana.gif"));
+		JMenuItem pegar = new JMenuItem("Pegar", new ImageIcon("src/graficos/banana.gif"));
 		JMenuItem generales = new JMenuItem("Generales");
 		
 		JMenuItem opcion1 = new JMenuItem("Opción 1");
