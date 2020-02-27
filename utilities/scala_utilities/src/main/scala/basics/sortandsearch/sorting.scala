@@ -38,4 +38,9 @@ object sorting {
     }
   }
 
+  def isSorted(a: Array[Double]): Boolean = {
+    //a.zip(a.tail).forall(t => t._1 <= t._2)
+    (a, a.tail).zipped.forall(_ <= _)
+  }
+
 }
