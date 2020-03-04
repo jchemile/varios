@@ -1,6 +1,6 @@
 package basics.sortandsearch
 
-object sorting {
+object Sorting {
 
   def bubbleSort(a: Array[Double]):Unit = {
     for(i <- 0 until a.length-1){
@@ -38,9 +38,26 @@ object sorting {
     }
   }
 
+  def shellSort(a: Array[Double]): Unit = {
+    var gap = a.length/2
+    while(gap >= 1){
+      for(i <- gap until a.length){
+        var j = i - gap
+        var tmp = a(i)
+        while(j >= 0 && tmp < a(j)){
+          a(j+gap) = a(j)
+          j -= gap
+        }
+        a(j+gap) = tmp
+      }
+      gap = (gap/2.2).round.toInt
+    }
+  }
+
   def isSorted(a: Array[Double]): Boolean = {
     //a.zip(a.tail).forall(t => t._1 <= t._2)
     (a, a.tail).zipped.forall(_ <= _)
   }
+
 
 }
