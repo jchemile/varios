@@ -23,7 +23,7 @@ class MenuProcesador_II extends JFrame{
 	
 	public MenuProcesador_II() {
 		
-		setBounds(500,300,550,400);
+		setBounds(250,250,550,450);
 		
 		LaminaProcesador_II milamina = new LaminaProcesador_II();
 		
@@ -120,52 +120,41 @@ class LaminaProcesador_II extends JPanel{
 
 		miarea.setComponentPopupMenu(emergente);
 
-		JToolBar barra = new JToolBar();
+		barra = new JToolBar();
 
-		JButton negritaBarra = new JButton(new ImageIcon("src/graficos/imagenes/bold.png"));
-		JButton cursivaBarra = new JButton(new ImageIcon("src/graficos/imagenes/italic.png"));
-		JButton subraBarra = new JButton(new ImageIcon("src/graficos/imagenes/subrayado.png"));
+		configura_barra("src/graficos/imagenes/bold.png").addActionListener(new StyledEditorKit.BoldAction());
+        configura_barra("src/graficos/imagenes/italic.png").addActionListener(new StyledEditorKit.ItalicAction());
+        configura_barra("src/graficos/imagenes/subrayado.png").addActionListener(new StyledEditorKit.UnderlineAction());
 
-        JButton azulBarra = new JButton(new ImageIcon("src/graficos/imagenes/bola_azul.jpg"));
-        JButton amarilloBarra = new JButton(new ImageIcon("src/graficos/imagenes/bola_amarilla.jpg"));
-        JButton rojoBarra = new JButton(new ImageIcon("src/graficos/imagenes/bola_roja.jpg"));
+        barra.addSeparator();
 
-		JButton a_izquierda = new JButton(new ImageIcon("src/graficos/imagenes/izquierda.jpg"));
-		JButton a_centrado = new JButton(new ImageIcon("src/graficos/imagenes/centrado.png"));
-		JButton a_derecha = new JButton(new ImageIcon("src/graficos/imagenes/derecha.png"));
-		JButton a_justificado = new JButton(new ImageIcon("src/graficos/imagenes/justificado.jpg"));
+        configura_barra("src/graficos/imagenes/bola_azul.jpg").addActionListener(new StyledEditorKit.ForegroundAction("Pone Azul", Color.BLUE));
+        configura_barra("src/graficos/imagenes/bola_amarilla.jpg").addActionListener(new StyledEditorKit.ForegroundAction("Pone Amarillo", Color.YELLOW));
+        configura_barra("src/graficos/imagenes/bola_roja.jpg").addActionListener(new StyledEditorKit.ForegroundAction("Pone Rojo", Color.RED));
 
-		negritaBarra.addActionListener(new StyledEditorKit.BoldAction());
-		cursivaBarra.addActionListener(new StyledEditorKit.ItalicAction());
-		subraBarra.addActionListener(new StyledEditorKit.UnderlineAction());
+        barra.addSeparator();
 
-		azulBarra.addActionListener(new StyledEditorKit.ForegroundAction("Pone Azul", Color.BLUE));
-        amarilloBarra.addActionListener(new StyledEditorKit.ForegroundAction("Pone Amarillo", Color.YELLOW));
-        rojoBarra.addActionListener(new StyledEditorKit.ForegroundAction("Pone Rojo", Color.RED));
+        configura_barra("src/graficos/imagenes/izquierda.jpg").addActionListener(new StyledEditorKit.AlignmentAction("Izquierda", 0));
+        configura_barra("src/graficos/imagenes/centrado.png").addActionListener(new StyledEditorKit.AlignmentAction("Centrado", 1));
+        configura_barra("src/graficos/imagenes/derecha.png").addActionListener(new StyledEditorKit.AlignmentAction("Derecha", 2));
+        configura_barra("src/graficos/imagenes/justificado.jpg").addActionListener(new StyledEditorKit.AlignmentAction("Justificado", 3));
 
-        a_izquierda.addActionListener(new StyledEditorKit.AlignmentAction("Izquierda", 0));
-		a_centrado.addActionListener(new StyledEditorKit.AlignmentAction("Centrado", 1));
-		a_derecha.addActionListener(new StyledEditorKit.AlignmentAction("Derecha", 2));
-		a_justificado.addActionListener(new StyledEditorKit.AlignmentAction("Justificado", 3));
-
-		barra.add(negritaBarra);
-		barra.add(cursivaBarra);
-		barra.add(subraBarra);
-
-		barra.add(azulBarra);
-		barra.add(amarilloBarra);
-		barra.add(rojoBarra);
-
-		barra.add(a_izquierda);
-		barra.add(a_centrado);
-		barra.add(a_derecha);
-		barra.add(a_justificado);
 
 		barra.setOrientation(1);
 
 		add(barra, BorderLayout.WEST);
 
 	}
+
+	public JButton configura_barra(String ruta){
+
+	    JButton boton = new JButton(new ImageIcon(ruta));
+
+	    barra.add(boton);
+
+	    return boton;
+
+    }
 
 	public void cofigura_menu(String rotulo,String menu, String tipo_letra, int estilos, int tam){
 
@@ -209,4 +198,8 @@ class LaminaProcesador_II extends JPanel{
 	JTextPane miarea;
 	JMenu fuente, estilo, tamagno;
 	Font letras;
+
+	JButton negritaBarra, cursivaBarra, subraBarra, azulBarra, rojoBarra, amarilloBarra, a_izquierda, a_centrado, a_derecha, a_justificado;
+
+	JToolBar barra;
 }
