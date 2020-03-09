@@ -19,6 +19,18 @@ object SortAndSearchExamples extends App{
 
   //println(indexOf(nums, 1))
   //println(find(nums, i => i % 3 == 0 && i % 2 == 0))
-  println(binarySearch2(Array(8,5,9,1,6,3,2), 9))
+  //println(binarySearch2(Array(8,5,9,1,6,3,2), 9))
+
+/*
+  val students = Array(Student("Doe", "Jane", 99), Student("Smith", "Sam", 83), Student("Long", "Pat", 90))
+  students.foreach(println)
+  println
+  bubbleSortStudent(students, _.lname > _.lname)
+  students.foreach(println)
+*/
+
+  insertionSortList(List.fill(10)(math.random)).foreach(println)
+
+
 
 }
