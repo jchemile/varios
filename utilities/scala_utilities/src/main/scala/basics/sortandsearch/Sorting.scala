@@ -1,5 +1,7 @@
 package basics.sortandsearch
 
+import scala.annotation.tailrec
+
 object Sorting {
 
   def bubbleSort(a: Array[Double]):Unit = {
@@ -96,6 +98,32 @@ object Sorting {
       i += 1
     }
     insertionSort(a)
+  }
+
+  //Merge Sort
+  def merge(l1:List[Double], l2:List[Double], lst:List[Double]): List[Double] = (l1,l2) match {
+    case (Nil, _) => lst.reverse ::: l2
+    case (_, Nil) => lst.reverse ::: l1
+    case (h1::t1, h2::t2) =>
+      if(h1 < h2) h1::merge(t1, t2, h1::lst)
+      else h2::merge(l1, t2, h2::lst)
+  }
+
+  def mergesort(lst:List[Double]): List[Double]= lst match {
+    case Nil => lst
+    case h::Nil => lst
+    case _ =>
+      val (l1,l2) =lst.splitAt(lst.length/2)
+      merge(mergesort(l1), mergesort(l2), Nil)
+  }
+
+  def quicksort(lst:List[Double]): List[Double] = lst match {
+    case Nil => lst
+    case Nil => lst
+    case pivot :: t =>
+      val (less, greater) = t.partition(_ < pivot)
+      quicksort(less) :: (pivot :: quicksort(greater))
+
   }
 
   def isSorted(a: Array[Double]): Boolean = {
