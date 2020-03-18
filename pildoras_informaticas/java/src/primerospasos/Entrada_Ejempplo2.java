@@ -1,3 +1,5 @@
+package primerospasos;
+
 import javax.swing.*;
 import java.lang.Integer;
 
@@ -10,11 +12,11 @@ public class Entrada_Ejempplo2 {
 		
 		String edad = JOptionPane.showInputDialog("Introduce tu EDAD por favor: ");
 		
-		System.out.println("Hola, " + nombre_usuario + ". Tienes " + edad + " años");
+		System.out.println("Hola, " + nombre_usuario + ". Tienes " + edad + " aï¿½os");
 		
 		int edad_usuario = Integer.parseInt(edad);
 	
-		System.out.print("Hola, " + nombre_usuario + ". Tendrás " +   (Integer.parseInt(edad)+1) + " años");
+		System.out.print("Hola, " + nombre_usuario + ". Tendrï¿½s " +   (Integer.parseInt(edad)+1) + " aï¿½os");
 
 	}
 

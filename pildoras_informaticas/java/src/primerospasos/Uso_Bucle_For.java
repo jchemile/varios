@@ -1,3 +1,4 @@
+package primerospasos;
 
 public class Uso_Bucle_For {
 
@@ -6,7 +7,7 @@ public class Uso_Bucle_For {
 		
 		for(int i = 0;i<20;i+=2) {
 			
-			System.out.println(i+" Joaquín");
+			System.out.println(i+" Joaquï¿½n");
 		}
 
 	}

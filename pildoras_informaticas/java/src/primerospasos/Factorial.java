@@ -1,3 +1,5 @@
+package primerospasos;
+
 import javax.swing.*;
 
 public class Factorial {
@@ -13,7 +15,7 @@ public class Factorial {
 			resultado = resultado * i;
 		}
 		
-		System.out.println("Factorial de: " + numero + " Es: " + resultado );
+		System.out.println("primerospasos.Factorial de: " + numero + " Es: " + resultado );
 
 	}
 

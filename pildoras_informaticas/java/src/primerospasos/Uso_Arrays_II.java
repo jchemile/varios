@@ -1,3 +1,5 @@
+package primerospasos;
+
 import javax.swing.*;
 
 public class Uso_Arrays_II {
@@ -5,10 +7,10 @@ public class Uso_Arrays_II {
 	public static void main(String[] args) {
 				
 		/*
-		paises[0]="España";
-		paises[1]="México";
+		paises[0]="Espaï¿½a";
+		paises[1]="Mï¿½xico";
 		paises[2]="Colombia";
-		paises[3]="Perú";
+		paises[3]="Perï¿½";
 		paises[4]="Chile";
 		paises[5]="Argentina";
 		paises[6]="Ecuador";
@@ -17,13 +19,13 @@ public class Uso_Arrays_II {
 		
 		/*
 		for(int i = 0; i< paises.length;i++) {
-			System.out.println("País: " + (i+1) + " " + paises[i]);			
+			System.out.println("Paï¿½s: " + (i+1) + " " + paises[i]);			
 		}
 		*/
 		
 		/*
-		String[] paises = {"España","México", 
-							"Colombia", "Perú", 
+		String[] paises = {"Espaï¿½a","Mï¿½xico", 
+							"Colombia", "Perï¿½", 
 							"Chile", "Argentina", 
 							"Ecuador", "Venezuela"};
 		*/
@@ -31,11 +33,11 @@ public class Uso_Arrays_II {
 		String [] paises = new String[8];
 		
 		for(int i = 0; i<8;i++) {
-			paises[i] = JOptionPane.showInputDialog("Introduce país " + (i+1));
+			paises[i] = JOptionPane.showInputDialog("Introduce paï¿½s " + (i+1));
 		}
 		
 		for(String elemento:paises) {
-			System.out.println("País: " + elemento);
+			System.out.println("Paï¿½s: " + elemento);
 		}
 		*/
 		

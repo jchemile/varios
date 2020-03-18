@@ -1,3 +1,4 @@
+package primerospasos;
 
 public class Declaraciones_Operadores {
 

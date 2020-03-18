@@ -1,3 +1,5 @@
+package primerospasos;
+
 import javax.swing.*;
 
 
@@ -5,7 +7,7 @@ public class Entrada_Numeros {
 
 	public static void main(String[] args) {
 		
-		String num1 = JOptionPane.showInputDialog("Introduce un número: ");
+		String num1 = JOptionPane.showInputDialog("Introduce un nï¿½mero: ");
 		
 		double num2 = Double.parseDouble(num1);
 		

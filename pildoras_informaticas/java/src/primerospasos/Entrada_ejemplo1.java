@@ -1,3 +1,5 @@
+package primerospasos;
+
 import java.util.*;
 
 public class Entrada_ejemplo1 {
@@ -12,7 +14,7 @@ public class Entrada_ejemplo1 {
 		System.out.print("Introduce edad: ");
 		int edad = entrada.nextInt();
 		
-		System.out.print("Hola " + nombre_usuario + ". El año que viene tendrás " + (edad + 1) + " años");	
+		System.out.print("Hola " + nombre_usuario + ". El aï¿½o que viene tendrï¿½s " + (edad + 1) + " aï¿½os");	
 
 	}
 }

@@ -1,3 +1,5 @@
+package primerospasos;
+
 import javax.swing.JOptionPane;
 
 public class Comprueba_Mail {

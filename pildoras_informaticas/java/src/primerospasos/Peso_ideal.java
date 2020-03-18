@@ -1,3 +1,5 @@
+package primerospasos;
+
 import javax.swing.*;
 
 public class Peso_ideal {
@@ -9,7 +11,7 @@ public class Peso_ideal {
 		
 		do{
 			
-			genero = JOptionPane.showInputDialog("Introduce tu género (H/M)");		
+			genero = JOptionPane.showInputDialog("Introduce tu gï¿½nero (H/M)");		
 		} while(genero.equalsIgnoreCase("H")==false && genero.equalsIgnoreCase("M")==false);
 		
 		int altura = Integer.parseInt(JOptionPane.showInputDialog("Introduce altura en cm: ")); 

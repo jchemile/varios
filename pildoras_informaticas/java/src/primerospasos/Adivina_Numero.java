@@ -1,3 +1,5 @@
+package primerospasos;
+
 import java.util.*;
 
 public class Adivina_Numero {
@@ -14,15 +16,15 @@ public class Adivina_Numero {
 		do {
 			intentos++;
 			
-			System.out.print("Introduce un número: ");
+			System.out.print("Introduce un nï¿½mero: ");
 			numero = entrada.nextInt();
 			
 			if(aleatorio < numero) {
-				System.out.println("El número generado es más Bajo");
+				System.out.println("El nï¿½mero generado es mï¿½s Bajo");
 			} 				
 			
 			else if(aleatorio > numero) {
-				System.out.println("El número generado es más alto");
+				System.out.println("El nï¿½mero generado es mï¿½s alto");
 			}
 		} while(numero != aleatorio);
 		System.out.println("Correcto" + ". Intentos: " + intentos);

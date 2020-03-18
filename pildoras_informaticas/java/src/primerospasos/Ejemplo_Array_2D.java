@@ -1,3 +1,4 @@
+package primerospasos;
 
 public class Ejemplo_Array_2D {
 
