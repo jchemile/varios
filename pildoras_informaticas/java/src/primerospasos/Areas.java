@@ -1,3 +1,5 @@
+package primerospasos;
+
 import java.util.*;
 import javax.swing.*;
 
