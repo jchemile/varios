@@ -1,4 +1,4 @@
-package programacion_generica.arraylist;
+package programacion_generica;
 
 public class ArrayList {
 
