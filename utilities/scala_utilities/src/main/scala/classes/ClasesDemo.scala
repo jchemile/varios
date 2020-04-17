@@ -2,6 +2,7 @@ package classes
 
 object ClasesDemo extends App {
 
+  /*
     class BoardGame(name: String, numberOfPlayers: Int, timeOfGameInMinutes: Int){
       val playTimePerPlayer: Double = timeOfGameInMinutes / numberOfPlayers
 
@@ -16,5 +17,5 @@ object ClasesDemo extends App {
     game.canPlay(2)
 
     game.playTimePerPlayer
-
+*/
 }
