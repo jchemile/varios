@@ -117,6 +117,7 @@ object Sorting {
       merge(mergesort(l1), mergesort(l2), Nil)
   }
 
+  /*
   def quicksort(lst:List[Double]): List[Double] = lst match {
     case Nil => lst
     case Nil => lst
@@ -125,7 +126,7 @@ object Sorting {
       quicksort(less) :: (pivot :: quicksort(greater))
 
   }
-
+  */
   def isSorted(a: Array[Double]): Boolean = {
     //a.zip(a.tail).forall(t => t._1 <= t._2)
     (a, a.tail).zipped.forall(_ <= _)
