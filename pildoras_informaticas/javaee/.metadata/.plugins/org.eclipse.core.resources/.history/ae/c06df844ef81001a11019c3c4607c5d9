@@ -1,0 +1,11 @@
+<html>
+<body>
+
+<h1>
+Ejemplo de Expresiones
+</h1>
+
+Convirtiendo a mayusculas <%= new String("String de prueba").toUpperCase() %>
+
+</body>
+</html>

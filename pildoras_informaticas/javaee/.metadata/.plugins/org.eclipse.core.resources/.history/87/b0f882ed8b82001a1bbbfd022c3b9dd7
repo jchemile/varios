@@ -1,0 +1,9 @@
+<html>
+<body>
+
+<h2>Objetos predefinidos JSP</h2>
+
+Peticion datos del navegador: <%= request.getHeader("User-Agent") %>
+
+</body>
+</html>

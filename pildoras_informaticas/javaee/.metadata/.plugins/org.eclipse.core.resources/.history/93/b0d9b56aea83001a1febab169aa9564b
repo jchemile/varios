@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style>
+
+body{
+	background-color: #FFC;
+}
+
+table{
+	background: #FF6;
+	padding: 10px;
+	border: solid 2px #FF0000;
+}
+
+td{
+	pdding: 5px 0;
+}
+
+</style>
+</head>
+</html>

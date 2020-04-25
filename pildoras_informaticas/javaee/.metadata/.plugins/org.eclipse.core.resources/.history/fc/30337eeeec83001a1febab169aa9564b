@@ -1,0 +1,10 @@
+<%@ page import= "java.util.*" %>
+
+<html>
+<body>
+<form name="Formulario_Compra" action="Lista_Compra.jsp">
+
+
+</form>
+</body>
+</html>

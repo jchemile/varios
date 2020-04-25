@@ -1,0 +1,9 @@
+<%@page import="pildorasinformaticas.com.calculosmatematicos.Calculos"%>
+<html>
+<body>
+
+la suma de 5 y 7 es <%= Calculos.metodoSuma(7, 5) %>
+la resta de 5 y 7 es <%= Calculos.metodoResta(7, 5) %>
+la multiplicacion de 5 y 7 es <%= Calculos.metodoMultiplica(7, 5) %>
+</body>
+</html>

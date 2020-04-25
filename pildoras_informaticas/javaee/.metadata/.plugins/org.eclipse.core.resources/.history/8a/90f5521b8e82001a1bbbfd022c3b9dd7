@@ -1,0 +1,12 @@
+<html>
+<body>
+
+<h2>Usuarios Registraddos</h2>
+
+Usuario confirmado: <br><br>
+
+Nombre:<%= request.getParameter("nombre") %>
+
+
+</body>
+</html>
