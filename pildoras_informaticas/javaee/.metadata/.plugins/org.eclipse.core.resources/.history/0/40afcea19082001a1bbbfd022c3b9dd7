@@ -1,8 +1,0 @@
-<html>
-
-<body>
-
-<jsp:include page="Formulario-Registro.html"></jsp:include>
-
-</body>
-</html>
