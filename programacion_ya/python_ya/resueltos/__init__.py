@@ -1,0 +1,2 @@
+def capitulo():
+    return None
