@@ -22,9 +22,11 @@ object Sorting {
       for(j <- i +1 until a.length){
         if(a(j) < a(min)) min = j
       }
-      val tmp = a(i)
-      a(i) = a(min)
-      a(min) = tmp
+      if(min != i){
+        val tmp = a(i)
+        a(i) = a(min)
+        a(min) = tmp
+      }
     }
   }
 
@@ -37,6 +39,18 @@ object Sorting {
         j -= 1
       }
       a(j+1) = tmp
+    }
+  }
+
+  def insertionSortBis(arr: Array[Double]):Unit = {
+    for (i <- 1 until arr.length){
+      val tmp = arr(i)
+      var j = i - 1
+      while(j>1 && arr(j) > tmp){
+        arr(j+1) = arr(j)
+        j -= 1
+      }
+      arr(j+1) = tmp
     }
   }
 

@@ -20,7 +20,7 @@ object PerformanceTest {
     println("Bubble sort    " + timeFunc(bubbleSort, arr))
     println("Min sort       " + timeFunc(minSort, arr))
     println("Insertion Sort " + timeFunc(insertionSort, arr))
-    println("Shell Sor t     " + timeFunc(shellSort, arr))
+    println("Shell Sor t    " + timeFunc(shellSort, arr))
     println("Bucket Sort    " + timeFunc(bubbleSort, arr))
   }
 
