@@ -1,0 +1,5 @@
+archil = open("datos.txt", "w")
+archil.write("Linea 1.\n")
+archil.write("Linea 2.\n")
+archil.write("Linea 3.\n")
+archil.close()

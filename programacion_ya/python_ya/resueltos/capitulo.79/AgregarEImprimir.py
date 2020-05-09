@@ -1,0 +1,8 @@
+archil = open("datos.txt", "a")
+archil.write("nueva linea 1\n")
+archil.write("nueva linea 2\n")
+archil.close()
+archil = open("datos.txt", "r")
+contenido = archil.read()
+print(contenido)
+archil.close()
