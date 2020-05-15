@@ -2,6 +2,12 @@ package basics.sortandsearch
 
 object Searching {
 
+  def sequentialSearch(a:Array[Int], lookingFor:Int): Int = {
+    var i = 0
+    while(i < a.length && a(i) != lookingFor) i += 1
+    if(i < a.length) i else -1
+  }
+
   def indexOf(a: Array[Int], c: Int): Int = {
     var i = 0
     while(i < a.length && a(i) != c) i += 1
