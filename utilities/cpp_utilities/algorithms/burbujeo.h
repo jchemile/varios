@@ -4,8 +4,6 @@
 
 using namespace std;
 
-
-
 void ordenarBurbujeo(int V[TAM])
 {
     int aux;
@@ -32,12 +30,11 @@ void imprimir(int V[TAM])
     }
 }
 
-int main()
+void implementar()
 {
     int prueba[] = {6, 7, 2, 5, 19, 8, 1, 9, 3, 10};
     imprimir(prueba);
     ordenarBurbujeo(prueba);
     cout << "\n";
     imprimir(prueba);
-    return 0;
 }
