@@ -2,7 +2,7 @@ package homegrown.collections
 
 import java.util.concurrent.locks.Condition
 
-object CPS extends App{
+object CPS extends App {
   println("\u2500" * 50)
 
   {
@@ -36,7 +36,7 @@ object CPS extends App{
   println("\u2500" * 25)
 
   {
-    cps(5){ five =>
+    cps(5) { five =>
       val fifteen = five + identity(10)
 
       println(fifteen)
@@ -46,7 +46,7 @@ object CPS extends App{
   println("\u2500" * 25)
 
   {
-    cps(5){ five =>
+    cps(5) { five =>
       val fifteen = five + cps(10)(identity[Int])
 
       println(fifteen)
@@ -77,7 +77,7 @@ object CPS extends App{
   println("\u2500" * 25)
 
   {
-    reset{
+    reset {
       def shiftCps(input: Int): Int @cpsParam[Unit, Unit] =
         shift(cps[Int, Unit](input))
 
@@ -105,15 +105,15 @@ object CPS extends App{
   def when[I, E](condition: Boolean)(ifCase: => I)(elseCase: => E): Any =
     if (condition)
       ifCase
-  else
-    elseCase
+    else
+      elseCase
 
   println("\u2500" * 25)
 
   val x = 5
 
   println {
-    if(x > 3)
+    if (x > 3)
       "good"
     else
       "bad"
@@ -123,9 +123,8 @@ object CPS extends App{
 
   @scala.annotation.tailrec
   def loop[Input](condition: => Boolean)(body: => Unit): Unit = {
-    if(condition) {
+    if (condition) {
       body
-
 
       loop(condition)(body)
     }
@@ -133,16 +132,12 @@ object CPS extends App{
 
   var acc = 0
 
-  loop(acc < 10){
+  loop(acc < 10) {
     acc += 1
   }
 
   println(acc)
 
-
-
-
   println("\u2500" * 50)
-
 
 }

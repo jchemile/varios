@@ -49,7 +49,6 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
     loop(Stack.empty.push(this), seed)
   }
 
-
   final override def add[Super >: Element](input: Super): Set[Super] = {
     def path(set: Set[Element]): Path[Element] = {
       @scala.annotation.tailrec
@@ -100,7 +99,7 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
           path
 
         case nonEmpty @ Set.NonEmpty(left, element, right) =>
-          if(input == element)
+          if (input == element)
             path.push(Center(nonEmpty))
           else if (input.hashCode <= element.hashCode)
             loop(left, path.push(Left(nonEmpty)))

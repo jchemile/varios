@@ -2,7 +2,7 @@ package homegrown.collections
 
 import org.scalatest._
 
-class TreeSuite extends FunSuite with Matchers{
+class TreeSuite extends FunSuite with Matchers {
   test("rendered") {
 
     testRendering(Set.empty)("")

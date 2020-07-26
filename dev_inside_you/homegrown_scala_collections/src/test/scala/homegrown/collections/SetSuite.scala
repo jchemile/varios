@@ -32,7 +32,7 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("adding the same element twice should simply ignore the input") {
-    val first  = randomString
+    val first = randomString
     val second = randomString
 
     first should not be second
@@ -101,9 +101,9 @@ class SetSuite extends FunSuite with Matchers {
     set(element) shouldBe false
   }
 
-  test("remove should remove elements from both of the tree"){
-    Set(1,2,3).remove(3) shouldBe Set(1,2)
-    Set(1,-2,-3).remove(-3) shouldBe Set(1, -2)
+  test("remove should remove elements from both of the tree") {
+    Set(1, 2, 3).remove(3) shouldBe Set(1, 2)
+    Set(1, -2, -3).remove(-3) shouldBe Set(1, -2)
   }
 
   test("union on empty Set should yield an empty Set") {
@@ -662,8 +662,8 @@ class SetSuite extends FunSuite with Matchers {
     actual.count(_ == '}') shouldBe 1
   }
 
-  test("toString should not prouce any comma with leading spaces"){
-    Set(1,0).toString should not include (" ,")
+  test("toString should not prouce any comma with leading spaces") {
+    Set(1, 0).toString should not include (" ,")
   }
 
   private def bothRoles: (Employee, Consultant) =
