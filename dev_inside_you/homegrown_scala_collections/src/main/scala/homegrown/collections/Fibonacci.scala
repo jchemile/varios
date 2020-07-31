@@ -1,6 +1,10 @@
 package homegrown.collections
 
-import homegrown.collections.Stack.NonEmpty
+import Trampoline._
+
+object WhyMe extends App {
+  Set(0,1 to 99999: _*)
+}
 
 object Fibonacci extends App {
   println("\u2500" * 50)
@@ -73,6 +77,30 @@ object Fibonacci extends App {
     loop(n, identity)
   }
 
+  def fibonacciCPSTrampolined(n: Long): Long = {
+    def loop(x: Long, continuation: Long => Trampoline[Long]): Trampoline[Long] =
+      if (x == 0)
+        continuation(x)
+      else if (x == 1)
+        continuation(x)
+      else
+        loop(
+          x            = x - 2,
+          continuation = { acc1 =>
+            tailcall {
+              loop(
+                x            = x - 1,
+                continuation = { acc2 =>
+                  tailcall(continuation(acc1 + acc2))
+                }
+              )
+            }
+          }
+        )
+
+    loop(n, done).result
+  }
+
   def fibonacciTailRecStack(n: Long): Long = {
     @scala.annotation.tailrec
     def loop(stack: Stack[Long], acc1: Long, acc2: Long): Long = {
@@ -133,6 +161,48 @@ object Fibonacci extends App {
     loop(n, Stack.empty.push[Long](1).push(0))
   }
 
+  def factorial(n: Long): Long =
+    if (n== 0)
+      1
+    else
+      n * factorial(n-1)
+
+  def factorialCPS(n: Long): Long = {
+    def loop(x: Long, continuation: Long => Long): Long =
+      if (x == 0)
+        continuation(1)
+      else
+        loop(
+          x = x - 1,
+          continuation = { acc =>
+            continuation(x*acc)
+          }
+        )
+    loop(n,identity)
+  }
+
+  def factorialCPSTrampolined(n: Long): Long = {
+    def loop(x: Long, continuation: Long => Trampoline[Long]): Trampoline[Long] =
+      if (x == 0)
+        continuation(1)
+      else
+        loop(
+          x = x - 1,
+          continuation = { acc =>
+            tailcall(continuation(x*acc))
+          }
+        )
+        loop(n,done).result
+      }
+
+
+  val factis: Seq[Long => Long] =
+    Seq(
+      factorial,
+      factorialCPSTrampolined,
+      factorialCPS
+    )
+
   val fibis: Seq[Long => Long] =
     Seq(
       fibonacciOriginal,
@@ -141,7 +211,8 @@ object Fibonacci extends App {
       fibonacciTailRecStackAcc,
       fibonacciCPSWithHelper,
       fibonacciTailRecStack,
-      fibonacciCPS
+      fibonacciCPS,
+      fibonacciCPSTrampolined
     )
 
   def areAllElementsEqual(results: Seq[Long]): Boolean = results match {
@@ -149,27 +220,24 @@ object Fibonacci extends App {
     case Seq(head, tail @ _*) => tail.forall(_ == head)
   }
 
-  @scala.annotation.tailrec
-  def isEven(n: Int): Boolean = n match {
-    case 0 => true
-    case _ => isOdd(n - 1) || isEven(0)
+  def isEven(n: Int): Trampoline[Boolean] = n match {
+    case 0 => done(true)
+    case _ => tailcall(isOdd(n - 1))
   }
 
-  @scala.annotation.tailrec
-  def isOdd(n: Int): Boolean = n match {
-    case 0 => false
-    case _ => isEven(n - 1) || isOdd(1)
+  def isOdd(n: Int): Trampoline[Boolean] = n match {
+    case 0 => done(false)
+    case _ => tailcall(isEven(n - 1))
   }
 
-  println(0 to 9 map isEven mkString "\t")
-  println(0 to 9 map isOdd mkString "\t")
+  //println(0 to 9 map isEven mkString "\t")
+  //println(0 to 9 map isOdd mkString "\t")
 
   //0 to 10 map (_.toLong) map fibonacciTailRecStack foreach println
 
-  /*
   (0 to 10)
       .map{ n =>
-        n -> fibis.map(f => f(n))
+        n -> factis.map(f => f(n))
       }
       .map {
         case(n, results) =>
@@ -185,7 +253,6 @@ object Fibonacci extends App {
           color + row + Console.RESET
       }
       .foreach(println)
-  */
 
   println("\u2500" * 50)
 
