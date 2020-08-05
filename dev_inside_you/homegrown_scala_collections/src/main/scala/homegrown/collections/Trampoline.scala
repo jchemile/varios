@@ -32,7 +32,7 @@ sealed abstract class Trampoline[+Result] {
       val innerTrampoline = self.trampoline
       val innerContinuation = self.continuation
 
-      FlatMap(innerTrampoline, {r: r=>
+      FlatMap(innerTrampoline, { r: r =>
         innerContinuation(r).flatMap(continuation)
       })
     case trampoline => FlatMap(trampoline, continuation)

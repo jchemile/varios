@@ -30,7 +30,7 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
 
   final /*override*/ def containsLoop[Super >: Element](input: Super): Boolean = {
     @scala.annotation.tailrec
-    def loop(set: Set[Element] /*, acc:Boolean*/): Boolean =
+    def loop(set: Set[Element] /*, acc:Boolean*/ ): Boolean =
       set match {
         case Set.Empty => false
 
@@ -69,7 +69,7 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
     loop(Stack.empty.push(this))
   }
 
-/*
+  /*
   final override def fold[Result](seed:Result)(function: (Result, Element) => Result): Result = {
     def loop(set: Set[Element], acc: Result):Result = set match {
       case Empty() =>
@@ -87,8 +87,8 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   }
 */
 
-  final override def fold[Result](seed:Result)(function: (Result, Element) => Result): Result = {
-    def loop(set: Set[Element], acc:Result): Trampoline[Result] = set match {
+  final override def fold[Result](seed: Result)(function: (Result, Element) => Result): Result = {
+    def loop(set: Set[Element], acc: Result): Trampoline[Result] = set match {
       case Empty() =>
         done(acc)
 
@@ -126,7 +126,7 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
     this match {
       case Empty =>
         NonEmpty(empty, input, empty)
-      case nonEmpty@NonEmpty(left, element, right) =>
+      case nonEmpty @ NonEmpty(left, element, right) =>
         if (input == element)
           this
         else if (input.hashCode() <= element.hashCode)
@@ -136,11 +136,11 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
     }
 
   final override def add[Super >: Element](input: Super): Set[Super] = {
-    def loop(set:Set[Element]):Trampoline[Set[Super]] = set match {
+    def loop(set: Set[Element]): Trampoline[Set[Super]] = set match {
       case Empty =>
         done(NonEmpty(empty, input, empty))
 
-      case nonEmpty@NonEmpty(left, element, right) =>
+      case nonEmpty @ NonEmpty(left, element, right) =>
         if (input == element)
           done(nonEmpty)
         else if (input.hashCode <= element.hashCode)
@@ -150,9 +150,6 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
     }
     loop(this).result
   }
-
-
-
 
   final /*override*/ def addStack[Super >: Element](input: Super): Set[Super] = {
     def path(set: Set[Element]): Path[Element] = {
@@ -217,7 +214,7 @@ sealed abstract class Set[+Element] extends FoldableFactory[Element, Set] {
   }
 */
 
-/*
+  /*
   final override def add[Super >: Element](input: Super): Set[Super] = {
     var set: Set[Element] = this
     var continuation: (Set[Super] => Trampoline[Set[Super]]) = done
