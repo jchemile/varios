@@ -12,7 +12,3 @@ df = spark.createDataFrame([
     (5, 129.2, 5.3, 42, 'M')], ['id', 'weight', 'height', 'age', 'gender'])
 
 df.show()
-print('Count of Rows: {0}'.format(df.count()))
-print('Count of distinct Rows: {0}'.format((df.distinct().count())))
-
-spark.stop()
