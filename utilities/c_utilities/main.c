@@ -1,6 +1,6 @@
 #include<stdio.h>
+#include "MatrizAleatoria.h"
 
-int main()
-{
-printf("Hello world");
+int main(){
+    matrizAleatoria();
 }
