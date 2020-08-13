@@ -1,6 +1,7 @@
 #include<stdio.h>
-#include "MatrizAleatoria.h"
+#include "CargarPaisesSinRepetir.h"
 
 int main(){
-    matrizAleatoria();
+    int a[8][1];
+    CargarPaisesSinRepetir(a);
 }
