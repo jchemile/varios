@@ -1,7 +1,8 @@
-package homegrown.collections
+package user
 
 import homegrown.collections._
 import org.scalatest._
+import user._
 
 class SetSuite extends FunSuite with Matchers {
   test("apply an empty set should yield false") {
@@ -148,14 +149,14 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("intersection on empty Set should yield an empty Set") {
-    Set.empty.intersection(Set.empty) shouldBe Set.empty
-    Set.empty.intersection(_ => false) shouldBe Set.empty
+    Set.nothing.intersection(Set.nothing) shouldBe Set.nothing
+    Set.nothing.intersection(_ => false) shouldBe Set.nothing
 
-    Set.empty.filter(Set.empty) shouldBe Set.empty
-    Set.empty.filter(_ => false) shouldBe Set.empty
+    Set.nothing.filter(Set.nothing) shouldBe Set.nothing
+    Set.nothing.filter(_ => false) shouldBe Set.nothing
 
-    Set.empty.filterNot(Set.empty) shouldBe Set.empty
-    Set.empty.filterNot(_ => false) shouldBe Set.empty
+    Set.nothing.filterNot(Set.nothing) shouldBe Set.nothing
+    Set.nothing.filterNot(_ => false) shouldBe Set.nothing
   }
 
   test("intersection on a non empty Set with an empty Set should yield an empty Set") {
@@ -438,7 +439,7 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("foreach on an empty Set should not apply the function") {
-    noException should be thrownBy Set.empty.foreach(_ => sys.error("should not be thrown"))
+    noException should be thrownBy Set.nothing.foreach(_ => sys.error("should not be thrown"))
   }
 
   test("Set() should not compile") {
@@ -508,11 +509,11 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("foreach should be parameterized in the result of the argument function so that it does not produce warnings") {
-    Set.empty.foreach(_ => 1)
+    Set.nothing.foreach(_ => 1)
   }
 
   test("map on an empty Set should not apply the function") {
-    noException should be thrownBy Set.empty.map(_ => sys.error("should not be thrown"))
+    noException should be thrownBy Set.nothing.map(_ => sys.error("should not be thrown"))
   }
 
   test("map should produce a Set") {
@@ -556,13 +557,13 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("contains on an empty Set should yield false") {
-    Set.empty.contains(randomString) shouldBe false
-    Set.empty.doesNotContains(randomString) shouldBe true
+    Set.nothing.contains(randomString) shouldBe false
+    Set.nothing.doesNotContains(randomString) shouldBe true
   }
 
   test("exists on an empty Set should yield false") {
-    Set.empty.exists(_ => false) shouldBe false
-    Set.empty.doesNotExists(_ => false) shouldBe true
+    Set.nothing.exists(_ => false) shouldBe false
+    Set.nothing.doesNotExists(_ => false) shouldBe true
   }
 
   test("exists on a non empty Set should yield true") {
@@ -595,8 +596,8 @@ class SetSuite extends FunSuite with Matchers {
   }
 
   test("forall on an empty Set should yield false") {
-    Set.empty.forall(_ => false) shouldBe true
-    Set.empty.notForall(_ => false) shouldBe false
+    Set.nothing.forall(_ => false) shouldBe true
+    Set.nothing.notForall(_ => false) shouldBe false
   }
 
   test("forall on a non empty Set should yield true") {
@@ -664,39 +665,5 @@ class SetSuite extends FunSuite with Matchers {
 
   test("toString should not prouce any comma with leading spaces") {
     Set(1, 0).toString should not include (" ,")
-  }
-
-  private def bothRoles: (Employee, Consultant) =
-    randomEmployee -> randomConsultant
-
-  private def randomEmployee: Employee =
-    Employee(
-      id = randomString
-    )
-
-  private def randomConsultant: Consultant =
-    Consultant(
-      id          = randomString,
-      companyName = randomString
-    )
-
-  private def randomString: String =
-    scala.util.Random.alphanumeric.take(5).mkString
-}
-
-sealed trait CompanyRole {
-  def id: String
-  final def roleName: String = getClass.toString
-}
-
-final case class Employee(id: String) extends CompanyRole {
-  final def takeVacation(): Unit = {
-    println("taking a vacation")
-  }
-}
-
-final case class Consultant(id: String, companyName: String) extends CompanyRole {
-  final def submitInvoice(): Unit = {
-    println("here is my invoice")
   }
 }

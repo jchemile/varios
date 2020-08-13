@@ -6,13 +6,8 @@ trait FoldableFactory[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFa
 
   def add[Super >: Element](input: Super): SubtypeOfFoldableFactory[Super]
 
-  def remove[Super >: Element](input: Super): SubtypeOfFoldableFactory[Super]
-
   final def filterNot(predicate: Element => Boolean): SubtypeOfFoldableFactory[Element] =
     filter(!predicate(_))
-
-  final def whithFilter(predicate: Element => Boolean): FoldableFactory.Wrapper[Element, SubtypeOfFoldableFactory] =
-    new FoldableFactory.Wrapper(this, predicate)
 
   def filter(predicate: Element => Boolean): SubtypeOfFoldableFactory[Element] =
     fold[SubtypeOfFoldableFactory[Element]](factory.empty) { (acc, current) =>
@@ -21,6 +16,9 @@ trait FoldableFactory[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFa
       else
         acc
     }
+
+  final def whithFilter(predicate: Element => Boolean): FoldableFactory.Wrapper[Element, SubtypeOfFoldableFactory] =
+    new FoldableFactory.Wrapper(this, predicate)
 
   def map[Result](function: Element => Result): SubtypeOfFoldableFactory[Result] =
     fold[SubtypeOfFoldableFactory[Result]](factory.empty)(_ add function(_))
@@ -32,6 +30,7 @@ trait FoldableFactory[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFa
   }
 
   object FoldableFactory {
+
     final class Wrapper[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFactory[Element, SubtypeOfFoldableFactory]](
         foldableFactory: FoldableFactory[Element, SubtypeOfFoldableFactory],
         predicate: Element => Boolean
@@ -60,5 +59,7 @@ trait FoldableFactory[+Element, SubtypeOfFoldableFactory[+Element] <: FoldableFa
             acc
         }
     }
+
   }
+
 }

@@ -1,7 +1,5 @@
 package homegrown.collections
 
-import homegrown.collections.Trampoline.Thunk
-
 sealed abstract class Trampoline[+Result] {
   import Trampoline._
 

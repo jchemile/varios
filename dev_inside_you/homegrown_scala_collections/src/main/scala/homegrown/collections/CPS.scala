@@ -1,7 +1,5 @@
 package homegrown.collections
 
-import java.util.concurrent.locks.Condition
-
 object CPS extends App {
   println("\u2500" * 50)
 
@@ -64,6 +62,7 @@ object CPS extends App {
   }
 
   import scala.util.continuations._
+
   println("\u2500" * 25)
 
   {

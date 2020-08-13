@@ -1,6 +1,6 @@
 package homegrown.collections
 
-import Trampoline._
+import homegrown.collections.Trampoline._
 
 object WhyMe extends App {
   Set(0, 1 to 99999: _*)

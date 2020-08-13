@@ -1,5 +1,6 @@
-package homegrown.collections
+package user
 
+import homegrown.collections.Foldable
 import org.scalatest._
 
 class FoldableSuite extends FunSuite with Matchers {
