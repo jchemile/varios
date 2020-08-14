@@ -1,8 +1,11 @@
-package spark
+package spark.jsondeserializers
 
-object ReadArrayJson extends App with  SparkWrapper {
-  import sparkSession.implicits._
+import spark.SparkWrapper
+
+object ReadArrayJson extends App with SparkWrapper {
+
   import org.apache.spark.sql.functions._
+  import sparkSession.implicits._
 
   val sampleJsonStr = """{"items":[ {"Name":"test", "Id":"1"}, {"Name":"sample", "Id":"2"}]}"""
 

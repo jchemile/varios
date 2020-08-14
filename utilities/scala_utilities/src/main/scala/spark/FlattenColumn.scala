@@ -1,6 +1,6 @@
 package spark
 
-object Flatten extends App with SparkWrapper{
+object FlattenColumn extends App with SparkWrapper{
   import sparkSession.implicits._
   import org.apache.spark.sql.functions.explode
   import org.apache.spark.sql.functions._
