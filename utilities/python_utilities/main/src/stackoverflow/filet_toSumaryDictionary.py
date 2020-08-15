@@ -43,7 +43,7 @@ dataset = [random_dataset() for _ in range(1000)]
 # In[17]:
 
 
-with open("Movies.txt", "w") as f:
+with open("../../../exampleData/Movies.txt", "w") as f:
     for data in dataset: print(data, file=f)
 
 
@@ -58,7 +58,7 @@ summary = {}
 # In[18]:
 
 
-with open("Movies.txt") as f:
+with open("../../../exampleData/Movies.txt") as f:
     for data in f:
         movie, year, room = data.strip().split("-")
         if year not in summary:

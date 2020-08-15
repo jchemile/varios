@@ -1,37 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Imports
-
-# In[1]:
-
-
 import pandas as pd
 import numpy as np
 
 
-# # Tutorial 02 - Read Files and basic operations
-
-# Read
-
-# In[ ]:
-
-
-df = pd.read_csv("weather_data_02.csv")
+df = pd.read_csv("../../../exampleData/weather_data_02.csv")
 df
 
 
-# List Columns
-
-# In[ ]:
-
-
 df.columns
-
-
-# Numer of columns
-
-# In[ ]:
 
 
 rows, columns = df.shape
@@ -153,7 +128,7 @@ df.loc['Snow']
 # In[ ]:
 
 
-df = pd.read_csv("weather_data03.csv")
+df = pd.read_csv("../../../exampleData/weather_data03.csv")
 df
 
 
@@ -221,7 +196,7 @@ df
 # In[ ]:
 
 
-df = pd.read_csv("stock_data04.csv", na_values = {
+df = pd.read_csv("../../../exampleData/stock_data04.csv", na_values = {
     'eps':["not available", "n.a."],
     'revenue': ["not available", "n.a.", -1],
     'people': ["not available", "n.a."]
@@ -306,7 +281,7 @@ with pd.ExcelWriter('stocks_weather.xlsx') as writer:
 # In[ ]:
 
 
-df = pd.read_csv('weather_data05.csv', parse_dates=["day"])
+df = pd.read_csv('../../../exampleData/weather_data05.csv', parse_dates=["day"])
 
 
 # In[ ]:
@@ -393,7 +368,7 @@ df.reindex(idx)
 # In[ ]:
 
 
-df = pd.read_csv('weather_data06.csv')
+df = pd.read_csv('../../../exampleData/weather_data06.csv')
 
 
 # In[ ]:
@@ -426,7 +401,7 @@ df.replace(['poor', 'average', 'good', 'exceptional'],[1,2,3,4])
 # In[ ]:
 
 
-df = pd.read_csv('weather_by_cities07.csv')
+df = pd.read_csv('../../../exampleData/weather_by_cities07.csv')
 
 
 # # Tutorial 08 - Concat Dataframes
@@ -602,7 +577,7 @@ df3 = pd.merge(df1, df2, on="city", suffixes=('_left', '_right'))
 # In[ ]:
 
 
-df = pd.read_csv('weather10.csv')
+df = pd.read_csv('../../../exampleData/weather10.csv')
 df
 
 
@@ -621,7 +596,7 @@ df.pivot(index = "humidity", columns ="city")
 # In[ ]:
 
 
-df = pd.read_csv("weather10-2.csv")
+df = pd.read_csv("../../../exampleData/weather10-2.csv")
 df
 
 
@@ -634,7 +609,7 @@ df.pivot_table(index="city", columns="date", aggfunc="sum", margins=True)
 # In[ ]:
 
 
-df = pd.read_csv("weather10-3.csv")
+df = pd.read_csv("../../../exampleData/weather10-3.csv")
 df
 
 
@@ -655,7 +630,7 @@ df.pivot_table(index=pd.Grouper(freq = 'M', key ='date'), columns = 'city')
 # In[ ]:
 
 
-df = pd.read_csv('weather11.csv')
+df = pd.read_csv('../../../exampleData/weather11.csv')
 df
 
 
@@ -739,7 +714,7 @@ pd.crosstab([df.Sex],df.Handedness, values = df.Age, aggfunc = np.average)
 # In[ ]:
 
 
-df = pd.read_csv("aapl.csv")
+df = pd.read_csv("../../../exampleData/aapl.csv")
 df.head(5)
 
 
@@ -752,7 +727,7 @@ type(df.Date[0])
 # In[ ]:
 
 
-df = pd.read_csv("aapl.csv", parse_dates=["Date"])
+df = pd.read_csv("../../../exampleData/aapl.csv", parse_dates=["Date"])
 
 
 # In[ ]:
@@ -770,7 +745,7 @@ type(df.Date[0])
 # In[ ]:
 
 
-df = pd.read_csv("aapl.csv", parse_dates=["Date"], index_col = "Date")
+df = pd.read_csv("../../../exampleData/aapl.csv", parse_dates=["Date"], index_col ="Date")
 
 
 # In[ ]:
@@ -803,7 +778,7 @@ df.Close.plot()
 # In[ ]:
 
 
-df = pd.read_csv("aapl_no_dates15.csv")
+df = pd.read_csv("../../../exampleData/aapl_no_dates15.csv")
 df.head()
 
 
@@ -864,7 +839,7 @@ ts.head(10)
 # In[2]:
 
 
-df = pd.read_csv("aapl_no_dates17.csv")
+df = pd.read_csv("../../../exampleData/aapl_no_dates17.csv")
 df.head()
 
 
@@ -1161,7 +1136,7 @@ pst.to_period()
 # In[47]:
 
 
-df = pd.read_csv('wmt18.csv')
+df = pd.read_csv('../../../exampleData/wmt18.csv')
 
 
 # In[48]:
@@ -1220,7 +1195,7 @@ df
 # In[56]:
 
 
-df = pd.read_csv("msft19.csv", header=1, index_col='Date Time', parse_dates=True)
+df = pd.read_csv("../../../exampleData/msft19.csv", header=1, index_col='Date Time', parse_dates=True)
 df
 
 
@@ -1311,7 +1286,7 @@ b +  m
 # In[70]:
 
 
-df = pd.read_csv("fb19.csv", parse_dates = ['Date'], index_col='Date')
+df = pd.read_csv("../../../exampleData/fb19.csv", parse_dates = ['Date'], index_col='Date')
 df
 
 
