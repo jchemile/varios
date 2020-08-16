@@ -5,18 +5,16 @@ import user._
 import org.scalatest._
 
 class TreeSuite extends FunSuite with Matchers {
-  test("toString"){
+  test("toString") {
     Tree.empty.toString shouldBe "Tree.Empty"
     Tree(1).toString shouldBe "Tree.NonEmpty(Tree.Empty,1,Tree.Empty)"
   }
 
-  test("remove on an empty Tree should yield an empty Tree"){
+  test("remove on an empty Tree should yield an empty Tree") {
     Tree.empty[String].remove(randomString) shouldBe Tree.empty[String]
   }
 
-
-
-  test("Remove on a non empty Tree should yield a new Tree without the element"){
+  test("Remove on a non empty Tree should yield a new Tree without the element") {
     val element = randomString
     val treeWithElement = Tree(element)
 
@@ -27,7 +25,7 @@ class TreeSuite extends FunSuite with Matchers {
     treeWithoutElment.contains(element) shouldBe false
   }
 
-  test("remove removes only the element in question"){
+  test("remove removes only the element in question") {
     val first = randomString
     val second = randomString
 
@@ -42,7 +40,7 @@ class TreeSuite extends FunSuite with Matchers {
     treeWithoutElement.contains(second) shouldBe true
   }
 
-  test("Remove removes only the element in question (ordering test)"){
+  test("Remove removes only the element in question (ordering test)") {
     val first = randomString
     val second = randomString
 
@@ -57,19 +55,18 @@ class TreeSuite extends FunSuite with Matchers {
     treeWithoutElement.contains(second) shouldBe false
   }
 
-  test("add/remove combo should ensure that all elements are distinct"){
+  test("add/remove combo should ensure that all elements are distinct") {
     val element = randomString
 
-    val tree = Tree(element, element, element,element).remove(element)
+    val tree = Tree(element, element, element, element).remove(element)
 
     tree.contains(element) shouldBe false
   }
 
-  test("remove should remove elements from both sides of the tree"){
-    Tree(1,2,3).remove(3) shouldBe Tree(1,2)
-    Tree(1,-2,-3).remove(-3) shouldBe Tree(1,-2)
+  test("remove should remove elements from both sides of the tree") {
+    Tree(1, 2, 3).remove(3) shouldBe Tree(1, 2)
+    Tree(1, -2, -3).remove(-3) shouldBe Tree(1, -2)
   }
-
 
   test("rendered") {
     testRendering(Tree.empty)("")

@@ -401,6 +401,7 @@ class SetSuite extends FunSuite with Matchers {
     Set.empty.add(element).add(element).size shouldBe 1
   }
 
+
   test("isEmpty on an empty Set should yield true") {
     Set.empty.isEmpty shouldBe true
     Set.empty.nonEmpty shouldBe false
