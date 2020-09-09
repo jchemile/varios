@@ -1,6 +1,6 @@
 package spark.jsondeserializers
 
-import spark.SparkWrapper
+import spark.testsession.SparkWrapper
 
 object ReadArrayJson extends App with SparkWrapper {
 

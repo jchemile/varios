@@ -1,5 +1,7 @@
 package spark
 
+import spark.testsession.SparkWrapper
+
 object FillNullColumn extends App with SparkWrapper{
   import sparkSession.implicits._
 

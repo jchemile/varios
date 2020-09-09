@@ -1,13 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[16]:
-
-
 from datetime import datetime
-
-
-# In[49]:
 
 
 class Alumno:
@@ -26,27 +17,8 @@ class Alumno:
         return years_old
         
 
-
-# In[50]:
-
-
 juanPerez = Alumno("Juan", "Perez", "08/07/1987", "Direccion falsa 1234", "1548688520", "juanperez@gmail.com")
 
 
-# In[51]:
-
-
 juanPerez_years = juanPerez.get_years()
-
-
-# In[52]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
+print(juanPerez_years)

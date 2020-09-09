@@ -4,6 +4,7 @@ import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions.{col, concat, expr, lit, max}
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.expressions.Window
+import spark.testsession.SparkWrapper
 
 
 object MostRecent extends App with SparkWrapper {

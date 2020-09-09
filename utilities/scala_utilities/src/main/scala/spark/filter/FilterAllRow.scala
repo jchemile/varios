@@ -1,6 +1,6 @@
 package spark.filter
 
-import spark.SparkWrapper
+import spark.testsession.SparkWrapper
 
 object FilterAllRow extends App with SparkWrapper {
 

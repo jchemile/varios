@@ -1,6 +1,6 @@
 package spark
 
-import spark.TestSession.sparkSession
+import spark.testsession.TestSession.sparkSession
 
 
 object PivotingWithClause extends App {

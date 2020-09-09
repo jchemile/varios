@@ -2,6 +2,8 @@ package spark
 
 import java.text.SimpleDateFormat
 
+import spark.testsession.SparkWrapper
+
 object ConvertTimestamp extends App with SparkWrapper{
   import sparkSession.implicits._
   import org.apache.spark.sql.functions._

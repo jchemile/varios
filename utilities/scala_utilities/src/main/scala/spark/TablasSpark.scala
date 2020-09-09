@@ -1,5 +1,7 @@
 package spark
 
+import spark.testsession.SparkWrapper
+
 object TablasSpark extends SparkWrapper{
   import sparkSession.implicits._
 

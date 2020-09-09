@@ -1,5 +1,7 @@
 package spark
 
+import spark.testsession.SparkWrapper
+
 object WordCount extends App with SparkWrapper{
   import org.apache.spark.sql.functions._
   import sparkSession.implicits._

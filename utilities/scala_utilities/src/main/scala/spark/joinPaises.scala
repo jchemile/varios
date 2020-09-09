@@ -1,5 +1,7 @@
 package spark
 
+import spark.testsession.SparkWrapper
+
 object joinPaises extends SparkWrapper {
 
   def main(args: Array[String]): Unit = {

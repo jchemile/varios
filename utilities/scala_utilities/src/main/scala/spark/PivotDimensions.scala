@@ -2,6 +2,7 @@ package spark
 
 import spark.JoinsForCountry.sparkSession
 import org.apache.spark.sql.functions._
+import spark.testsession.SparkWrapper
 
 object PivotDimension extends App with SparkWrapper{
 

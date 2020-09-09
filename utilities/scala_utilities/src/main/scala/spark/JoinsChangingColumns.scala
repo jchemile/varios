@@ -1,6 +1,7 @@
 package spark
 
 import org.apache.spark.sql.DataFrame
+import spark.testsession.SparkWrapper
 
 case object JoinsChangingColumns extends App with SparkWrapper {
   import sparkSession.implicits._

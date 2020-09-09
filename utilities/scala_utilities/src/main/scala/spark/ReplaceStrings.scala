@@ -1,5 +1,5 @@
-import spark.SparkWrapper
 import spark.Tokenized.sparkSession
+import spark.testsession.SparkWrapper
 
 object ReplaceStrings extends App with SparkWrapper{
   import sparkSession.implicits._

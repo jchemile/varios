@@ -1,6 +1,7 @@
 package spark
 
-import spark.TestSession.sparkSession
+import spark.testsession.TestSession.sparkSession
+import spark.testsession.SparkWrapper
 
 object GroupByTwoOptions extends App with SparkWrapper {
   import sparkSession.implicits._

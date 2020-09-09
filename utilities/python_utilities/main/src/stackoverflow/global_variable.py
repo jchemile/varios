@@ -1,13 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 cuenta = 100
-
-
-# In[5]:
 
 
 def calculo():
@@ -19,14 +10,7 @@ def calculo():
         
         print(cuenta)
 
-
-# In[6]:
-
-
 calculo()
-
-
-# In[ ]:
 
 
 

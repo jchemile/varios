@@ -1,5 +1,7 @@
 package spark
 
+import spark.testsession.SparkWrapper
+
 
 object SplitListAndAdded extends App with SparkWrapper{
   import sparkSession.implicits._

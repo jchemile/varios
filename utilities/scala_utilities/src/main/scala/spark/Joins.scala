@@ -1,5 +1,7 @@
 package spark
 
+import spark.testsession.SparkWrapper
+
 object Joins extends App with SparkWrapper{
   import sparkSession.implicits._
   import org.apache.spark.sql.functions.explode

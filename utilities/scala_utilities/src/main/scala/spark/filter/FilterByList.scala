@@ -1,7 +1,7 @@
 package spark.filter
 
 import org.apache.spark.sql.functions.col
-import spark.SparkWrapper
+import spark.testsession.SparkWrapper
 
 object FilterByList extends App with SparkWrapper{
   import sparkSession.implicits._

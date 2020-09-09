@@ -1,5 +1,4 @@
-import spark.SparkWrapper
-
+import spark.testsession.SparkWrapper
 
 object GroupWithClause extends App with SparkWrapper{
   import sparkSession.implicits._

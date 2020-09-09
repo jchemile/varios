@@ -1,6 +1,6 @@
 package spark.jsondeserializers
 
-import spark.SparkWrapper
+import spark.testsession.SparkWrapper
 
 object FlattenJson extends App with SparkWrapper{
 

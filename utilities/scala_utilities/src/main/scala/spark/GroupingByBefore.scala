@@ -1,5 +1,7 @@
 package spark
 
+import spark.testsession.SparkWrapper
+
 object GroupingByBefore extends App with SparkWrapper{
   import org.apache.spark.sql.expressions.Window
   import org.apache.spark.sql.functions
