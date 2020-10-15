@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include "CargarPaisesSinRepetir.h"
+#include "RemoveZero.h"
 
 int main(){
-    int a[8][1];
-    CargarPaisesSinRepetir(a);
+    printf("%d", RemoveZero(1050));
 }
